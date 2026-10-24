@@ -251,17 +251,16 @@ PRE-RECORDED</textarea>
 // First script on the page: if anything below fails, say so on the stage instead of sitting blank.
 window.addEventListener('error', function(e){
   var el=document.getElementById('stageerr'), box=document.getElementById('stagemsg');
-  if(!el||!box) return;
+  if(!el||!box||el.textContent) return;
   box.hidden=false; box.firstElementChild.textContent='The player stopped with an error.';
-  box.children[1].textContent='Copy the line below and send it to Claude.';
+  box.children[1].textContent='Reload the page first. If it happens again, copy the line below and send it to Claude.';
   el.textContent=(e.message||'error')+(e.lineno?' (line '+e.lineno+')':'');
 });
 </script>
 <script>
 __ALG0JS__
-</script>
-<script>
-(function(){
+;
+(function(ALG0){
   'use strict';
   // Layout is locked: zones on the cell grid per format. Bottom zone: set list left, strapline right, seed line under.
   var FORMATS = {
@@ -702,5 +701,5 @@ __ALG0JS__
   syncUI();
   (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){ build(); requestAnimationFrame(tick); });
   build();
-})();
+})(window.ALG0);
 </script>

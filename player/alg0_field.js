@@ -335,5 +335,6 @@
 
   var api = { create: create, deriveLook: deriveLook, lookHex: lookHex, COLOURWAYS: COLOURWAYS, colourway: colourway, readsOnPaper: readsOnPaper, field: field, mulberry32: mulberry32, euclid: euclid, stepAt: stepAt, swung: swung,
     PROGRAMMES: PROGRAMMES, DEFAULTS: DEFAULTS, MODES: MODES };
-  if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.ALG0 = api;
+  root.ALG0 = api;                                   // always: pages read window.ALG0
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;   // node: tests, scripts
 })(typeof window !== 'undefined' ? window : this);
