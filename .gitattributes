@@ -1,0 +1,4 @@
+*.woff2 binary
+*.png binary
+*.pdf binary
+dist/alg0_player.html linguist-generated=true

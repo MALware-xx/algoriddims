@@ -1,0 +1,7 @@
+identity/assets/
+__pycache__/
+*.pyc
+.DS_Store
+# exports
+*.mp4
+/out/
