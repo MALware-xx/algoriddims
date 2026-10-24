@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build dist/alg0_player.html: inline the Plex Mono fonts and the field engine into the player template.
+"""Build dist/alg0_player.html: inline the Plex Mono fonts and the field engine into player/alg0_player.html.in.
 
 usage:  python3 scripts/build_player.py
 """
@@ -12,7 +12,7 @@ def b64(name):
     return base64.b64encode((ROOT / 'fonts' / name).read_bytes()).decode()
 
 
-src = (ROOT / 'player' / 'player.src.html').read_text()
+src = (ROOT / 'player' / 'alg0_player.html.in').read_text()
 out = (src.replace('__FONT_BOLD__', b64('IBMPlexMono-Bold.woff2'))
           .replace('__FONT_REG__', b64('IBMPlexMono-Regular.woff2'))
           .replace('__ALG0JS__', (ROOT / 'player' / 'alg0_field.js').read_text()))

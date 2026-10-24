@@ -21,7 +21,7 @@ as a grid, grown from the event date. The poster, the projector and the print al
 ```
 generator/   alg0_field.py: the field as vector SVG (print). Programme and colourway arguments.
 player/      alg0_field.js: the same field, animated, with colourways and look codes.
-             player.src.html: the player template.
+             alg0_player.html.in: the player template (not openable: build it).
 dist/        Built files: alg0_player.html (fonts and engine inlined) and the identity PDF.
 brand/       Logo files, made from Plex Mono Bold's own outlines.
 identity/    identity.src.html: source of the guidelines PDF.
@@ -43,7 +43,8 @@ python3 scripts/build_identity.py      # -> dist/ALG0RIDDIMS_Identity_v0.5.pdf
 python3 tests/test_parity.py           # needs node
 ```
 
-Edit `player/player.src.html` or `player/alg0_field.js`, never `dist/alg0_player.html`: it is rebuilt.
+Edit `player/alg0_player.html.in` or `player/alg0_field.js`, never `dist/alg0_player.html`: it is rebuilt.
+The template has no fonts or engine in it, so opening it shows the layout only: always open `dist/alg0_player.html`.
 If you change the field logic, change it in both `generator/alg0_field.py` and `player/alg0_field.js`
 and run the parity test. The order of random-number calls in `field()` is the artwork; changing it
 changes every poster.

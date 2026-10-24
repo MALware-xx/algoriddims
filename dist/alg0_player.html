@@ -252,6 +252,11 @@ PRE-RECORDED</textarea>
 window.addEventListener('error', function(e){
   var el=document.getElementById('stageerr'), box=document.getElementById('stagemsg');
   if(!el||!box||el.textContent) return;
+  if(String(e.message).indexOf('ALG0' + 'JS') >= 0){   // opened the template, not the built player
+    box.hidden=false; box.firstElementChild.textContent='This is the player’s template, not the player.';
+    box.children[1].textContent='It has no fonts or engine in it yet. Open dist/alg0_player.html instead (or run scripts/build_player.py to rebuild it).';
+    el.textContent=' '; return;
+  }
   box.hidden=false; box.firstElementChild.textContent='The player stopped with an error.';
   box.children[1].textContent='Reload the page first. If it happens again, copy the line below and send it to Claude.';
   el.textContent=(e.message||'error')+(e.lineno?' (line '+e.lineno+')':'');
