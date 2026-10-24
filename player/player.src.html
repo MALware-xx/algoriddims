@@ -1,0 +1,661 @@
+<title>ALG0RIDDIMS Field Player</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: the stage at its true format on the left; a mixer-style panel on the right, split into
+   what is locked (the event) and what can move (the look). Stacks on phones.
+   Deliberately single-theme: the identity lives on Ink. */
+@font-face{font-family:'Plex Mono';src:url(data:font/woff2;base64,__FONT_BOLD__) format('woff2');font-weight:700;font-style:normal}
+@font-face{font-family:'Plex Mono';src:url(data:font/woff2;base64,__FONT_REG__) format('woff2');font-weight:400;font-style:normal}
+:root{
+  --ink:#121212; --raised:#1E1E1E; --ghost:#262626; --line:#333331; --mute:#9A978F; --paper:#F2F1EC; --kick:#FF0033; --graphite:#5A5852;
+  --mono:'Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--ink);color:var(--paper)}
+body{font-family:var(--mono);font-size:14px;line-height:20px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px}
+.top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;border-bottom:2px solid var(--paper);padding-bottom:10px;margin-bottom:20px}
+.top h1{margin:0;font-weight:700;font-size:32px;line-height:36px;letter-spacing:0}
+.top p{margin:0;color:var(--mute)}
+.wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.stagebox{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.viewport{position:relative;width:100%;background:var(--raised);overflow:hidden}
+.stage{position:absolute;top:0;left:0;transform-origin:0 0}
+.stage canvas{position:absolute;inset:0;display:block}
+.box{position:absolute;background:#121212;color:#F2F1EC;white-space:pre;letter-spacing:0;font-family:var(--mono);overflow:hidden}
+.inv .box{background:#F2F1EC;color:#121212}
+.box .b{font-weight:700}
+.readout{display:flex;flex-wrap:wrap;gap:4px 20px;color:var(--mute);font-variant-numeric:tabular-nums}
+.readout b{color:var(--paper);font-weight:700}
+.panel{flex:1 1 320px;min-width:0;max-width:100%;display:flex;flex-direction:column;background:var(--raised)}
+.sec{border-top:1px solid var(--line);padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.sec:first-child{border-top:0}
+.sec h2,.sec>summary{margin:0;font-size:12px;line-height:16px;letter-spacing:.08em;font-weight:700;text-transform:uppercase;color:var(--paper);display:flex;justify-content:space-between;gap:8px}
+.sec h2 small,.sec>summary small{font-weight:400;color:var(--mute);letter-spacing:.04em;text-align:right}
+.sec>summary span,.sec h2>span{white-space:nowrap}
+.sec>summary{flex-wrap:wrap}
+details.sec>summary{cursor:pointer;list-style:none}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary span::before{content:'+ ';color:var(--mute)}
+details.sec[open]>summary span::before{content:'− '}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.lab{font-size:12px;line-height:16px;letter-spacing:.06em;color:var(--mute);text-transform:uppercase;display:flex;justify-content:space-between;gap:8px}
+.field label output{color:var(--paper);font-variant-numeric:tabular-nums}
+input[type=text],input[type=number],select,textarea{font:inherit;color:var(--paper);background:var(--ink);border:1px solid var(--line);padding:8px 10px;min-height:40px;width:100%}
+textarea{resize:vertical;line-height:20px}
+input[type=range]{width:100%;accent-color:var(--paper);min-height:24px}
+input:focus-visible,select:focus-visible,button:focus-visible,summary:focus-visible,textarea:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
+.row{display:flex;gap:10px}
+.row>*{flex:1;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+.seg{display:flex;flex-wrap:wrap;gap:4px}
+.seg button{flex:1 1 auto;min-width:0;background:var(--ink);color:var(--paper);border:1px solid var(--line);font-weight:400;min-height:40px;padding:0 10px}
+.seg button[aria-pressed=true]{background:var(--paper);color:var(--ink);font-weight:700;border-color:var(--paper)}
+.seg button .k{color:var(--mute);margin-left:4px;font-size:11px}
+.seg button[aria-pressed=true] .k{color:var(--graphite)}
+.toggle{display:flex;align-items:center;gap:10px;min-height:32px;cursor:pointer}
+.toggle input{width:18px;height:18px;accent-color:var(--paper);flex:none}
+button{font:inherit;font-weight:700;color:var(--ink);background:var(--paper);border:0;min-height:44px;padding:0 14px;cursor:pointer;letter-spacing:.04em}
+button.ghost{background:transparent;color:var(--paper);border:1px solid var(--paper)}
+.mutes button{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.mutes i{display:inline-block;width:10px;height:10px;outline:1px solid var(--line)}
+.mutes button[aria-pressed=true]{background:var(--ink);color:var(--mute);font-weight:400;border-color:var(--line);text-decoration:line-through}
+.mutes button[aria-pressed=false]{background:var(--ink);color:var(--paper);font-weight:700;border-color:var(--paper)}
+.lookrow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,.9fr);gap:8px;align-items:end}
+#lookcode{text-align:center;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.lock{color:var(--mute)}
+.hint{font-family:var(--sans);font-size:13px;line-height:19px;color:var(--mute);margin:0}
+.warn{font-family:var(--sans);font-size:13px;line-height:19px;color:var(--paper);border-left:2px solid var(--kick);padding-left:10px;margin:0}
+.err{color:var(--kick);font-size:13px}
+progress{width:100%;height:8px;accent-color:var(--paper)}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap}.btnrow>*{flex:1 1 0;min-width:0}
+pre.cmd{margin:0;white-space:pre-wrap;word-break:break-all;background:var(--ink);border:1px solid var(--line);padding:10px;font-size:12px;line-height:18px;color:var(--paper);max-height:160px;overflow:auto;user-select:all}
+.note{font-family:var(--sans);font-size:13px;line-height:19px;color:var(--mute);max-width:70ch;margin:0}
+.note code,.note kbd{font-family:var(--mono);color:var(--paper)}
+body.render{padding:0}
+body.render .top,body.render .panel,body.render .readout,body.render .note{display:none}
+body.render .viewport{background:none}
+</style>
+
+<header class="top">
+  <h1>ALG0RIDDIMS<span id="hcur">_</span></h1>
+  <p>Field player v4 · the event is locked, the look moves</p>
+</header>
+
+<div class="wrap">
+  <section class="stagebox" aria-label="Preview">
+    <div class="viewport" id="viewport">
+      <div class="stage" id="stage">
+        <canvas id="cv" aria-label="Animated pattern field"></canvas>
+        <div id="overlay"></div>
+      </div>
+    </div>
+    <div class="readout" id="readout" aria-live="off"></div>
+    <p class="note">Keys: <kbd>Space</kbd> play/pause · <kbd>X</kbd> randomise look · <kbd>T</kbd> tap tempo · <kbd>1</kbd>–<kbd>5</kbd> modes · <kbd>K</kbd> <kbd>S</kbd> <kbd>H</kbd> <kbd>F</kbd> mute voices · <kbd>R</kbd> restart.</p>
+    <p class="note">Every frame comes from the seed, the look and the step number, never the clock, so exports are identical every time and loop without a seam. A look code gives the same look on any machine.</p>
+  </section>
+
+  <aside class="panel" aria-label="Controls">
+    <div class="sec">
+      <h2>Transport</h2>
+      <div class="row">
+        <button id="play" type="button">PAUSE</button>
+        <button id="tap" type="button" class="ghost">TAP</button>
+        <button id="restart" type="button" class="ghost">RESTART</button>
+      </div>
+      <div class="row">
+        <div class="field"><label for="bpm">BPM</label><input id="bpm" type="number" min="60" max="200" step="1" value="140"></div>
+        <div class="field"><label for="fmt">Format</label>
+          <select id="fmt"><option value="poster">Poster 4:5</option><option value="square">Square 1:1</option><option value="story">Story 9:16</option><option value="vj">VJ 16:9</option></select></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Look <small id="lookstate">default</small></h2>
+      <div class="lookrow">
+        <button id="rand" type="button">RANDOMISE</button>
+        <div class="field"><label for="lookcode">Look code</label><input id="lookcode" type="text" maxlength="4" placeholder="——" autocomplete="off" spellcheck="false"></div>
+        <button id="reset" type="button" class="ghost">RESET</button>
+      </div>
+      <p class="hint">Randomise changes only the look. Seed, programme, event text, palette and layout stay locked. Type a code to bring back a look.</p>
+      <div class="field">
+        <span class="lab" id="cwlab">Colourway</span>
+        <div class="seg" id="cw" role="group" aria-labelledby="cwlab">
+          <button type="button" data-v="STANDARD" aria-pressed="true">STANDARD</button>
+          <button type="button" data-v="DUO" aria-pressed="false">DUO</button>
+          <button type="button" data-v="ACCENT" aria-pressed="false">ACCENT</button>
+          <button type="button" data-v="MONO" aria-pressed="false">MONO</button>
+          <button type="button" data-v="INVERT" aria-pressed="false">INVERT</button>
+        </div>
+      </div>
+      <p class="warn" id="cwwarn" hidden></p>
+      <div class="field">
+        <span class="lab" id="modelab">Mode</span>
+        <div class="seg" id="mode" role="group" aria-labelledby="modelab">
+          <button type="button" data-v="sweep" aria-pressed="true">SWEEP<span class="k">1</span></button>
+          <button type="button" data-v="poly" aria-pressed="false">POLY<span class="k">2</span></button>
+          <button type="button" data-v="drift" aria-pressed="false">DRIFT<span class="k">3</span></button>
+          <button type="button" data-v="rain" aria-pressed="false">RAIN<span class="k">4</span></button>
+          <button type="button" data-v="auto" aria-pressed="false">AUTO<span class="k">5</span></button>
+        </div>
+      </div>
+      <p class="hint" id="modehint"></p>
+      <div class="grid2">
+        <div class="field"><span class="lab" id="ratelab">Rate</span>
+          <div class="seg" id="rate" role="group" aria-labelledby="ratelab">
+            <button type="button" data-v="0.5" aria-pressed="false">½</button>
+            <button type="button" data-v="1" aria-pressed="true">1</button>
+            <button type="button" data-v="2" aria-pressed="false">2</button>
+          </div></div>
+        <div class="field" id="scenebox"><label for="scene">Auto scenes every</label>
+          <select id="scene"><option value="4">4 bars</option><option value="8" selected>8 bars</option><option value="16">16 bars</option></select></div>
+        <div class="field"><label for="swing">Swing <output id="swing_o"></output></label><input id="swing" type="range" min="0" max="0.6" step="0.01" value="0"></div>
+        <div class="field"><label for="decay">Decay <output id="decay_o"></output></label><input id="decay" type="range" min="1" max="8" step="0.5" value="3"></div>
+        <div class="field"><label for="pulse">Pulse <output id="pulse_o"></output></label><input id="pulse" type="range" min="0" max="1" step="0.01" value="0.32"></div>
+        <div class="field"><label for="ripple">Ripple <output id="ripple_o"></output></label><input id="ripple" type="range" min="0" max="1" step="0.01" value="0"></div>
+        <div class="field"><label for="density">Density <output id="density_o"></output></label><input id="density" type="range" min="0.05" max="1" step="0.01" value="1"></div>
+        <div class="field"><label for="depth">Depth <output id="depth_o"></output></label><input id="depth" type="range" min="0" max="1" step="0.01" value="0"></div>
+        <div class="field"><label for="zoom">Downbeat push <output id="zoom_o"></output></label><input id="zoom" type="range" min="0" max="1" step="0.01" value="0"></div>
+      </div>
+      <div class="field">
+        <span class="lab" id="mutelab">Voices · tap to mute</span>
+        <div class="seg mutes" id="mutes" role="group" aria-labelledby="mutelab">
+          <button type="button" data-v="KICK" aria-pressed="false"><i id="sw_k"></i>KICK</button>
+          <button type="button" data-v="SNARE" aria-pressed="false"><i id="sw_s"></i>SNARE</button>
+          <button type="button" data-v="HAT" aria-pressed="false"><i id="sw_h"></i>HAT</button>
+          <button type="button" data-v="FX" aria-pressed="false"><i id="sw_f"></i>FX</button>
+        </div>
+      </div>
+      <label class="toggle"><input id="shift" type="checkbox"> Row shift every 4 bars</label>
+      <label class="toggle"><input id="flash" type="checkbox"> Downbeat flash, once per bar (never randomised)</label>
+      <label class="toggle"><input id="evo" type="checkbox"> Live edit: rewrite a row every 4 bars (never randomised, never exported)</label>
+    </div>
+
+    <details class="sec" open>
+      <summary><span>Event</span><small class="lock">locked · randomise never touches it</small></summary>
+      <div class="row">
+        <div class="field"><label for="seed">Seed · date DDMMYY</label><input id="seed" type="text" inputmode="numeric" maxlength="6" value="211126" autocomplete="off"></div>
+        <div class="field"><label for="prog">Programme</label>
+          <select id="prog"><option>NIGHT</option><option>WORKSHOP</option><option>TALK</option><option>STREAM</option><option>JAM</option><option>ARCHIVE</option></select></div>
+      </div>
+      <div class="err" id="seederr" role="status"></div>
+      <div class="field"><label for="t_sub">Subtitle</label><input id="t_sub" type="text" value="BRISTOL LIVE-CODE / 001"></div>
+      <div class="row">
+        <div class="field"><label for="t_time">Time</label><input id="t_time" type="text" value="19:00–23:00"></div>
+        <div class="field"><label for="t_entry">Entry</label><input id="t_entry" type="text" value="[TBC]"></div>
+      </div>
+      <div class="field"><label for="t_p1">Place</label><input id="t_p1" type="text" value="HAMILTON HOUSE"></div>
+      <div class="field"><label for="t_p2">Place, line 2</label><input id="t_p2" type="text" value="ABOVE THE CANTEEN"></div>
+      <label class="toggle"><input id="setl" type="checkbox" checked> Set list, bottom left</label>
+      <div class="field" id="setbox">
+        <label for="t_set">One act per line, time first</label>
+        <textarea id="t_set" rows="5" spellcheck="false">19:00 [PERFORMER]
+20:00 [PERFORMER]
+21:00 [PERFORMER]
+22:00 [PERFORMER]</textarea>
+      </div>
+      <label class="toggle"><input id="strapl" type="checkbox" checked> Strapline, bottom right</label>
+      <div class="field" id="strapbox">
+        <label for="t_strap">Up to four short lines</label>
+        <textarea id="t_strap" rows="4" spellcheck="false">CODE → SOUND
+CODE → IMAGE
+NOTHING
+PRE-RECORDED</textarea>
+      </div>
+      <p class="warn" id="layoutwarn" hidden></p>
+      <label class="toggle"><input id="ovl" type="checkbox" checked> Show type</label>
+    </details>
+
+    <div class="sec" id="exportsec">
+      <h2>Export <small id="exphint">saved to your computer</small></h2>
+      <div class="row">
+        <div class="field"><label for="xframe">Snapshot of</label>
+          <select id="xframe"><option value="still">Still poster</option><option value="now">Current frame</option></select></div>
+        <div class="field"><label for="xres">Size</label>
+          <select id="xres"><option value="1">1× · screen</option><option value="2" selected>2×</option><option value="3">3× · print</option></select></div>
+      </div>
+      <div class="btnrow">
+        <button id="xpng" type="button">PNG</button>
+        <button id="xpdf" type="button" class="ghost">PDF</button>
+      </div>
+      <div class="row">
+        <div class="field"><label for="loops">Loop length</label><select id="loops"><option value="1" selected>1 loop</option><option value="2">2 loops</option><option value="4">4 loops</option></select></div>
+        <div class="field"><label for="xfps">Frame rate</label><select id="xfps"><option value="30" selected>30 fps</option><option value="60">60 fps</option><option value="25">25 fps</option></select></div>
+      </div>
+      <div class="btnrow">
+        <button id="xmp4" type="button">MP4 LOOP</button>
+        <button id="xcancel" type="button" class="ghost" hidden>CANCEL</button>
+      </div>
+      <progress id="xprog" max="1" value="0" hidden></progress>
+      <p class="hint" id="xmsg" role="status">The loop is drawn frame by frame from the step number, so it joins up without a seam. Live edit is left out because it never repeats.</p>
+      <details>
+        <summary class="lab" style="cursor:pointer">Command line instead (render_loop.py)</summary>
+        <div class="btnrow" style="margin-top:8px"><button id="copy" type="button" class="ghost">COPY COMMAND</button></div>
+        <pre class="cmd" id="cmd" tabindex="0" aria-label="Export command" style="margin-top:8px"></pre>
+        <p class="hint" id="copymsg">Run it in Terminal from the alg0riddims repo folder.</p>
+      </details>
+    </div>
+  </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mp4-muxer@5.2.2/build/mp4-muxer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+<script>
+__ALG0JS__
+</script>
+<script>
+(function(){
+  'use strict';
+  // Layout is locked: zones on the cell grid per format. Bottom zone: set list left, strapline right, seed line under.
+  var FORMATS = {
+    // info sits on the right edge; the strapline sits one row under it, also right-aligned (VJ: level with the subtitle)
+    poster: { W:1080, H:1350, u:24, wm:'2:3',  sub:'4:10', info:'r2:14', strapRow:null, bottom:6,  seed:'2:b3',  setMax:8 },
+    square: { W:1080, H:1080, u:24, wm:'2:3',  sub:'4:10', info:'r2:14', strapRow:null, bottom:6,  seed:'2:b3',  setMax:5 },
+    story:  { W:1080, H:1920, u:24, wm:'2:11', sub:'4:18', info:'r2:22', strapRow:null, bottom:15, seed:'2:b12', setMax:10 },
+    vj:     { W:1920, H:1080, u:40, wm:'2:2',  sub:'4:9',  info:null,    strapRow:9,    bottom:4,  seed:'2:b2',  setMax:4 }
+  };
+  var HINTS = {
+    sweep:'One playhead crosses the whole field each loop. The poster, played.',
+    poly:'Every row loops at its own length (16, 12 or 8 steps), so rows phase against each other.',
+    drift:'The field slides under a fixed playhead, like a tracker scrolling.',
+    rain:'The playhead falls row by row, top to bottom.',
+    auto:'Cycles sweep → poly → drift → rain, changing on the bar.'
+  };
+  var DAYS=['SUN','MON','TUE','WED','THU','FRI','SAT'], MONS=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  var $=function(id){return document.getElementById(id)};
+  var cv=$('cv'), ctx=cv.getContext('2d'), stage=$('stage'), overlay=$('overlay'), viewport=$('viewport');
+  var S={ seed:211126, prog:'NIGHT', bpm:140, fmt:'poster', overlay:true, setlist:true, strap:true, still:false, playing:true, step:0, t0:null, renderMode:false };
+  var Pm=null, look=-1, F=null, fmt=null, cursors=[], taps=[];
+
+  function defaults(){ var d=JSON.parse(JSON.stringify(ALG0.DEFAULTS)); d.mutes={}; return d; }
+  Pm=defaults();
+
+  function dateFromSeed(s){
+    var str=String(s).padStart(6,'0');
+    if(!/^\d{6}$/.test(str)) return null;
+    var d=+str.slice(0,2), m=+str.slice(2,4), y=2000+(+str.slice(4,6));
+    var dt=new Date(Date.UTC(y,m-1,d));
+    if(dt.getUTCFullYear()!==y||dt.getUTCMonth()!==m-1||dt.getUTCDate()!==d) return null;
+    return DAYS[dt.getUTCDay()]+' '+String(d).padStart(2,'0')+' '+MONS[m-1]+' '+y;
+  }
+  function val(id){return $(id).value.toUpperCase()}
+  function linesOf(id){ return $(id).value.toUpperCase().split('\n').map(function(l){return l.trim()}).filter(Boolean); }
+
+  function at(spec, wc, hc){
+    var p=spec.split(':');
+    var c=p[0][0]==='r' ? F.cols-(+p[0].slice(1))-wc : +p[0];
+    var r=p[1][0]==='b' ? F.rows-(+p[1].slice(1))-hc : +p[1];
+    return {x:F.ox+c*fmt.u, y:F.oy+r*fmt.u, c:c, r:r};
+  }
+  // one text box on the grid. segs: [text, bold, isCursor]
+  function box(spec, s, pad, lines){
+    var u=fmt.u, Fz=u/0.6;
+    var chars=Math.max.apply(null,lines.map(function(l){return l.reduce(function(a,g){return a+g[0].length},0)}));
+    var wc=Math.ceil(chars*s)+2, rpl=Math.max(2,2*s), hc=lines.length*rpl+(pad?2:0);
+    var p=at(spec, wc, hc);
+    var el=document.createElement('div'); el.className='box';
+    el.style.left=p.x+'px'; el.style.top=p.y+'px'; el.style.width=(wc*u)+'px'; el.style.height=(hc*u)+'px';
+    el.style.padding=(pad?u:0)+'px 0 0 '+u+'px'; el.style.fontSize=(Fz*s)+'px'; el.style.lineHeight=(rpl*u)+'px';
+    lines.forEach(function(line){
+      var ln=document.createElement('div');
+      line.forEach(function(g){ var sp=document.createElement('span'); sp.textContent=g[0]; if(g[1]) sp.className='b'; if(g[2]) cursors.push(sp); ln.appendChild(sp); });
+      el.appendChild(ln);
+    });
+    overlay.appendChild(el);
+    return {wc:wc, hc:hc, c:p.c, r:p.r};
+  }
+  function fitLine(t, cap){ return t.length>cap ? t.slice(0,Math.max(1,cap-1))+'…' : t; }
+
+  function buildType(){
+    overlay.textContent=''; cursors=[];
+    overlay.className = Pm.colourway==='INVERT' ? 'inv' : '';
+    var warn=[];
+    if(!S.overlay){ $('layoutwarn').hidden=true; return; }
+    box(fmt.wm, 3, false, [[['ALG0RIDDIMS',1],['_',1,1]]]);
+    box(fmt.sub, 1, false, [[[val('t_sub'),1]]]);
+    var infoBox=null;
+    if(fmt.info) infoBox=box(fmt.info, 1, true, [
+      [['DATE    ',0],[dateFromSeed(S.seed)||'[DATE]',1]],
+      [['TIME    ',0],[val('t_time'),1]],
+      [['PLACE   ',0],[val('t_p1'),1]],
+      [['        ',0],[val('t_p2'),1]],
+      [['ENTRY   ',0],[val('t_entry'),1]] ]);
+    // strapline: right edge, one row under the info block
+    var strapBox=null;
+    if(S.strap){
+      var sl=linesOf('t_strap');
+      if(sl.length>4){ warn.push('The strapline takes four lines at most; '+(sl.length-4)+' left off.'); sl=sl.slice(0,4); }
+      var capS=Math.floor((F.cols-4)/2)-2, long=false;
+      sl=sl.map(function(l){ if(l.length>capS) long=true; return fitLine(l,capS); });
+      if(long) warn.push('Strapline lines are kept to '+capS+' characters.');
+      var sr = infoBox ? infoBox.r+infoBox.hc+1 : fmt.strapRow;
+      if(sl.length) strapBox=box('r2:'+sr, 1, true, sl.map(function(l){return [[l,1]]}));
+    }
+    // set list: bottom left. Full width, unless it is tall enough to reach the strapline's rows.
+    if(S.setlist){
+      var ls=linesOf('t_set');
+      if(ls.length>fmt.setMax){ warn.push('This format fits '+fmt.setMax+' set list lines; '+(ls.length-fmt.setMax)+' left off.'); ls=ls.slice(0,fmt.setMax); }
+      var hcS=ls.length*2+2, topS=F.rows-fmt.bottom-hcS;
+      var clash = strapBox && topS < strapBox.r+strapBox.hc+1;
+      var cap = clash ? strapBox.c-5 : F.cols-6, cut=false;
+      var rows=ls.map(function(l){
+        var m=l.match(/^(\d{1,2})[:.](\d{2})\s+(.*)$/);
+        var t=m?(m[1].padStart(2,'0')+':'+m[2]):'', n=m?m[3]:l;
+        var room=cap-(t?6:0); if(n.length>room){ cut=true; n=fitLine(n,room); }
+        return t?[[t+' ',0],[n,1]]:[[n,1]];
+      });
+      if(cut) warn.push('A set list name is longer than '+(cap-6)+' characters here and was cut.'+(clash?' The set list is tall enough to sit beside the strapline: use fewer lines or a shorter strapline.':''));
+      if(rows.length) box('2:b'+fmt.bottom, 1, true, rows);
+    }
+    box(fmt.seed, 0.5, false, [[['// alg0.field(seed='+String(S.seed).padStart(6,'0')+')',0]]]);
+    $('layoutwarn').textContent=warn.join(' '); $('layoutwarn').hidden=!warn.length;
+  }
+
+  function build(){
+    fmt=FORMATS[S.fmt];
+    F=ALG0.create({seed:S.seed, W:fmt.W, H:fmt.H, u:fmt.u, programme:S.prog});
+    var dpr = S.renderMode ? 1 : Math.min(2, window.devicePixelRatio||1);
+    cv.width=fmt.W*dpr; cv.height=fmt.H*dpr; cv.style.width=fmt.W+'px'; cv.style.height=fmt.H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    stage.style.width=fmt.W+'px'; stage.style.height=fmt.H+'px';
+    swatches(); buildType(); fit(); paint(); cmd();
+  }
+  function swatches(){
+    if(!F) return;
+    var m=ALG0.colourway(Pm.colourway, F.snare);
+    $('sw_k').style.background=m.KICK; $('sw_s').style.background=m.SNARE; $('sw_h').style.background=m.HAT; $('sw_f').style.background=m.FX;
+    var w=$('cwwarn');
+    if(Pm.colourway==='INVERT' && !ALG0.readsOnPaper(F.snare)){ w.textContent=S.prog+'’s colour is too light to read on paper, so its hits print in ink. INVERT keeps the programme colour for NIGHT and STREAM only.'; w.hidden=false; }
+    else w.hidden=true;
+  }
+  function fit(){
+    if(!fmt) return;
+    if(S.renderMode){ stage.style.transform='none'; stage.style.left='0'; viewport.style.height=fmt.H+'px'; return; }
+    var w=viewport.clientWidth, maxH=Math.max(320, window.innerHeight*0.78);
+    var k=Math.min(w/fmt.W, maxH/fmt.H);
+    stage.style.transform='scale('+k+')';
+    stage.style.left=Math.max(0,(w-fmt.W*k)/2)+'px';
+    viewport.style.height=(fmt.H*k)+'px';
+  }
+  function paint(){
+    if(!F) return;
+    var st = S.still ? null : (S.playing||S.renderMode) ? S.step : (S.step===0 ? null : S.step);
+    var info=F.frame(ctx, st, Pm);
+    var pos = info.pos==null ? 0 : info.pos;
+    var on = st==null || Math.floor(pos/4)%2===0;
+    cursors.forEach(function(c){c.style.visibility=on?'visible':'hidden'});
+    $('hcur').style.visibility = on ? 'visible':'hidden';
+    var loopT=F.loopFor(Pm), loopSec=loopT*60/(S.bpm*4);
+    $('readout').innerHTML='<span>seed <b>'+String(S.seed).padStart(6,'0')+'</b></span><span><b>'+S.prog+'</b></span>'+
+      '<span><b>'+S.bpm+'</b> BPM'+(Pm.rate!==1?' ×'+Pm.rate:'')+'</span><span><b>'+info.mode.toUpperCase()+'</b></span><span><b>'+Pm.colourway+'</b></span>'+
+      '<span>look <b>'+(look===null?'CUSTOM':look===-1?'DEFAULT':ALG0.lookHex(look))+'</b></span>'+
+      '<span>bar <b>'+(Math.floor(pos/16)+1)+'</b>.'+(Math.floor(pos/4)%4+1)+'</span>'+
+      '<span>loop <b>'+(Pm.evolve?'none (live edit)':loopSec.toFixed(2)+' s')+'</b></span>';
+  }
+  function tick(ts){
+    if(S.playing && !S.renderMode){
+      if(S.t0===null) S.t0=ts - S.step/(S.bpm/60*4)*1000;
+      S.step=ALG0.stepAt((ts-S.t0)/1000, S.bpm);
+      paint();
+    }
+    requestAnimationFrame(tick);
+  }
+  function resync(){ S.t0=null; }
+  function setPlaying(v){ S.playing=v; $('play').textContent=v?'PAUSE':'PLAY'; resync(); paint(); }
+
+  // ---- look controls
+  function pct(v){return Math.round(v*100)+'%'}
+  var SLIDERS={ swing:pct, decay:function(v){return v+' steps'}, pulse:pct, ripple:pct, density:pct, depth:pct, zoom:pct };
+  function segSet(id, v){ Array.prototype.forEach.call($(id).querySelectorAll('button'),function(b){ b.setAttribute('aria-pressed', String(b.dataset.v===String(v))); }); }
+  function syncUI(){
+    segSet('cw',Pm.colourway); segSet('mode',Pm.mode); segSet('rate',Pm.rate);
+    $('modehint').textContent=HINTS[Pm.mode]; $('scenebox').hidden = Pm.mode!=='auto'; $('scene').value=String(Pm.sceneBars);
+    Object.keys(SLIDERS).forEach(function(k){ $(k).value=Pm[k]; $(k+'_o').textContent=SLIDERS[k](Pm[k]); });
+    ['KICK','SNARE','HAT','FX'].forEach(function(v){ $('mutes').querySelector('[data-v="'+v+'"]').setAttribute('aria-pressed',String(!!Pm.mutes[v])); });
+    $('shift').checked=!!Pm.shift; $('flash').checked=!!Pm.flash; $('evo').checked=!!Pm.evolve;
+    if(document.activeElement!==$('lookcode')) $('lookcode').value = (look===null||look===-1) ? '' : ALG0.lookHex(look);
+    $('lookstate').textContent = look===null ? 'custom' : (look===-1 ? 'default' : 'look '+ALG0.lookHex(look));
+  }
+  function custom(){ look=null; syncUI(); paint(); cmd(); }
+  function applyLook(code){
+    var keep=S.step*Pm.rate;
+    var L=ALG0.deriveLook(code), d=defaults();
+    for(var k in L) d[k]=L[k];
+    Pm=d; look=code; S.step=keep/Pm.rate; resync();
+    swatches(); buildType(); syncUI(); paint(); cmd();
+  }
+  function randomise(){ applyLook(Math.floor(Math.random()*65536)); }
+  function reset(){ var keep=S.step*Pm.rate; Pm=defaults(); look=-1; S.step=keep; resync(); swatches(); buildType(); syncUI(); paint(); cmd(); }
+
+  Object.keys(SLIDERS).forEach(function(k){
+    $(k).addEventListener('input',function(){ Pm[k]=parseFloat(this.value); custom(); });
+  });
+  $('cw').addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; Pm.colourway=b.dataset.v; swatches(); buildType(); custom(); });
+  $('mode').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b){ Pm.mode=b.dataset.v; custom(); } });
+  $('rate').addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return;
+    var keep=S.step*Pm.rate; Pm.rate=parseFloat(b.dataset.v); S.step=keep/Pm.rate; resync(); custom(); });
+  function toggleMute(v){ Pm.mutes[v]=!Pm.mutes[v]; custom(); }
+  $('mutes').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b) toggleMute(b.dataset.v); });
+  $('scene').addEventListener('change',function(){ Pm.sceneBars=parseInt(this.value,10); custom(); });
+  $('shift').addEventListener('change',function(){ Pm.shift=this.checked; custom(); });
+  $('flash').addEventListener('change',function(){ Pm.flash=this.checked; custom(); });
+  $('evo').addEventListener('change',function(){ Pm.evolve=this.checked; custom(); });
+  $('rand').addEventListener('click',randomise);
+  $('reset').addEventListener('click',reset);
+  $('lookcode').addEventListener('input',function(){ var v=this.value.trim(); if(/^[0-9a-fA-F]{4}$/.test(v)) applyLook(parseInt(v,16)); });
+
+  // ---- transport
+  function tap(){
+    var now=performance.now();
+    if(taps.length && now-taps[taps.length-1]>2000) taps=[];
+    taps.push(now); if(taps.length>5) taps.shift();
+    if(taps.length>=2){ var iv=(taps[taps.length-1]-taps[0])/(taps.length-1); S.bpm=Math.max(60,Math.min(200,Math.round(60000/iv))); $('bpm').value=S.bpm; resync(); paint(); cmd(); }
+  }
+  $('play').addEventListener('click',function(){ setPlaying(!S.playing); });
+  $('restart').addEventListener('click',function(){ S.step=0; resync(); paint(); });
+  $('tap').addEventListener('click',tap);
+  $('bpm').addEventListener('change',function(){ var b=Math.max(60,Math.min(200,parseInt(this.value,10)||140)); this.value=b; S.bpm=b; resync(); paint(); cmd(); });
+  $('fmt').addEventListener('change',function(){ S.fmt=this.value; build(); });
+
+  // ---- locked event
+  $('seed').addEventListener('input',function(){
+    var v=this.value.replace(/\D/g,'');
+    if(v.length<6){ $('seederr').textContent='Enter six digits: day, month, year.'; return; }
+    if(!dateFromSeed(v)){ $('seederr').textContent=v+' is not a real date. Use DDMMYY, for example 211126.'; return; }
+    $('seederr').textContent=''; S.seed=parseInt(v,10); build();
+  });
+  $('prog').addEventListener('change',function(){ S.prog=this.value; build(); });
+  $('ovl').addEventListener('change',function(){ S.overlay=this.checked; buildType(); cmd(); });
+  $('setl').addEventListener('change',function(){ S.setlist=this.checked; $('setbox').hidden=!this.checked; buildType(); cmd(); });
+  $('strapl').addEventListener('change',function(){ S.strap=this.checked; $('strapbox').hidden=!this.checked; buildType(); cmd(); });
+  ['t_sub','t_time','t_p1','t_p2','t_entry','t_set','t_strap'].forEach(function(id){ $(id).addEventListener('input',function(){ buildType(); cmd(); }); });
+
+  // ---- export command
+  function cmd(){
+    if(!F) return;
+    var o={};
+    if(look!==null && look!==-1) o.look=ALG0.lookHex(look);
+    else { var d=ALG0.DEFAULTS; for(var k in Pm){ if(k==='evolve'||k==='editBars') continue; if(k==='mutes'){ if(Object.keys(Pm.mutes).some(function(v){return Pm.mutes[v]})) o.mutes=Pm.mutes; } else if(Pm[k]!==d[k]) o[k]=Pm[k]; } }
+    o.text={ sub:val('t_sub'), time:val('t_time'), p1:val('t_p1'), p2:val('t_p2'), entry:val('t_entry') };
+    o.setlist = S.setlist ? linesOf('t_set') : [];
+    o.strap = S.strap ? linesOf('t_strap') : [];
+    if(!S.overlay) o.type=false;
+    var loops=$('loops').value, seedS=String(S.seed).padStart(6,'0');
+    var out='alg0_'+seedS+'_'+S.fmt+(o.look?'_'+o.look:'')+(loops==='0'?'.png':'.mp4');
+    var json=JSON.stringify(o).replace(/'/g,"'\\''");
+    $('cmd').textContent='python3 scripts/render_loop.py '+seedS+' '+S.prog+' '+S.bpm+' '+S.fmt+' '+loops+' '+out+" '"+json+"'";
+  }
+  $('loops').addEventListener('change',cmd);
+  $('copy').addEventListener('click',function(){
+    var t=$('cmd').textContent;
+    function fallback(){ var r=document.createRange(); r.selectNodeContents($('cmd')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); $('copymsg').textContent='Selected. Press Cmd+C to copy.'; }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(function(){ $('copymsg').textContent='Copied. Paste it into Terminal in the alg0riddims repo folder.'; }, fallback); }
+    else fallback();
+  });
+
+  document.addEventListener('keydown',function(e){
+    var t=e.target.tagName; if(t==='INPUT'||t==='SELECT'||t==='TEXTAREA'||e.metaKey||e.ctrlKey||e.altKey) return;
+    var k=e.key.toLowerCase();
+    if(k===' '){ e.preventDefault(); setPlaying(!S.playing); }
+    else if(k==='x'){ randomise(); }
+    else if(k==='t'){ tap(); }
+    else if(k==='r'){ S.step=0; resync(); paint(); }
+    else if(k>='1'&&k<='5'){ Pm.mode=['sweep','poly','drift','rain','auto'][+k-1]; custom(); }
+    else if(k==='k'){ toggleMute('KICK'); } else if(k==='s'){ toggleMute('SNARE'); }
+    else if(k==='h'){ toggleMute('HAT'); } else if(k==='f'){ toggleMute('FX'); }
+  });
+  if(window.ResizeObserver) new ResizeObserver(fit).observe(viewport); else window.addEventListener('resize',fit);
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){ S.playing=false; $('play').textContent='PLAY'; }
+
+  // ---- export: snapshot (PNG/PDF) and loop (MP4), drawn off-screen at the chosen size
+  var exporting=false, cancelReq=false;
+  function msg(t){ $('xmsg').textContent=t; }
+  function fname(ext){ var lk=(look!==null&&look!==-1)?'_'+ALG0.lookHex(look):''; return 'ALG0RIDDIMS_'+String(S.seed).padStart(6,'0')+'_'+S.prog+'_'+S.fmt+lk+'.'+ext; }
+  function setCursor(on){ cursors.forEach(function(c){c.style.visibility=on?'visible':'hidden'}); }
+  function drawType(c){
+    Array.prototype.forEach.call(overlay.querySelectorAll('.box'),function(el){
+      var cs=getComputedStyle(el), x=parseFloat(el.style.left), y=parseFloat(el.style.top), w=parseFloat(el.style.width), h=parseFloat(el.style.height);
+      var fs=parseFloat(el.style.fontSize), lh=parseFloat(el.style.lineHeight), pt=parseFloat(el.style.paddingTop)||0, pl=parseFloat(el.style.paddingLeft)||0;
+      c.fillStyle=cs.backgroundColor; c.fillRect(x,y,w,h);
+      c.fillStyle=cs.color; c.textBaseline='alphabetic';
+      Array.prototype.forEach.call(el.children,function(line,i){
+        var cx=x+pl, top=y+pt+i*lh;
+        Array.prototype.forEach.call(line.children,function(sp){
+          var t=sp.textContent; if(!t) return;
+          c.font=(sp.classList.contains('b')?'700 ':'400 ')+fs+'px "Plex Mono"';
+          var m=c.measureText('H'), A=m.fontBoundingBoxAscent||fs*1.025, D=m.fontBoundingBoxDescent||fs*0.275;
+          if(sp.style.visibility!=='hidden') c.fillText(t, cx, top+(lh-(A+D))/2+A);
+          cx+=t.length*fs*0.6;
+        });
+      });
+    });
+  }
+  function composite(k, step){
+    var oc=document.createElement('canvas'); oc.width=Math.round(fmt.W*k); oc.height=Math.round(fmt.H*k);
+    var c=oc.getContext('2d'); c.setTransform(k,0,0,k,0,0);
+    var P=JSON.parse(JSON.stringify(Pm)); P.evolve=false;
+    var info=F.frame(c, step, P);
+    if(S.overlay){ var pos=info.pos==null?0:info.pos; setCursor(step==null || Math.floor(pos/4)%2===0); drawType(c); }
+    return oc;
+  }
+  var dl=null, dlTried=false;
+  function saveBlob(name, blob){
+    function anchor(){ var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(a.href); a.remove();},4000); return Promise.resolve('saved'); }
+    var get = dlTried ? Promise.resolve(dl) : (window.claude && window.claude.use ? window.claude.use('downloads') : Promise.resolve(null)).then(function(d){ dl=d; dlTried=true; return d; });
+    return get.then(function(d){
+      if(!d) return anchor();
+      return d.save({filename:name, data:blob}).then(function(r){ return r.status; });
+    });
+  }
+  function saveErr(e){
+    var c=e&&e.code;
+    if(c==='declined') msg('Save cancelled.');
+    else if(c==='rate_limited') msg('Another save is still open. Finish it, then try again.');
+    else if(c==='too_large') msg('That file is too large here. Try a smaller size or fewer loops.');
+    else if(c==='unavailable'||c==='not_granted'||c==='capability_disabled'||c==='capability_removed') msg('Saving isn’t available in this view. Open the player in claude.ai, or use the command line export.');
+    else msg('Couldn’t save the file'+(e&&e.message?': '+e.message:'.'));
+  }
+  function snapshotCanvas(){
+    var k=parseFloat($('xres').value), step=$('xframe').value==='still'?null:S.step;
+    var oc=composite(k, step); paint(); return {oc:oc,k:k};
+  }
+  $('xpng').addEventListener('click',function(){
+    if(exporting) return;
+    var r=snapshotCanvas();
+    r.oc.toBlob(function(b){ var n=fname('png'); saveBlob(n,b).then(function(st){ msg(st==='saved'?n+' saved ('+r.oc.width+' × '+r.oc.height+').':'Sent.'); }, saveErr); },'image/png');
+  });
+  $('xpdf').addEventListener('click',function(){
+    if(exporting) return;
+    if(!window.jspdf){ msg('The PDF tool didn’t load. Check your connection and reload, or export a PNG.'); return; }
+    var r=snapshotCanvas(), wpt=r.oc.width/300*72, hpt=r.oc.height/300*72;
+    var doc=new window.jspdf.jsPDF({orientation: wpt>hpt?'landscape':'portrait', unit:'pt', format:[wpt,hpt], compress:true});
+    doc.setProperties({title:'ALG0RIDDIMS '+String(S.seed).padStart(6,'0')+' '+S.fmt, creator:'ALG0RIDDIMS field player'});
+    doc.addImage(r.oc,'PNG',0,0,wpt,hpt,undefined,'FAST');
+    var n=fname('pdf');
+    saveBlob(n, doc.output('blob')).then(function(st){ msg(st==='saved'?n+' saved: '+Math.round(wpt/72*25.4)+' × '+Math.round(hpt/72*25.4)+' mm at 300 ppi.':'Sent.'); }, saveErr);
+  });
+  function pickCodec(w,h,fps){
+    var cands=[['avc1.640034','avc'],['avc1.4d0034','avc'],['avc1.42003e','avc'],['vp09.00.51.08','vp9']];
+    var i=0;
+    function next(){
+      if(i>=cands.length) return Promise.resolve(null);
+      var c=cands[i++], cfg={codec:c[0],width:w,height:h,bitrate:Math.round(w*h*fps*0.25),framerate:fps};
+      if(c[1]==='avc') cfg.avc={format:'avc'};
+      return VideoEncoder.isConfigSupported(cfg).then(function(r){ return r.supported ? {cfg:cfg,mux:c[1]} : next(); }, next);
+    }
+    return next();
+  }
+  $('xcancel').addEventListener('click',function(){ cancelReq=true; });
+  $('xmp4').addEventListener('click',function(){
+    if(exporting) return;
+    if(typeof VideoEncoder==='undefined'){ msg('This browser can’t encode video. Use Chrome, Edge or Safari 17+, or the command line export.'); return; }
+    if(!window.Mp4Muxer){ msg('The video tool didn’t load. Check your connection and reload.'); return; }
+    var fps=parseInt($('xfps').value,10), loops=parseInt($('loops').value,10);
+    var w=fmt.W, h=fmt.H, L=F.loopFor(Pm)*loops, secs=L*60/(S.bpm*4), n=Math.round(secs*fps);
+    var wasPlaying=S.playing; setPlaying(false);
+    exporting=true; cancelReq=false; $('xcancel').hidden=false; $('xprog').hidden=false; $('xprog').value=0;
+    msg('Preparing…');
+    pickCodec(w,h,fps).then(function(pc){
+      if(!pc) throw {message:'no video codec this browser can encode at '+w+' × '+h};
+      var muxer=new Mp4Muxer.Muxer({target:new Mp4Muxer.ArrayBufferTarget(), video:{codec:pc.mux,width:w,height:h,frameRate:fps}, fastStart:'in-memory'});
+      var encErr=null;
+      var enc=new VideoEncoder({output:function(ch,meta){muxer.addVideoChunk(ch,meta)}, error:function(e){encErr=e}});
+      enc.configure(pc.cfg);
+      var i=0;
+      return new Promise(function(resolve,reject){
+        function pump(){
+          if(encErr) return reject(encErr);
+          if(cancelReq){ try{enc.close()}catch(e){} return reject({code:'cancelled'}); }
+          if(enc.encodeQueueSize>6) return setTimeout(pump,5);
+          var end=Math.min(n,i+4);
+          for(;i<end;i++){
+            var oc=composite(1, i*L/n);
+            var vf=new VideoFrame(oc,{timestamp:Math.round(i*1e6/fps),duration:Math.round(1e6/fps)});
+            enc.encode(vf,{keyFrame:i%(fps*2)===0}); vf.close();
+          }
+          $('xprog').value=i/n; msg('Encoding frame '+i+' of '+n+'…');
+          if(i<n) setTimeout(pump,0);
+          else enc.flush().then(function(){ enc.close(); muxer.finalize(); resolve({buf:muxer.target.buffer, codec:pc.mux}); }, reject);
+        }
+        pump();
+      });
+    }).then(function(res){
+      var n2=fname('mp4'), blob=new Blob([res.buf],{type:'video/mp4'});
+      msg('Encoded. Saving…');
+      return saveBlob(n2, blob).then(function(st){ msg(st==='saved'?n2+' saved: '+secs.toFixed(2)+' s, '+n+' frames, '+w+' × '+h+(res.codec==='vp9'?' (VP9: plays in browsers and VLC, not QuickTime)':' (H.264)')+'.':'Sent.'); }, saveErr);
+    }).catch(function(e){
+      if(e&&e.code==='cancelled') msg('Export cancelled.');
+      else msg('Video export failed'+(e&&e.message?': '+e.message:'')+'. The command line export still works.');
+    }).then(function(){
+      exporting=false; $('xcancel').hidden=true; $('xprog').hidden=true; paint();
+      if(wasPlaying) setPlaying(true);
+    });
+  });
+
+  // ---- hook for render_loop.py
+  window.ALG0PLAYER={
+    setup:function(o){ S.renderMode=true; document.body.classList.add('render'); S.playing=false;
+      if(o.seed!=null) S.seed=o.seed; if(o.programme) S.prog=o.programme; if(o.bpm) S.bpm=o.bpm; if(o.format) S.fmt=o.format;
+      var p=o.params||{};
+      if(p.look){ var L=ALG0.deriveLook(parseInt(p.look,16)); Pm=defaults(); for(var k in L) Pm[k]=L[k]; look=parseInt(p.look,16); }
+      ['colourway','mode','rate','swing','decay','pulse','ripple','density','depth','zoom','shift','flash','sceneBars','mutes'].forEach(function(k){ if(p[k]!==undefined) Pm[k]=p[k]; });
+      Pm.evolve=false;
+      if(p.type===false) S.overlay=false;
+      var t=p.text||{}; if(t.sub!=null)$('t_sub').value=t.sub; if(t.time!=null)$('t_time').value=t.time; if(t.p1!=null)$('t_p1').value=t.p1; if(t.p2!=null)$('t_p2').value=t.p2; if(t.entry!=null)$('t_entry').value=t.entry;
+      if(p.setlist){ S.setlist=p.setlist.length>0; $('t_set').value=p.setlist.join('\n'); }
+      if(p.strap){ S.strap=p.strap.length>0; $('t_strap').value=p.strap.join('\n'); }
+      $('seed').value=String(S.seed).padStart(6,'0'); build();
+      return {W:fmt.W,H:fmt.H,loopSteps:F.loopFor(Pm)}; },
+    frame:function(step){ S.still=false; S.step=step; paint(); },
+    still:function(){ S.still=true; paint(); }
+  };
+  syncUI();
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){ build(); requestAnimationFrame(tick); });
+  build();
+})();
+</script>
