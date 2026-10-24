@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ALG0RIDDIMS Identity v0.5</title>
+<style>
+@font-face{font-family:'Plex Mono';src:url(../fonts/IBMPlexMono-Bold.woff2) format('woff2');font-weight:700}
+@font-face{font-family:'Plex Mono';src:url(../fonts/IBMPlexMono-Regular.woff2) format('woff2');font-weight:400}
+@font-face{font-family:'Plex Sans';src:url(../fonts/IBMPlexSans-Regular.woff2) format('woff2');font-weight:400}
+@page{size:297mm 210mm;margin:0}
+:root{--ink:#121212;--paper:#F2F1EC;--shade:#DCD9CF;--graphite:#5A5852;--red:#FF0033;--violet:#8A00FF;--cyan:#00E5FF}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
+body{font-family:'Plex Mono',monospace;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:297mm;height:210mm;padding:12mm 16mm 11mm;position:relative;overflow:hidden;page-break-after:always;break-after:page;display:flex;flex-direction:column;gap:6mm;background:var(--paper)}
+.page:last-child{page-break-after:auto;break-after:auto}
+.dark{background:var(--ink);color:var(--paper)}
+.hd{display:flex;justify-content:space-between;font-size:7.5pt;line-height:10pt;border-bottom:1.2pt solid currentColor;padding-bottom:2mm;letter-spacing:.02em}
+.ft{position:absolute;left:16mm;right:16mm;bottom:6mm;display:flex;justify-content:space-between;font-size:6.5pt;color:var(--graphite)}
+.dark .ft{color:#9A978F}
+h1{margin:0;font-weight:700;font-size:24pt;line-height:28pt;letter-spacing:0}
+h2{margin:0;font-weight:700;font-size:10pt;line-height:13pt;letter-spacing:.02em}
+h3{margin:0;font-weight:700;font-size:8pt;line-height:11pt}
+.lab{font-size:7pt;line-height:9.5pt;text-transform:uppercase;letter-spacing:.05em}
+.mono{font-family:'Plex Mono',monospace}
+.p,.p p{font-family:'Plex Sans',sans-serif;font-size:9pt;line-height:13.5pt;margin:0}
+.p p+p{margin-top:2.2mm}
+.sm{font-family:'Plex Sans',sans-serif;font-size:7.5pt;line-height:11pt;margin:0}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8mm}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5mm}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5mm}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4mm}
+.g6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4mm}
+.col{display:flex;flex-direction:column;gap:2mm;min-width:0}
+.tile{width:100%;aspect-ratio:1/1;display:block;object-fit:cover}
+.sw{height:44mm}
+.rule{border-top:.6pt solid currentColor;padding-top:2mm}
+.rule-l{border-top:.6pt solid var(--shade);padding-top:2mm}
+table{border-collapse:collapse;width:100%;font-size:7.5pt;line-height:10.5pt}
+th{text-align:left;font-weight:700;border-bottom:.8pt solid var(--ink);padding:1.4mm 2mm 1.4mm 0;vertical-align:bottom}
+td{border-bottom:.5pt solid var(--shade);padding:1.4mm 2mm 1.4mm 0;vertical-align:top}
+td.s,th.s{font-family:'Plex Sans',sans-serif}
+.dark td{border-bottom-color:#333331}
+.box{background:var(--ink);color:var(--paper);display:inline-flex;flex-direction:column;padding:2.5mm 3mm;font-size:9pt;line-height:12pt;white-space:pre}
+.chip{display:inline-block;width:2.6mm;height:2.6mm;vertical-align:-.3mm;margin-right:1.4mm}
+.tag{position:absolute;width:6mm;height:6mm;background:var(--paper);color:var(--ink);font-weight:700;font-size:8pt;line-height:6mm;text-align:center;outline:.6pt solid var(--ink)}
+.flex{display:flex;gap:6mm;min-height:0}
+.yes{font-weight:700}
+.no{color:var(--graphite)}
+</style>
+</head>
+<body>
+
+<!-- 01 COVER -->
+<section class="page dark">
+  <div class="hd"><span>IDENTITY GUIDELINES · v0.5</span><span>BRISTOL LIVE-CODE</span><span>24/10/2026</span></div>
+  <div style="font-weight:700;font-size:94pt;line-height:1;margin-top:6mm">ALG0RIDDIMS_</div>
+  <div style="display:flex;justify-content:space-between;font-size:10pt;line-height:14pt">
+    <span>LIVE-CODED MUSIC AND VISUALS</span><span>001 · SAT 21 NOV 2026 · HAMILTON HOUSE</span>
+  </div>
+  <img src="assets/cover_vj.png" alt="" style="width:100%;flex:1;min-height:0;object-fit:cover;object-position:50% 70%;display:block">
+  <div class="ft"><span>Draft for review. Not for release.</span><span>01 / 13</span></div>
+</section>
+
+<!-- 02 SYSTEM -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>THE SYSTEM</span><span>02 / 13</span></div>
+  <div class="g2" style="flex:1">
+    <div class="col" style="gap:5mm">
+      <h1>Three rules</h1>
+      <div class="col rule"><h2>TYPED, NEVER DRAWN</h2><p class="p">The mark is the name typed in a code editor: IBM Plex Mono Bold, Plex’s own dotted zero, and a cursor. If it can’t be typed, it isn’t the mark.</p></div>
+      <div class="col rule"><h2>THE ART IS THE PROCESS</h2><p class="p">Every pattern is a step sequencer drawn as a grid: rows are tracks, dots and bars are hits. The artwork is made the way the night is made, with code.</p></div>
+      <div class="col rule"><h2>THE SEED IS THE DATE</h2><p class="p">Each event’s pattern grows from its date (DDMMYY). Every night gets its own artwork, the same night always gets the same one, and the poster and the projection match.</p></div>
+      <div class="col rule">
+        <h2>CONTENTS</h2>
+        <div class="g2" style="gap:1mm 6mm;font-size:7.5pt;line-height:11pt">
+          <span>03 Wordmark</span><span>09 Layout</span>
+          <span>04 Grid and type</span><span>10 Formats</span>
+          <span>05 Colour: core</span><span>11 Motion</span>
+          <span>06 Colour: programmes</span><span>12 Looks and randomise</span>
+          <span>07 Colour: colourways</span><span>13 Production</span>
+          <span>08 Pattern</span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="col" style="gap:4mm">
+      <h1>Locked and variable</h1>
+      <p class="p">The event and the brand are locked. Only the look moves, by hand or with Randomise. A look never changes what the poster says or where it says it.</p>
+      <table>
+        <tr><th style="width:42%">LOCKED · EVERY ARTEFACT</th><th>VARIABLE · THE LOOK</th></tr>
+        <tr><td>Seed (event date)</td><td>Colourway (except INVERT)</td></tr>
+        <tr><td>Programme</td><td>Mode: sweep, poly, drift, rain, auto</td></tr>
+        <tr><td>Event text: subtitle, date, time, place, entry</td><td>Rate, swing</td></tr>
+        <tr><td>Set list and strapline</td><td>Decay, pulse, ripple</td></tr>
+        <tr><td>Palette (hex values)</td><td>Density, voice mutes</td></tr>
+        <tr><td>Layout zones on the cell grid</td><td>Depth, downbeat push, row shift</td></tr>
+        <tr><td>Type: Plex Mono Bold and Regular, Plex Sans</td><td>Auto scene length</td></tr>
+        <tr><td>Wordmark and cursor</td><td><span class="yes">Manual only:</span> INVERT, downbeat flash, live edit</td></tr>
+      </table>
+      <p class="sm">A look is saved as a four-character code, such as 12A7. The same code gives the same look on any machine, in the player or in an export.</p>
+    </div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>IBM Plex · SIL OFL 1.1</span></div>
+</section>
+
+<!-- 03 WORDMARK -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>WORDMARK</span><span>03 / 13</span></div>
+  <div class="flex" style="align-items:baseline;justify-content:space-between"><h1>Typed, never drawn</h1><span class="lab">Logo files: brand/ in the repo</span></div>
+  <div style="display:grid;grid-template-columns:1.25fr 1.25fr .6fr;gap:5mm">
+    <div class="col"><div style="height:32mm;background:var(--ink);color:var(--paper);display:flex;align-items:center;padding:0 8mm;font-weight:700;font-size:25pt">ALG0RIDDIMS_</div><span class="lab">Primary · Paper on Ink</span></div>
+    <div class="col"><div style="height:32mm;outline:.6pt solid var(--ink);outline-offset:-.6pt;display:flex;align-items:center;padding:0 8mm;font-weight:700;font-size:25pt">ALG0RIDDIMS_</div><span class="lab">Reverse · Ink on Paper</span></div>
+    <div class="col"><div style="height:32mm;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:44pt">0_</div><span class="lab">Micro · avatar, app icon</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,24mm) 1fr;gap:5mm;align-items:start">
+    <div class="col"><div style="height:24mm;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40pt">0</div><span class="lab yes">Yes · Plex’s own zero</span></div>
+    <div class="col"><div style="height:24mm;outline:.6pt solid var(--ink);outline-offset:-.6pt;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40pt;font-feature-settings:'zero' 1">0</div><span class="lab no">No · slashed zero</span></div>
+    <div class="col"><div style="height:24mm;outline:.6pt solid var(--ink);outline-offset:-.6pt;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40pt">O</div><span class="lab no">No · letter O, or Ø</span></div>
+    <div class="p" style="padding-left:4mm">
+      <p>Set in IBM Plex Mono Bold at tracking 0, with Plex’s own zero: the dotted one. The dot is a hit in an empty step. The zero is a sequencer cell with one hit in it, the same dot the pattern is made of.</p>
+      <p>It is Plex’s default, so it comes out right in every app that has the font: InDesign, Figma, PowerPoint, Canva, a code editor. There is no feature to switch on and nothing to go wrong.</p>
+      <p>The cursor is the twelfth character: printed solid, blinking on the beat on screen. Running text spells the name Algoriddims; only the mark uses the zero.</p>
+    </div>
+  </div>
+  <div class="rule" style="display:grid;grid-template-columns:16mm 16mm 16mm 1fr;gap:5mm;align-items:start">
+    <div class="col"><img src="../brand/ALG0RIDDIMS_micro-32.png" alt="" style="width:16mm;height:16mm;image-rendering:pixelated;display:block"><span class="lab yes">32 px · typed</span></div>
+    <div class="col"><img src="assets/micro_typed16.png" alt="" style="width:16mm;height:16mm;image-rendering:pixelated;display:block"><span class="lab no">16 px · typed: dot gone</span></div>
+    <div class="col"><img src="../brand/ALG0RIDDIMS_favicon-16.png" alt="" style="width:16mm;height:16mm;image-rendering:pixelated;display:block"><span class="lab yes">16 px · hand-set</span></div>
+    <div class="col" style="gap:1.5mm">
+      <h2>MINIMUM SIZE</h2>
+      <p class="sm">Wordmark: at least 20 px type on screen (about 145 px wide), and 30 mm wide in print. Micro mark: at least 32 px. Below that the dot closes up and the zero reads as a letter O. Shown here enlarged, pixel for pixel.</p>
+      <p class="sm">For 16 px favicons, use the hand-set file in brand/. It is the one drawn exception, because no typeface keeps the dot at 16 px.</p>
+    </div>
+  </div>
+  <div class="g5 rule">
+    <p class="sm"><b class="mono">Don’t redraw it.</b> Use the logo files: they are Plex’s own outlines. No custom letters or kerning.</p>
+    <p class="sm"><b class="mono">Don’t swap the zero.</b> No slashed zero, no letter O, no Ø. The dotted zero is the mark.</p>
+    <p class="sm"><b class="mono">Don’t track or squeeze it.</b> Tracking stays at 0 or the letters fall off the cell grid.</p>
+    <p class="sm"><b class="mono">Don’t colour it.</b> Paper on Ink or Ink on Paper. Colour belongs to the pattern.</p>
+    <p class="sm"><b class="mono">Don’t drop the cursor.</b> It is part of the mark at every size, the micro mark included.</p>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>IBM Plex · SIL OFL 1.1</span></div>
+</section>
+
+<!-- 04 GRID + TYPE -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>GRID AND TYPE</span><span>04 / 13</span></div>
+  <div class="g2" style="flex:1">
+    <div class="col" style="gap:4mm">
+      <h1>One character, one cell</h1>
+      <div style="outline:.6pt solid var(--ink);outline-offset:-.6pt;padding:3mm;background-image:repeating-linear-gradient(90deg,#CFCCC2 0 .5pt,transparent .5pt 3.6mm);display:flex;flex-direction:column;gap:2mm">
+        <div style="font-weight:700;font-size:30.6pt;line-height:12mm">LIVE <span style="font-weight:400;font-size:8pt">3× · wordmark</span></div>
+        <div style="font-weight:700;font-size:20.4pt;line-height:8mm">LIVE-CODE <span style="font-weight:400;font-size:8pt">2×</span></div>
+        <div style="font-weight:700;font-size:10.2pt;line-height:4.5mm">LIVE-CODE / 001 <span style="font-weight:400;font-size:8pt">1× · event text</span></div>
+        <div style="font-size:5.1pt;line-height:3mm">// alg0.field(seed=211126) <span style="font-size:8pt">½× · seed line only</span></div>
+      </div>
+      <div class="p">
+        <p>The cell is one Plex Mono character at the base size. Sizes are whole multiples of it (1×, 2×, 3×), plus ½× for the seed line, so every size lands on the same columns. On a 1080-pixel poster the cell is 24 px.</p>
+        <p>Text sits in boxes cut out of the pattern. Boxes pad their text by one cell, start and end on cell edges, and are the ground colour, so they read as cleared cells of the field. Sub-lines indent two cells, like code. Left-aligned only. Tracking is always 0.</p>
+      </div>
+    </div>
+    <div class="col" style="gap:4mm">
+      <h1>One family, three styles</h1>
+      <div class="col rule-l"><span class="lab">Plex Mono Bold · mark, display, event values, names</span><span style="font-weight:700;font-size:17pt;line-height:22pt">SAT 21 NOV 2026 19:00</span></div>
+      <div class="col rule-l"><span class="lab">Plex Mono Regular · labels, set list times, seed line</span><span style="font-size:13pt;line-height:18pt">DATE · 20:00 · // alg0.field</span></div>
+      <div class="col rule-l"><span class="lab">Plex Sans Regular · running copy, two lines or more</span><span style="font-family:'Plex Sans';font-size:11pt;line-height:16pt">Music and visuals written live, in front of you, above the Canteen at Hamilton House.</span></div>
+      <div class="p rule-l"><p>Three styles from a family of more than 100. Every extra weight is somewhere for the system to drift. Plex is under the SIL Open Font Licence: free for print, web, merch and the projector.</p>
+      <p>Labels are Regular and values are Bold, and values start on one column: the info block, the set list and the readouts all follow this.</p></div>
+    </div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>IBM Plex · SIL OFL 1.1</span></div>
+</section>
+
+<!-- 05 COLOUR CORE -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>COLOUR · CORE</span><span>05 / 13</span></div>
+  <h1>Every colour is a sound</h1>
+  <p class="p" style="max-width:190mm">Four colours never change. They are the series. Each voice in the sequencer has one colour, so the pattern can be read as a rhythm: red dots are kicks, paper bars are hats, the rare cyan hit is an effect.</p>
+  <div class="g4">
+    <div class="col"><div class="sw" style="background:#121212"></div><h3>INK · GROUND</h3><span class="lab">#121212 · RGB 18 18 18</span><p class="sm">Ground and every text box. About 80% of any layout.</p></div>
+    <div class="col"><div class="sw" style="background:#F2F1EC;outline:.6pt solid var(--ink);outline-offset:-.6pt"></div><h3>PAPER · HAT</h3><span class="lab">#F2F1EC · RGB 242 241 236</span><p class="sm">All type, and the hat bars. About 10%.</p></div>
+    <div class="col"><div class="sw" style="background:#FF0033"></div><h3>KICK RED · KICK</h3><span class="lab">#FF0033 · RGB 255 0 51</span><p class="sm">Kick hits. About 5%. The heartbeat of every event.</p></div>
+    <div class="col"><div class="sw" style="background:#00E5FF"></div><h3>FX CYAN · FX</h3><span class="lab">#00E5FF · RGB 0 229 255</span><p class="sm">Effect hits. 1% at most: the rarest hit on the page.</p></div>
+  </div>
+  <div style="display:flex;height:5mm"><div style="flex:80;background:#121212"></div><div style="flex:10;background:#F2F1EC;outline:.6pt solid var(--ink);outline-offset:-.6pt"></div><div style="flex:5;background:#FF0033"></div><div style="flex:4;background:#8A00FF"></div><div style="flex:1;background:#00E5FF"></div></div>
+  <span class="lab" style="margin-top:-4mm">Proportion: ink 80 · paper 10 · kick 5 · programme 4 · fx ≤1</span>
+  <div class="g2 rule">
+    <div class="p"><p>Type is Paper on Ink or Ink on Paper, nothing else. Never type on an accent; never an accent in type. Colour belongs to the pattern.</p><p>The fifth voice, the snare, carries the programme colour: see page 06.</p></div>
+    <div class="p"><p>Values are RGB: screen and projection come first. Retired from v0.1: #FF2B2B, #9B28FF, #A020FF, #1E1B1F, #0A0A0A, #F5F5F4, #F4F4F1 (the same colours drifting sheet to sheet) and Warm Brown #4A2A0E / #6B3F1E (no voice to map to).</p></div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>IBM Plex · SIL OFL 1.1</span></div>
+</section>
+
+<!-- 06 PROGRAMMES -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>COLOUR · PROGRAMMES</span><span>06 / 13</span></div>
+  <div class="flex" style="align-items:baseline;justify-content:space-between"><h1>The snare is the programme</h1><span class="lab">All six tiles: seed 211126. Only the snare colour moves.</span></div>
+  <div class="g6">
+    <div class="col"><img class="tile" src="assets/prog_NIGHT.svg" alt=""><h3><span class="chip" style="background:#8A00FF"></span>NIGHT</h3><span class="lab">Ultraviolet · #8A00FF</span><p class="sm">Performance nights. 001 is a NIGHT.</p><span class="lab yes">Reads on paper</span></div>
+    <div class="col"><img class="tile" src="assets/prog_WORKSHOP.svg" alt=""><h3><span class="chip" style="background:#33FF66"></span>WORKSHOP</h3><span class="lab">Phosphor · #33FF66</span><p class="sm">Teaching and open-laptop sessions. Green terminal phosphor.</p><span class="lab no">Ink on paper</span></div>
+    <div class="col"><img class="tile" src="assets/prog_TALK.svg" alt=""><h3><span class="chip" style="background:#FFB000"></span>TALK</h3><span class="lab">Amber · #FFB000</span><p class="sm">Talks, panels, listening sessions. Amber terminal phosphor.</p><span class="lab no">Ink on paper</span></div>
+    <div class="col"><img class="tile" src="assets/prog_STREAM.svg" alt=""><h3><span class="chip" style="background:#2F5BFF"></span>STREAM</h3><span class="lab">Signal Blue · #2F5BFF</span><p class="sm">Online and streamed sets. Screen first.</p><span class="lab yes">Reads on paper</span></div>
+    <div class="col"><img class="tile" src="assets/prog_JAM.svg" alt=""><h3><span class="chip" style="background:#C8FF00"></span>JAM</h3><span class="lab">Acid Lime · #C8FF00</span><p class="sm">Open jams and first-timer sessions: anyone can take the laptop.</p><span class="lab no">Ink on paper</span></div>
+    <div class="col"><img class="tile" src="assets/prog_ARCHIVE.svg" alt=""><h3><span class="chip" style="background:#B4B1A8"></span>ARCHIVE</h3><span class="lab">Silver · #B4B1A8</span><p class="sm">Recordings, mixes, releases and write-ups after the night.</p><span class="lab no">Ink on paper</span></div>
+  </div>
+  <div class="g3 rule">
+    <p class="sm">One programme colour per piece, never two. It follows the snare’s rules: pattern only, never type, about 4–5% of a layout. The subtitle names the programme and the number runs across the whole series: BRISTOL LIVE-CODE / 001, then WORKSHOP / 002.</p>
+    <p class="sm">Each programme colour differs from Kick Red in lightness, not only hue, so the voices separate for colour-blind viewers. Orange and magenta were tested and left out: both sit too close to the red.</p>
+    <p class="sm">Guest or collab nights: the partner’s colour may take the snare slot if it is clearly lighter or darker than Kick Red and is not a near-copy of a programme colour. Otherwise the night stays NIGHT. Six is the ceiling: more programmes and the series stops looking like one series.</p>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>“Reads on paper” = 3:1 or better against Paper, used by INVERT</span></div>
+</section>
+
+<!-- 07 COLOURWAYS -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>COLOUR · COLOURWAYS AND NEUTRALS</span><span>07 / 13</span></div>
+  <div class="flex" style="align-items:baseline;justify-content:space-between"><h1>Same palette, five arrangements</h1><span class="lab">Seed 211126 · NIGHT</span></div>
+  <p class="p" style="max-width:200mm">A colourway re-assigns the locked palette to the voices. It never adds a colour. The pattern stays the same; only what each hit is painted with changes.</p>
+  <div class="g5">
+    <div class="col"><img class="tile" src="assets/cw_STANDARD.svg" alt=""><h3>STANDARD</h3><p class="sm">Kick red, snare programme, hat paper, FX cyan. The default, and three looks in every seven.</p></div>
+    <div class="col"><img class="tile" src="assets/cw_DUO.svg" alt=""><h3>DUO</h3><p class="sm">Red and the programme colour only. The loudest arrangement: line-up drops, headline nights.</p></div>
+    <div class="col"><img class="tile" src="assets/cw_ACCENT.svg" alt=""><h3>ACCENT</h3><p class="sm">All paper except the snare. Calm and text-friendly: talks, info posts, long captions.</p></div>
+    <div class="col"><img class="tile" src="assets/cw_MONO.svg" alt=""><h3>MONO</h3><p class="sm">Paper only. One-colour print, low-key projection, behind photography.</p></div>
+    <div class="col"><img class="tile" src="assets/cw_INVERT.svg" alt=""><h3>INVERT <span class="lab">· manual only</span></h3><p class="sm">Paper ground, ink hats, red kicks. Riso, daytime print, venue signage. Programme colours that don’t read on paper switch to ink.</p></div>
+  </div>
+  <div class="rule"><h2 style="margin-bottom:2mm">SUPPORT NEUTRALS · SCREENS, WEB, DOCUMENTS</h2>
+    <div class="g5">
+      <div class="col"><div style="height:9mm;background:#1E1E1E"></div><span class="lab"><b>RAISED</b> #1E1E1E</span><span class="sm">Surfaces above Ink: panels, menus.</span></div>
+      <div class="col"><div style="height:9mm;background:#262626"></div><span class="lab"><b>GHOST</b> #262626</span><span class="sm">Empty grid steps, dividers on Ink.</span></div>
+      <div class="col"><div style="height:9mm;background:#9A978F"></div><span class="lab"><b>MUTE</b> #9A978F</span><span class="sm">Secondary text on Ink, 6.4:1.</span></div>
+      <div class="col"><div style="height:9mm;background:#DCD9CF"></div><span class="lab"><b>PAPER SHADE</b> #DCD9CF</span><span class="sm">Rules on Paper; INVERT grid. Never text.</span></div>
+      <div class="col"><div style="height:9mm;background:#5A5852"></div><span class="lab"><b>GRAPHITE</b> #5A5852</span><span class="sm">Secondary text on Paper, 6.3:1.</span></div>
+    </div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>Posters stay Paper on Ink. Neutrals are for interfaces and documents.</span></div>
+</section>
+
+<!-- 08 PATTERN -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>PATTERN</span><span>08 / 13</span></div>
+  <div class="g2" style="flex:1;grid-template-columns:1.15fr 1fr">
+    <div class="col" style="gap:4mm">
+      <h1>A sequencer, drawn</h1>
+      <div class="g3">
+        <div class="col"><img class="tile" src="assets/seed_211126.svg" alt=""><span class="lab yes">001 · seed 211126</span></div>
+        <div class="col"><img class="tile" src="assets/seed_120327.svg" alt=""><span class="lab">seed 120327 · example</span></div>
+        <div class="col"><img class="tile" src="assets/seed_300427.svg" alt=""><span class="lab">seed 300427 · example</span></div>
+      </div>
+      <div style="background:var(--ink);color:var(--paper);display:flex;gap:6mm;padding:2.5mm 3mm;font-size:7.5pt;flex-wrap:wrap">
+        <span><span class="chip" style="background:#FF0033;border-radius:50%"></span>KICK E(3–6,n)</span>
+        <span><span class="chip" style="background:#8A00FF;border-radius:50%"></span>SNARE E(3–5,n)</span>
+        <span><span class="chip" style="background:#F2F1EC;width:5mm;height:1.4mm;vertical-align:.3mm;border-radius:1mm"></span>HAT E(5–9,n)</span>
+        <span><span class="chip" style="background:#00E5FF;border-radius:50%"></span>FX · 3.5% of hits</span>
+      </div>
+    </div>
+    <div class="col" style="gap:4mm">
+      <div class="p">
+        <p>Each row is a sequencer track: a Euclidean rhythm E(k,n), the same idea as the (3,8) notation in TidalCycles and Strudel. Rows run at 16, 12 or 8 steps, so they drift against each other. Every eight rows the rotation steps on by one, so the pattern is edited as you read down the page.</p>
+        <p>The seed is the event date as DDMMYY. The random numbers come from mulberry32, so the Python generator (print) and the JavaScript player (screen) draw the same field, cell for cell. That was checked across six seeds and sizes.</p>
+        <p>Same seed + same size + same cell = the same artwork. Change the cell size and the field changes, so each format has one fixed cell (page 10).</p>
+      </div>
+      <div class="col rule">
+        <span class="lab">Print master (vector SVG)</span>
+        <div class="box" style="font-size:7.5pt;line-height:11pt">python3 alg0_field.py 211126 1080 1350 24 field_001.svg NIGHT STANDARD</div>
+        <span class="lab" style="margin-top:2mm">Arguments</span>
+        <p class="sm">seed · width · height · cell · output · programme (NIGHT, WORKSHOP, TALK, STREAM, JAM, ARCHIVE or a hex for a guest colour) · colourway (STANDARD, DUO, ACCENT, MONO, INVERT)</p>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>alg0_field.py · alg0_field.js</span></div>
+</section>
+
+<!-- 09 LAYOUT -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>LAYOUT</span><span>09 / 13</span></div>
+  <div class="flex" style="flex:1">
+    <div style="position:relative;height:100%;aspect-ratio:1080/1350;flex:none">
+      <img src="assets/lay_poster.png" alt="" style="width:100%;height:100%;display:block">
+      <span class="tag" style="left:-7.5mm;top:4.7%">1</span>
+      <span class="tag" style="left:-7.5mm;top:17.1%">2</span>
+      <span class="tag" style="right:-7.5mm;top:24.2%">3</span>
+      <span class="tag" style="left:-7.5mm;top:72.2%">4</span>
+      <span class="tag" style="right:-7.5mm;top:47.3%">5</span>
+      <span class="tag" style="left:-7.5mm;top:91.8%">6</span>
+    </div>
+    <div class="col" style="gap:3mm;padding-left:6mm;flex:1">
+      <h1>Six zones, locked</h1>
+      <p class="p">Every artefact uses the same zones on the cell grid. Positions are given in cells from the edge, so they hold at any size. The poster shown is 1080 × 1350 px with a 24 px cell.</p>
+      <table>
+        <tr><th>ZONE</th><th>SIZE</th><th>PLACE (POSTER)</th><th class="s">CONTENT</th></tr>
+        <tr><td><b>1 Wordmark</b></td><td>3×</td><td>col 2 · row 3</td><td class="s">ALG0RIDDIMS_ on every artefact</td></tr>
+        <tr><td><b>2 Subtitle</b></td><td>1×</td><td>col 4 · row 10</td><td class="s">Series or programme / number. Indented two cells.</td></tr>
+        <tr><td><b>3 Info</b></td><td>1×</td><td>right edge · row 14</td><td class="s">DATE (written from the seed), TIME, PLACE on two lines, ENTRY</td></tr>
+        <tr><td><b>4 Set list</b></td><td>1×</td><td>bottom left · 6 rows up</td><td class="s">One act per line, time in Regular, name in Bold. Up to 8 lines on the poster.</td></tr>
+        <tr><td><b>5 Strapline</b></td><td>1×</td><td>right edge · one row under Info</td><td class="s">Up to 4 lines of up to 18 characters. On VJ, level with the subtitle.</td></tr>
+        <tr><td><b>6 Seed line</b></td><td>½×</td><td>col 2 · 3 rows up</td><td class="s">// alg0.field(seed=DDMMYY), the work credited to its own code</td></tr>
+      </table>
+      <div class="p rule-l">
+        <p>The left side carries the name and the line-up; the right side carries the facts and the claim. The set list has the full width (39 characters on the poster) until it grows tall enough to sit beside the strapline; then it gets the width the strapline leaves. A name that does not fit is cut with … and the player says so: shorten it rather than shrinking type.</p>
+        <p>Nothing else is added to the layout. No logos in the field, no extra boxes, no type on the pattern outside a box.</p>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>Left: who and when it plays · Right: the facts and the claim</span></div>
+</section>
+
+<!-- 10 FORMATS -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>FORMATS</span><span>10 / 13</span></div>
+  <h1>Four formats, one grid</h1>
+  <div style="display:flex;gap:5mm;align-items:flex-start;flex:1;min-height:0">
+    <div class="col" style="flex:1080 1 0"><img src="assets/lay_poster.png" alt="" style="width:100%;display:block"><h3>POSTER 4:5</h3><span class="lab">1080 × 1350 · cell 24 · set list ≤ 8</span><p class="sm">The main asset: feed posts and the A-ratio print master.</p></div>
+    <div class="col" style="flex:1350 1 0"><img src="assets/lay_square.png" alt="" style="width:100%;display:block"><h3>SQUARE 1:1</h3><span class="lab">1080 × 1080 · cell 24 · set list ≤ 5</span><p class="sm">Grid posts and event-listing thumbnails.</p></div>
+    <div class="col" style="flex:760 1 0"><img src="assets/lay_story.png" alt="" style="width:100%;display:block"><h3>STORY 9:16</h3><span class="lab">1080 × 1920 · cell 24 · set list ≤ 10</span><p class="sm">Type starts 11 rows down and the bottom zone sits 15 rows up, clear of the app’s buttons.</p></div>
+    <div class="col" style="flex:2400 1 0"><img src="assets/lay_vj.png" alt="" style="width:100%;display:block"><h3>VJ 16:9</h3><span class="lab">1920 × 1080 · cell 40 · set list ≤ 4</span><p class="sm">The projector ident between sets. No info block: the room already knows where it is.</p></div>
+  </div>
+  <div class="g3 rule">
+    <p class="sm">Each format has one fixed cell size, so the same seed always gives the same field in that format. Never resize an export to make another format: render it.</p>
+    <p class="sm">Info and strapline hang from the right edge, two cells in. The set list sits on the bottom zone, from the base: poster and square 6 rows, story 15, VJ 4. The seed line sits under it.</p>
+    <p class="sm">For print, render the field as vector SVG with alg0_field.py at A-ratio (1240 × 1754, cell 27) and set the type on the same grid in InDesign. Don’t enlarge a screen PNG.</p>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>Shown with placeholder set list</span></div>
+</section>
+
+<!-- 11 MOTION -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>MOTION</span><span>11 / 13</span></div>
+  <div class="flex" style="align-items:baseline;justify-content:space-between"><h1>The field plays at the event’s BPM</h1><span class="lab">Frames: step 21.5, ripple on</span></div>
+  <div class="g4">
+    <div class="col"><img class="tile" src="assets/mode_sweep.png" alt=""><h3>SWEEP</h3><p class="sm">One playhead crosses the field each loop. The poster, played.</p></div>
+    <div class="col"><img class="tile" src="assets/mode_poly.png" alt=""><h3>POLY</h3><p class="sm">Each row loops at its own length (16, 12, 8), so rows phase against each other.</p></div>
+    <div class="col"><img class="tile" src="assets/mode_drift.png" alt=""><h3>DRIFT</h3><p class="sm">The field slides under a fixed playhead, like a tracker.</p></div>
+    <div class="col"><img class="tile" src="assets/mode_rain.png" alt=""><h3>RAIN</h3><p class="sm">The playhead falls row by row. AUTO cycles all four, changing on the bar.</p></div>
+  </div>
+  <div class="g2 rule" style="gap:8mm">
+    <table>
+      <tr><th>BPM DRIVES</th><th class="s">HOW</th></tr>
+      <tr><td>Playhead</td><td class="s">One column per 16th note</td></tr>
+      <tr><td>Hits</td><td class="s">Pulse as the playhead passes; decay is counted in steps, so it scales with tempo</td></tr>
+      <tr><td>Cursor</td><td class="s">On one beat, off one beat</td></tr>
+      <tr><td>Rate · swing</td><td class="s">Half or double time; swing delays every second 16th</td></tr>
+      <tr><td>Phrases</td><td class="s">AUTO scenes, downbeat push and row shift land on bar lines</td></tr>
+      <tr><td>Never</td><td class="s">The pattern itself. The date sets that, so the screen matches the poster.</td></tr>
+    </table>
+    <div class="p">
+      <p>Type never moves. Only the field animates, and the downbeat push scales the field, not the boxes.</p>
+      <p>Loops are counted in whole bars, so every export joins up without a seam: 48 steps for a single sweep (5.1 s at 140 BPM), longer when row shift or AUTO is on.</p>
+      <p>Downbeat flash runs once per bar, about 0.6 Hz at 140 BPM, well under the 3 Hz photosensitivity guideline. It is never switched on by Randomise. If it is used on the night, say so on the event page.</p>
+    </div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>Tap tempo in the player locks to whoever is playing</span></div>
+</section>
+
+<!-- 12 LOOKS -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>LOOKS AND RANDOMISE</span><span>12 / 13</span></div>
+  <div class="flex" style="flex:1">
+    <div class="col" style="flex:1.05;gap:3mm">
+      <h1>A look is a code</h1>
+      <p class="p">Randomise picks a four-character code and builds every variable from it. Type the code back in and the look returns, on any machine. Anything set by hand marks the look CUSTOM and is exported as values instead of a code.</p>
+      <table>
+        <tr><th>VARIABLE</th><th>MANUAL RANGE</th><th>RANDOMISE PICKS</th></tr>
+        <tr><td>Colourway</td><td>all five</td><td>STANDARD 4 in 7; DUO, ACCENT, MONO. Never INVERT</td></tr>
+        <tr><td>Mode</td><td>5 modes</td><td>any; POLY twice as likely</td></tr>
+        <tr><td>Rate</td><td>½, 1, 2</td><td>1 three times in five</td></tr>
+        <tr><td>Swing</td><td>0–60%</td><td>off, or 10–50% (35% chance)</td></tr>
+        <tr><td>Decay</td><td>1–8 steps</td><td>1.5–6</td></tr>
+        <tr><td>Pulse</td><td>0–100%</td><td>15–80%</td></tr>
+        <tr><td>Ripple</td><td>0–100%</td><td>off, or 30–100%</td></tr>
+        <tr><td>Density</td><td>5–100%</td><td>100%, or 55–95%</td></tr>
+        <tr><td>Depth</td><td>0–100%</td><td>off, or 30–100%</td></tr>
+        <tr><td>Downbeat push</td><td>0–100%</td><td>off, or 20–80%</td></tr>
+        <tr><td>Row shift · scenes</td><td>on/off · 4/8/16 bars</td><td>30% chance · any</td></tr>
+        <tr><td>Voice mutes</td><td>any voice</td><td>hat or FX, rarely. Never kick or snare</td></tr>
+        <tr><td>Flash · live edit</td><td>on/off</td><td>never</td></tr>
+      </table>
+    </div>
+    <div class="col" style="flex:1;gap:3mm">
+      <div class="g2" style="gap:4mm">
+        <div class="col"><img class="tile" src="assets/look_1000.png" alt=""><span class="lab"><b>1000</b> · STANDARD · POLY · depth, ripple</span></div>
+        <div class="col"><img class="tile" src="assets/look_1061.png" alt=""><span class="lab"><b>1061</b> · ACCENT · POLY · depth</span></div>
+        <div class="col"><img class="tile" src="assets/look_12A7.png" alt=""><span class="lab"><b>12A7</b> · DUO · AUTO · ½ time, push</span></div>
+        <div class="col"><img class="tile" src="assets/look_14ED.png" alt=""><span class="lab"><b>14ED</b> · MONO · POLY · swing, shift</span></div>
+      </div>
+      <p class="sm">Same seed, same event, four looks. Note a code beside each finished asset so it can be made again or matched on the projector.</p>
+    </div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>Keys: X randomise · 1–5 modes · K S H F mute · T tap · Space play</span></div>
+</section>
+
+<!-- 13 PRODUCTION -->
+<section class="page">
+  <div class="hd"><span>ALG0RIDDIMS — IDENTITY v0.5</span><span>PRODUCTION</span><span>13 / 13</span></div>
+  <div class="g2" style="flex:1">
+    <div class="col" style="gap:4mm">
+      <h1>Making the files</h1>
+      <div class="col rule"><h2>STILLS AND LOOPS</h2>
+        <p class="p">In the player, open Export. PNG and PDF save a snapshot (the still poster or the current frame) at 1×, 2× or 3×; a 3× PDF of the poster is 274 × 343 mm at 300 ppi. MP4 LOOP renders a seamless loop frame by frame: H.264 in Chrome, Edge and Safari, VP9 where H.264 isn’t available.</p>
+        <p class="sm">For batches, run the same export from the repo folder. In the player: Export → Command line instead → Copy.</p>
+        <div class="box" style="font-size:7pt;line-height:10.5pt;white-space:pre-wrap">python3 scripts/render_loop.py 211126 NIGHT 140 poster 1 out.mp4 '{"look":"12A7"}'</div>
+      </div>
+      <div class="col rule"><h2>THE REPO · alg0riddims</h2>
+        <table>
+          <tr><td><b>generator/</b></td><td class="s">alg0_field.py: vector SVG fields for print, with programme and colourway.</td></tr>
+          <tr><td><b>player/</b></td><td class="s">alg0_field.js, the animated field and looks (a drop-in VJinA layer), and the player template.</td></tr>
+          <tr><td><b>dist/</b></td><td class="s">alg0_player.html, ready to open, and this PDF.</td></tr>
+          <tr><td><b>brand/</b></td><td class="s">Logo files: outlined SVG and PNG wordmarks, micro mark, favicons.</td></tr>
+          <tr><td><b>scripts/</b></td><td class="s">build_player, build_identity, make_marks, render_loop.</td></tr>
+          <tr><td><b>tests/</b></td><td class="s">Checks that print and screen draw the same field, cell for cell.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="col" style="gap:4mm">
+      <h1>Print</h1>
+      <p class="p">Kick Red, FX Cyan, Ultraviolet, Phosphor and Acid Lime sit outside CMYK. A standard four-colour job will dull them. For physical runs, use risograph fluorescent inks or neon spot inks for screen print, swatched from the printer’s physical ink chart. Screen hex values are never the print reference.</p>
+      <table>
+        <tr><th>VOICE</th><th>NEAREST RISO INK · SWATCH TO CONFIRM</th></tr>
+        <tr><td>KICK RED</td><td>Bright Red / Fluorescent Pink</td></tr>
+        <tr><td>FX CYAN</td><td>Aqua</td></tr>
+        <tr><td>NIGHT · STREAM</td><td>Purple · Blue</td></tr>
+        <tr><td>WORKSHOP · JAM</td><td>Green · Fluorescent Yellow</td></tr>
+        <tr><td>TALK · ARCHIVE</td><td>Yellow / Orange · Medium Grey</td></tr>
+        <tr><td>INK (type)</td><td>Black</td></tr>
+      </table>
+      <p class="sm">INVERT is the print arrangement: paper ground, ink hats and type, red kicks. Proof it before committing.</p>
+      <div class="col rule"><h2>VERSION</h2><p class="sm">v0.5 · 24/10/2026 · draft for review. The mark uses Plex’s own dotted zero; the slashed zero is retired. Adds outlined logo files, minimum sizes, a hand-set favicon, and one repo with build scripts and tests. Carries over v0.4: six programmes, five colourways, the six-zone layout, motion modes and look codes. Supersedes v0.2–v0.4.</p></div>
+    </div>
+  </div>
+  <div class="ft"><span>ALG0RIDDIMS identity v0.5 · draft for review</span><span>Fonts: IBM Plex, SIL Open Font Licence 1.1</span></div>
+</section>
+
+</body>
+</html>
