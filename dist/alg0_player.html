@@ -882,21 +882,32 @@ PRE-RECORDED</textarea>
     if(S.overlay){ var pos=info.pos==null?0:info.pos; setCursor(step==null || Math.floor(pos/4)%2===0); drawType(c); }
     return oc;
   }
-  var dl=null, dlTried=false;
+  // Inside claude.ai the frame blocks ordinary downloads, so files go through the downloads capability.
+  // Opened as a local file (no window.claude), a normal download link works.
+  var inViewer = !!(window.claude && window.claude.use), dl=null, dlTried=false;
   function saveBlob(name, blob){
-    function anchor(){ var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(a.href); a.remove();},4000); return Promise.resolve('saved'); }
-    var get = dlTried ? Promise.resolve(dl) : (window.claude && window.claude.use ? window.claude.use('downloads') : Promise.resolve(null)).then(function(d){ dl=d; dlTried=true; return d; });
+    if(!inViewer){
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click();
+      setTimeout(function(){URL.revokeObjectURL(a.href); a.remove();},4000);
+      return Promise.resolve('downloaded');
+    }
+    var get = dlTried ? Promise.resolve(dl) : window.claude.use('downloads').then(function(d){ dl=d; dlTried=true; return d; }, function(){ dlTried=true; return null; });
     return get.then(function(d){
-      if(!d) return anchor();
+      if(!d) return Promise.reject({code:'unavailable'});
       return d.save({filename:name, data:blob}).then(function(r){ return r.status; });
     });
+  }
+  function doneMsg(st, name, detail){
+    if(st==='saved') return name+' saved'+detail;
+    if(st==='downloaded') return name+' sent to your Downloads folder'+detail;
+    return 'Sent.';
   }
   function saveErr(e){
     var c=e&&e.code;
     if(c==='declined') msg('Save cancelled.');
     else if(c==='rate_limited') msg('Another save is still open. Finish it, then try again.');
     else if(c==='too_large') msg('That file is too large here. Try a smaller size or fewer loops.');
-    else if(c==='unavailable'||c==='not_granted'||c==='capability_disabled'||c==='capability_removed') msg('Saving isn’t available in this view. Open the player in claude.ai, or use the command line export.');
+    else if(c==='unavailable'||c==='not_granted'||c==='capability_disabled'||c==='capability_removed') msg('This view can’t save files. Open the player in claude.ai in a desktop browser, or open dist/alg0_player.html from the repo in Chrome.');
     else msg('Couldn’t save the file'+(e&&e.message?': '+e.message:'.'));
   }
   function snapshotCanvas(){
@@ -906,17 +917,17 @@ PRE-RECORDED</textarea>
   $('xpng').addEventListener('click',function(){
     if(exporting) return;
     var r=snapshotCanvas();
-    r.oc.toBlob(function(b){ var n=fname('png'); saveBlob(n,b).then(function(st){ msg(st==='saved'?n+' saved ('+r.oc.width+' × '+r.oc.height+').':'Sent.'); }, saveErr); },'image/png');
+    r.oc.toBlob(function(b){ var n=fname('png'); saveBlob(n,b).then(function(st){ msg(doneMsg(st,n,' ('+r.oc.width+' × '+r.oc.height+').')); }, saveErr); },'image/png');
   });
   $('xpdf').addEventListener('click',function(){
     if(exporting) return;
-    if(!window.jspdf){ msg('The PDF tool didn’t load. Check your connection and reload, or export a PNG.'); return; }
+    if(!window.jspdf){ msg('The PDF tool didn’t load (it comes from cdn.jsdelivr.net). Check your connection and reload, or export a PNG.'); return; }
     var r=snapshotCanvas(), wpt=r.oc.width/300*72, hpt=r.oc.height/300*72;
     var doc=new window.jspdf.jsPDF({orientation: wpt>hpt?'landscape':'portrait', unit:'pt', format:[wpt,hpt], compress:true});
     doc.setProperties({title:'ALG0RIDDIMS '+String(S.seed).padStart(6,'0')+' '+S.fmt, creator:'ALG0RIDDIMS field player'});
     doc.addImage(r.oc,'PNG',0,0,wpt,hpt,undefined,'FAST');
     var n=fname('pdf');
-    saveBlob(n, doc.output('blob')).then(function(st){ msg(st==='saved'?n+' saved: '+Math.round(wpt/72*25.4)+' × '+Math.round(hpt/72*25.4)+' mm at 300 ppi.':'Sent.'); }, saveErr);
+    saveBlob(n, doc.output('blob')).then(function(st){ msg(doneMsg(st,n,': '+Math.round(wpt/72*25.4)+' × '+Math.round(hpt/72*25.4)+' mm at 300 ppi.')); }, saveErr);
   });
   function pickCodec(w,h,fps){
     var cands=[['avc1.640034','avc'],['avc1.4d0034','avc'],['avc1.42003e','avc'],['vp09.00.51.08','vp9']];
@@ -933,7 +944,7 @@ PRE-RECORDED</textarea>
   $('xmp4').addEventListener('click',function(){
     if(exporting) return;
     if(typeof VideoEncoder==='undefined'){ msg('This browser can’t encode video. Use Chrome, Edge or Safari 17+, or the command line export.'); return; }
-    if(!window.Mp4Muxer){ msg('The video tool didn’t load. Check your connection and reload.'); return; }
+    if(!window.Mp4Muxer){ msg('The video encoder didn’t load (it comes from cdn.jsdelivr.net). Check your connection and reload.'); return; }
     var fps=parseInt($('xfps').value,10), loops=parseInt($('loops').value,10);
     var w=fmt.W, h=fmt.H, L=F.loopFor(Pm)*loops, secs=L*60/(S.bpm*4), n=Math.round(secs*fps);
     var wasPlaying=S.playing; setPlaying(false);
@@ -966,7 +977,7 @@ PRE-RECORDED</textarea>
     }).then(function(res){
       var n2=fname('mp4'), blob=new Blob([res.buf],{type:'video/mp4'});
       msg('Encoded. Saving…');
-      return saveBlob(n2, blob).then(function(st){ msg(st==='saved'?n2+' saved: '+secs.toFixed(2)+' s, '+n+' frames, '+w+' × '+h+(res.codec==='vp9'?' (VP9: plays in browsers and VLC, not QuickTime)':' (H.264)')+'.':'Sent.'); }, saveErr);
+      return saveBlob(n2, blob).then(function(st){ msg(doneMsg(st,n2,': '+secs.toFixed(2)+' s, '+n+' frames, '+w+' × '+h+(res.codec==='vp9'?' (VP9: plays in browsers and VLC, not QuickTime)':' (H.264)')+'.')); }, saveErr);
     }).catch(function(e){
       if(e&&e.code==='cancelled') msg('Export cancelled.');
       else msg('Video export failed'+(e&&e.message?': '+e.message:'')+'. The command line export still works.');
