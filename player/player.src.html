@@ -24,7 +24,10 @@ body{font-family:var(--mono);font-size:14px;line-height:20px;
 .top p{margin:0;color:var(--mute)}
 .wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
 .stagebox{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:10px}
-.viewport{position:relative;width:100%;background:var(--raised);overflow:hidden}
+.viewport{position:relative;width:100%;min-height:320px;background:var(--raised);overflow:hidden}
+.stagemsg{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:24px;font-family:var(--sans);font-size:15px;line-height:22px;color:var(--paper);max-width:62ch}
+.stagemsg b{font-family:var(--mono);font-weight:700}
+.stagemsg code{font-family:var(--mono);color:var(--mute);font-size:13px;word-break:break-word}
 .stage{position:absolute;top:0;left:0;transform-origin:0 0}
 .stage canvas{position:absolute;inset:0;display:block}
 .box{position:absolute;background:#121212;color:#F2F1EC;white-space:pre;letter-spacing:0;font-family:var(--mono);overflow:hidden}
@@ -90,6 +93,7 @@ body.render .viewport{background:none}
 <div class="wrap">
   <section class="stagebox" aria-label="Preview">
     <div class="viewport" id="viewport">
+      <div class="stagemsg" id="stagemsg"><b>The field isn’t running.</b><span>The player needs JavaScript, and this view isn’t running it. File previews (the Claude app’s attachment preview, Finder’s Quick Look) show the layout only. Open the player from its artifact link in claude.ai, or open alg0_player.html in Chrome or Safari.</span><code id="stageerr"></code></div>
       <div class="stage" id="stage">
         <canvas id="cv" aria-label="Animated pattern field"></canvas>
         <div id="overlay"></div>
@@ -243,8 +247,16 @@ PRE-RECORDED</textarea>
   </aside>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/mp4-muxer@5.2.2/build/mp4-muxer.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+<script>
+// First script on the page: if anything below fails, say so on the stage instead of sitting blank.
+window.addEventListener('error', function(e){
+  var el=document.getElementById('stageerr'), box=document.getElementById('stagemsg');
+  if(!el||!box) return;
+  box.hidden=false; box.firstElementChild.textContent='The player stopped with an error.';
+  box.children[1].textContent='Copy the line below and send it to Claude.';
+  el.textContent=(e.message||'error')+(e.lineno?' (line '+e.lineno+')':'');
+});
+</script>
 <script>
 __ALG0JS__
 </script>
@@ -375,6 +387,7 @@ __ALG0JS__
   }
   function fit(){
     if(!fmt) return;
+    if(!S.renderMode && viewport.clientWidth===0){ requestAnimationFrame(fit); return; }
     if(S.renderMode){ stage.style.transform='none'; stage.style.left='0'; viewport.style.height=fmt.H+'px'; return; }
     var w=viewport.clientWidth, maxH=Math.max(320, window.innerHeight*0.78);
     var k=Math.min(w/fmt.W, maxH/fmt.H);
@@ -384,6 +397,7 @@ __ALG0JS__
   }
   function paint(){
     if(!F) return;
+    if(!paint.shown){ paint.shown=true; $('stagemsg').hidden=true; }
     var st = S.still ? null : (S.playing||S.renderMode) ? S.step : (S.step===0 ? null : S.step);
     var info=F.frame(ctx, st, Pm);
     var pos = info.pos==null ? 0 : info.pos;
@@ -580,16 +594,32 @@ __ALG0JS__
     var r=snapshotCanvas();
     r.oc.toBlob(function(b){ var n=fname('png'); saveBlob(n,b).then(function(st){ msg(doneMsg(st,n,' ('+r.oc.width+' × '+r.oc.height+').')); }, saveErr); },'image/png');
   });
+  var LIBS={ pdf:{url:'https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js', ok:function(){return !!window.jspdf}},
+              mp4:{url:'https://cdn.jsdelivr.net/npm/mp4-muxer@5.2.2/build/mp4-muxer.js', ok:function(){return !!window.Mp4Muxer}} };
+  function lib(name){
+    var L=LIBS[name]; if(L.ok()) return Promise.resolve();
+    if(L.p) return L.p;
+    L.p=new Promise(function(res,rej){
+      var sc=document.createElement('script'); sc.src=L.url; sc.async=true;
+      var t=setTimeout(function(){ rej(); }, 15000);
+      sc.onload=function(){ clearTimeout(t); L.ok()?res():rej(); }; sc.onerror=function(){ clearTimeout(t); rej(); };
+      document.head.appendChild(sc);
+    }).catch(function(){ L.p=null; throw {code:'lib'}; });
+    return L.p;
+  }
   $('xpdf').addEventListener('click',function(){
     if(exporting) return;
-    if(!window.jspdf){ msg('The PDF tool didn’t load (it comes from cdn.jsdelivr.net). Check your connection and reload, or export a PNG.'); return; }
+    msg('Loading the PDF tool…');
+    lib('pdf').then(makePdf, function(){ msg('The PDF tool didn’t load (it comes from cdn.jsdelivr.net). Check your connection and try again, or export a PNG.'); });
+  });
+  function makePdf(){
     var r=snapshotCanvas(), wpt=r.oc.width/300*72, hpt=r.oc.height/300*72;
     var doc=new window.jspdf.jsPDF({orientation: wpt>hpt?'landscape':'portrait', unit:'pt', format:[wpt,hpt], compress:true});
     doc.setProperties({title:'ALG0RIDDIMS '+String(S.seed).padStart(6,'0')+' '+S.fmt, creator:'ALG0RIDDIMS field player'});
     doc.addImage(r.oc,'PNG',0,0,wpt,hpt,undefined,'FAST');
     var n=fname('pdf');
     saveBlob(n, doc.output('blob')).then(function(st){ msg(doneMsg(st,n,': '+Math.round(wpt/72*25.4)+' × '+Math.round(hpt/72*25.4)+' mm at 300 ppi.')); }, saveErr);
-  });
+  }
   function pickCodec(w,h,fps){
     var cands=[['avc1.640034','avc'],['avc1.4d0034','avc'],['avc1.42003e','avc'],['vp09.00.51.08','vp9']];
     var i=0;
@@ -605,7 +635,11 @@ __ALG0JS__
   $('xmp4').addEventListener('click',function(){
     if(exporting) return;
     if(typeof VideoEncoder==='undefined'){ msg('This browser can’t encode video. Use Chrome, Edge or Safari 17+, or the command line export.'); return; }
-    if(!window.Mp4Muxer){ msg('The video encoder didn’t load (it comes from cdn.jsdelivr.net). Check your connection and reload.'); return; }
+    if(!window.Mp4Muxer){
+      msg('Loading the video encoder…');
+      lib('mp4').then(function(){ $('xmp4').click(); }, function(){ msg('The video encoder didn’t load (it comes from cdn.jsdelivr.net). Check your connection and try again.'); });
+      return;
+    }
     var fps=parseInt($('xfps').value,10), loops=parseInt($('loops').value,10);
     var w=fmt.W, h=fmt.H, L=F.loopFor(Pm)*loops, secs=L*60/(S.bpm*4), n=Math.round(secs*fps);
     var wasPlaying=S.playing; setPlaying(false);
