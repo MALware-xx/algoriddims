@@ -226,5 +226,25 @@
   {
     "path": "/tools/72-hour-water-calculator.html",
     "type": "text/html"
+  },
+  {
+    "path": "/journal/boil-water-do-not-drink-do-not-use/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/weather-warning-colour-impact-likelihood/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/priority-services-register-confirm-support/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/flat-building-specific-fire-plan/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/period-products-disruption-household-plan/",
+    "type": "text/html"
   }
 ]

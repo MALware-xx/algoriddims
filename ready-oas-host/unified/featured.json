@@ -1,23 +1,23 @@
 [
   {
-    "id": "02_home",
-    "slug": "new-home-make-a-systems-map",
-    "alt": "An open under-sink cupboard with an illustrative brass stop tap and a blank note card on the worktop.",
-    "title": "New home? Make a systems map before you need one",
-    "description": "A practical walkthrough for locating water controls, household equipment and useful contacts without turning moving day into a technical survey."
+    "id": "05_period_products",
+    "slug": "period-products-disruption-household-plan",
+    "title": "Period products belong in the plan: preference, washing and disposal",
+    "description": "Use the supplied reminder as a starting point for a private, product-specific supply plan that people will actually be comfortable using.",
+    "alt": "READY poster saying Remember period products, beside a bathroom cupboard with plain packs, folded underwear and a lidded bin. Ask preferences, keep suitable spares, and plan washing and disposal."
   },
   {
-    "id": "01_power",
-    "slug": "gas-heating-electric-controls-home-power-check",
-    "alt": "Torch, phone and mug on a kitchen table, with a boiler and router in the background.",
-    "title": "Gas heating, electric controls: check what your home actually needs",
-    "description": "Map the hidden power dependencies behind heating, internet and everyday routines, then make a practical household fallback plan."
+    "id": "01_water_notices",
+    "slug": "boil-water-do-not-drink-do-not-use",
+    "title": "Boil water, do not drink, do not use: read the instruction before choosing a response",
+    "description": "Three water notices require different decisions. Make a short record of the actual instruction, affected uses and next update.",
+    "alt": "READY poster beside a kitchen tap, unplugged kettle and water bottle. Text distinguishes boil water, do not drink and do not use, and says to follow supplier advice."
   },
   {
-    "id": "03_water",
-    "slug": "three-day-drinking-water-plan-storage-gap",
-    "alt": "Three sealed plain drinking-water bottles on a low kitchen shelf, with a glass on the worktop.",
-    "title": "Your three-day drinking-water number is only the first decision",
-    "description": "Calculate a drinking-water baseline, count what you already have and make a workable storage plan for your own household."
+    "id": "02_weather_warnings",
+    "slug": "weather-warning-colour-impact-likelihood",
+    "title": "A yellow weather warning is a starting point, not your finished decision",
+    "description": "Read the place, timing, impacts and likelihood, then record the decision that applies to your own plans.",
+    "alt": "READY poster saying yellow is only the start of the information, beside a map, phone and notebook by a rainy window. Read the place, time, impacts and likelihood."
   }
 ]

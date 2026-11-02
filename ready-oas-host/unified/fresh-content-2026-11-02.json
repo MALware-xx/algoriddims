@@ -1,0 +1,228 @@
+[
+  {
+    "id": "01_water_notices",
+    "slug": "boil-water-do-not-drink-do-not-use",
+    "title": "Boil water, do not drink, do not use: read the instruction before choosing a response",
+    "description": "Three water notices require different decisions. Make a short record of the actual instruction, affected uses and next update.",
+    "query": "difference between boil water do not drink do not use notice UK",
+    "audience": "General UK households; useful to readers who assume every water problem can be solved with a kettle.",
+    "community": "r/Preparedness — candidate only; check current rules and whether branded image discussions are permitted. Do not duplicate in UKPreppers.",
+    "novelty": "Explains notice wording and creates an instruction record. Earlier water content calculated drinking-water quantities and discussed storage space.",
+    "asset": "01_water_notices.png",
+    "alt": "READY poster beside a kitchen tap, unplugged kettle and water bottle. Text distinguishes boil water, do not drink and do not use, and says to follow supplier advice.",
+    "caption": "AI-generated editorial illustration. This is an explanation of notice wording, not a current water notice.",
+    "cta": "Plan a drinking-water reserve",
+    "cta_url": "https://ready-resilience-store.vercel.app/tools/water-72h-calculator/",
+    "cta_note": "For advance reserve planning only. The calculator does not interpret a live notice or tell you which uses are safe.",
+    "sources": [
+      [
+        "Drinking Water Inspectorate: receiving a boil water notice",
+        "https://www.dwi.gov.uk/receiving-a-boil-water-notice/"
+      ],
+      [
+        "UKHSA: recovering from flooding, including water notices",
+        "https://www.gov.uk/government/publications/flooding-and-health-advice-for-frontline-responders/how-to-recover-from-flooding"
+      ]
+    ],
+    "reddit_title": "“Boil water” and “do not drink” are different instructions. What would your household actually write down?",
+    "reddit_body": "A useful water-planning distinction: “boil water”, “do not drink” and “do not use” are different notices. UKHSA lists all three. Boiling can deal with microbes, but it does not remove harmful chemicals. A kettle is not a universal workaround. [2]\n\nMy suggested one-minute record is:\n\n- The exact instruction, copied without shortening it.\n- The address or supply area it covers.\n- What the supplier says about drinking, food preparation and washing.\n- Where the next update will appear, and when you last checked it.\n\nKeep unanswered questions marked as questions. “I haven’t checked washing yet” is more useful than a confident guess someone else later treats as permission.\n\nFor a household discussion, try a paper exercise: one person reads the real supplier guidance; another explains what the household would do. If their answers differ, that is the gap to resolve with the supplier. This is planning ahead, not a substitute for instructions during an incident.\n\nHave you seen an actual notice that made these distinctions particularly clear? The wording or layout would be useful; no need to share your address.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The official advice linked here is free. The image is an AI-generated illustration, not an incident alert.",
+    "body": "A disruption to the water supply can create two separate questions: what water is available, and what the supplier says you may use it for. Counting bottles answers only the first. If someone in the household sees a notice, the next useful step is to preserve its instruction accurately.\n\n## Three headings, different decisions\n\nUKHSA distinguishes boil-water, do-not-drink and do-not-use notices. Boiling kills microbes but does not remove harmful chemicals. Do not replace one instruction with another because a kettle is available. [2]\n\nThe Drinking Water Inspectorate explains what a boil-water notice can involve, including drinking and food-related uses. Follow the actual notice from your supplier for the affected supply and permitted uses. Do not assume that an example from a previous incident applies to this one. [1]\n\n| Wording you encounter | Decision to preserve | Question to resolve from the notice |\n|---|---|---|\n| Boil water before specified uses | Keep the preparation instruction attached to the named uses | Exactly which uses and preparation steps does this notice cover? |\n| Do not drink | Do not turn a drinking restriction into a boiling instruction | What does the supplier say about cooking, brushing teeth and other uses? |\n| Do not use | Do not narrow the restriction to drinking | What alternative arrangements and updates does the supplier provide? |\n\nThis table is a reading aid. It does not authorise any use of affected water.\n\n## Make a record someone else can understand\n\nA useful note needs less interpretation and more context. Use the exact wording, the official source and a checked time. Keep the original message or a legible copy alongside your summary. A screenshot without its date or supply area can be easy to misread later.\n\nTry this blank record:\n\n- **Source and time checked:** ______\n- **Affected address or supply area:** ______\n- **Instruction, copied exactly:** ______\n- **Uses explicitly covered:** ______\n- **Questions still unanswered:** ______\n- **Alternative supply arrangements:** ______\n- **Next official update location:** ______\n\nAvoid filling an empty field with a guess. Write “not confirmed” and identify who will check it. That makes the next action visible and stops uncertainty being passed on as a settled household decision.\n\n## Test the handover, not the water\n\nFor an advance planning exercise, imagine that the person who normally handles household messages is unavailable. Could another adult find the supplier’s contact route and explain where they would look for a current notice?\n\nThen practise handing over a blank record: who checks the official update, who tells the other people at home, and how will you replace an outdated note? Do not manufacture an official-looking alert for the exercise. Label practice material clearly and keep it separate from current instructions.\n\nThe useful result is a short communication routine. One person should not have to translate half-remembered advice every time someone asks whether a particular use is covered.\n\n## Keep reserve planning separate\n\nYou can plan drinking-water reserves ahead of time without predicting the cause of a future disruption. Record the amount you intend to keep, where it fits and who reviews it. During a real notice, return to the supplier’s current instructions rather than treating a reserve calculation as a safety assessment.\n\nThe completed decision is simple: we know where to find the instruction, how to preserve it, and how to flag anything we have not confirmed.",
+    "worksheet": [
+      "Official source",
+      "Time checked",
+      "Affected supply area",
+      "Exact instruction",
+      "Explicitly covered uses",
+      "Unanswered questions",
+      "Alternative arrangements",
+      "Next update location"
+    ],
+    "status": "prepared_not_published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/boil-water-do-not-drink-do-not-use/",
+    "author": "READY/ Editorial"
+  },
+  {
+    "id": "02_weather_warnings",
+    "slug": "weather-warning-colour-impact-likelihood",
+    "title": "A yellow weather warning is a starting point, not your finished decision",
+    "description": "Read the place, timing, impacts and likelihood, then record the decision that applies to your own plans.",
+    "query": "what does yellow weather warning mean impact likelihood",
+    "audience": "Household organisers, commuters and small businesses making practical weather decisions.",
+    "community": "r/UKPreppers — one genuinely new candidate discussion, subject to current rules and account history. Do not repost the power-dependency question.",
+    "novelty": "Decodes the impact/likelihood relationship and turns a warning into a timed decision record. No earlier reviewed post explained warning interpretation.",
+    "asset": "02_weather_warnings.png",
+    "alt": "READY poster saying yellow is only the start of the information, beside a map, phone and notebook by a rainy window. Read the place, time, impacts and likelihood.",
+    "caption": "AI-generated editorial illustration. No current warning, real forecast map or incident is depicted.",
+    "cta": "Explore READY/ weather planning",
+    "cta_url": "https://ready-resilience-store.vercel.app/topics/weather-winter.html",
+    "cta_note": "The topic page contains starting actions and an optional paid plan. Read the current Met Office warning first; READY/ is not a live alert service.",
+    "sources": [
+      [
+        "Met Office: weather warnings guide",
+        "https://weather.metoffice.gov.uk/guides/warnings"
+      ]
+    ],
+    "reddit_title": "A yellow warning can mean different combinations of impact and likelihood. What makes you change a plan?",
+    "reddit_body": "One detail worth reading beyond the coloured badge: Met Office warning colours combine the likelihood of impacts with their severity. Yellow can cover different combinations, including less likely but more significant impacts. The warning detail is where the useful distinction sits. [1]\n\nRather than “yellow means carry on”, I’d write four lines:\n\n1. Does the warning cover the place and time of this activity?\n2. Which described impact would actually affect it?\n3. What official advice or operator update do we need to check?\n4. Who makes the decision, and when will they check again?\n\nFor an outdoor event, the answer might involve the organiser or venue. For a journey, it might involve the transport operator. Those are different decisions even when the warning colour is the same.\n\nThe useful household output is a named person and a review time, rather than a screenshot sitting unread in a group chat. This is a planning method, not a colour-based rule for whether an activity is safe.\n\nWhat information in a warning has actually changed your plans: the timing, the expected impact, the location, or an operator’s advice?\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The Met Office guide is free. The image is an AI-generated illustration, not today’s forecast.",
+    "body": "A colour is quick to recognise. It is less useful on its own when you have to decide whether to travel, change a delivery or contact the organiser of an outdoor event. The planning task is to connect the warning’s detail to an actual commitment.\n\n## Read what the colour is summarising\n\nThe Met Office combines impact and likelihood when setting a warning colour. A yellow warning can describe different combinations, including lower likelihood of more significant impacts. Its guide explains the warning’s area, timing, expected effects and supporting detail. [1]\n\nThat is the factual starting point. The decision sheet below is a READY/ planning suggestion, not a Met Office instruction or a rule that any particular activity should proceed.\n\n## Give the warning a job\n\nStart with one decision you genuinely need to make. “Be prepared for weather” is too broad to hand over. “Check whether tomorrow’s delivery arrangements need changing” gives someone a task and a deadline.\n\nUse a short record:\n\n| Field | What to write |\n|---|---|\n| Activity and location | The actual journey, visit, delivery or event |\n| Official information checked | Warning source and the time you read it |\n| Relevant detail | The stated area, time window and impact affecting this activity |\n| Other decision-maker | The operator, organiser or service that controls part of the plan |\n| Our next action | One task, with a named person |\n| Review time | When to check for an update before committing |\n\nKeep the source wording available alongside your notes. A household summary should make the detail easier to use, rather than replace it with a new unofficial forecast.\n\n## A worked planning example\n\n**Illustrative exercise only: this is not a current warning or forecast.**\n\nImagine you are helping organise an outdoor community event. One volunteer shares a warning screenshot. Another says the colour looks familiar, so the event should be fine. Neither message settles the event’s arrangements.\n\nA more useful note would say: “Alex will read the current official warning for the venue and event hours, ask the organiser what decision process applies, and report back before equipment is loaded. The organiser’s update will be kept with the event notes.”\n\nThis example does not invent a wind threshold or tell the organiser when to cancel. It identifies the missing information and assigns responsibility. That is a decision you can prepare without pretending to be a forecaster.\n\n## Leave room for an update\n\nAn early plan can become stale. Put the checked time next to the conclusion and name the point when you will review it. If the plan changes, replace the old message clearly rather than adding another unexplained screenshot to a long conversation.\n\nFor a household, one person might keep the current note and tell everyone what has changed. For a small business, the person contacting customers may need the same decision that the person handling bookings is using. Agreeing that handover in advance reduces conflicting messages.\n\n## Make completion visible\n\nYou have finished this small task when someone can answer: what activity are we deciding about, which current information matters, who owns the next action, and when will it be reviewed?\n\nKeep the record short enough to use. A warning colour can get your attention; a clear action and review time turn that attention into something practical.",
+    "worksheet": [
+      "Activity",
+      "Location",
+      "Official source",
+      "Checked time",
+      "Relevant warning detail",
+      "Operator or organiser",
+      "Next action",
+      "Person responsible",
+      "Review time"
+    ],
+    "status": "prepared_not_published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/weather-warning-colour-impact-likelihood/",
+    "author": "READY/ Editorial"
+  },
+  {
+    "id": "03_priority_support",
+    "slug": "priority-services-register-confirm-support",
+    "title": "On a Priority Services Register? Confirm the support, contacts and follow-up",
+    "description": "Turn “we are registered” into a clear record of which organisations hold your details and what help has actually been discussed.",
+    "query": "priority services register energy water confirm support",
+    "audience": "Households supporting someone with additional communication or practical needs, including temporary needs.",
+    "community": "r/Preparedness — alternative slot to the water post, not a same-day batch. Candidate only; check local relevance and rules.",
+    "novelty": "Focuses on separate provider records, consent and confirmed arrangements. Earlier power posts only listed household dependencies.",
+    "asset": "03_priority_support.png",
+    "alt": "READY poster saying Registered? Check what happens next, beside hands holding a phone and writing in a notebook. Confirm energy and water records, support and contact details.",
+    "caption": "AI-generated editorial illustration. No real customer account, personal record or promised support is depicted.",
+    "cta": "Read Ofgem’s free registration guide",
+    "cta_url": "https://www.ofgem.gov.uk/your-energy-supply/how-manage-your-energy-supply/join-your-suppliers-priority-services-register",
+    "cta_note": "Provider registration and official guidance are free. You do not need a READY/ purchase to use them.",
+    "sources": [
+      [
+        "Ofgem: joining a Priority Services Register (Great Britain)",
+        "https://www.ofgem.gov.uk/your-energy-supply/how-manage-your-energy-supply/join-your-suppliers-priority-services-register"
+      ],
+      [
+        "Ofwat: customer assistance (England and Wales)",
+        "https://www.ofwat.gov.uk/households/customer-assistance/"
+      ],
+      [
+        "UK Power Networks: about its register and consent-based sharing",
+        "https://www.ukpowernetworks.co.uk/power-cut/priority-services/about-the-priority-services-register"
+      ],
+      [
+        "Consumer Council: electricity and gas protection in Northern Ireland",
+        "https://www.consumercouncil.org.uk/consumers/help-consumers/electricity-oil-and-gas/electricity-and-gas-consumer-protection"
+      ]
+    ],
+    "reddit_title": "“We’re on the Priority Services Register” — which provider, and what support has been confirmed?",
+    "reddit_body": "A useful follow-up to registering for extra utility support is checking what the registration actually covers.\n\nOfgem explains that energy suppliers and network operators keep registers. Ofwat separately describes water-company support in England and Wales. UK Power Networks offers sharing with other utilities through consent, but that is not a reason to leave another provider’s record unconfirmed. [1–3]\n\nA simple private log could contain:\n\n- Organisation contacted and date.\n- Contact method or communication format requested.\n- Support the provider has actually described.\n- Any sharing permission given, and what still needs checking.\n- The next action that is still ours to arrange.\n\nFor example, “form submitted; awaiting confirmation” is a different status from “provider confirmed our record and explained the contact process”. Keep that distinction visible.\n\nNames and arrangements differ in Northern Ireland; use the relevant provider guidance there rather than assuming the GB route applies. [4]\n\nIf you have used a register, which question helped make the support clearer? Please keep replies about the process, without posting someone’s health details or account information.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. Registration and the linked official guidance are free. The image is an AI-generated illustration.",
+    "body": "“We are registered” is a useful beginning. A household plan becomes clearer when it also says which organisation confirmed the record, how contact will work, and which arrangements remain unfinished. These are practical questions you can ask without building a complicated file of personal information.\n\n## Check which organisation holds the record\n\nOfgem explains Priority Services Registers for energy customers in Great Britain. Suppliers and network operators keep their own records. Support can include accessible communications, nominated contacts and advance notice of planned interruptions where possible. Contact a new supplier about registration after switching. [1]\n\nWater support is separate: Ofwat describes free extra assistance through water companies in England and Wales. [2] UK Power Networks offers consent-based sharing with other utilities; confirm what happened rather than assuming every organisation now has a current record. [3]\n\nNorthern Ireland has different provider arrangements, including services described by the Consumer Council. Check the relevant local provider route. [4]\n\n## Ask for a description you can use\n\nA general list of possible services does not tell you which arrangements have been discussed for your household. Ask the provider to explain the help relevant to the needs you describe, how contact will happen, and what you should do if those needs change.\n\nYou could use this call opening:\n\n“I would like to confirm that our record is current. Can you explain the contact arrangements and support relevant to us, whether any details have been shared with another provider with permission, and anything we still need to arrange ourselves?”\n\nKeep the conversation with the person concerned, or involve them in deciding who should make it. A public checklist does not need a detailed description of someone’s condition.\n\n## Keep a confirmation log\n\n| Field | Useful entry |\n|---|---|\n| Organisation | The supplier, network or water company actually contacted |\n| Status | Submitted / awaiting reply / confirmed / follow-up needed |\n| Checked date | When the conversation or confirmation happened |\n| Communication | The agreed contact route or accessible format |\n| Support discussed | What the provider actually explained |\n| Sharing | Permission given and any confirmation still needed |\n| Next action | A named person and a follow-up date |\n\nUse your own short wording, then keep any provider confirmation with it. Store account identifiers and sensitive details privately rather than putting them into a shared household notice or a public discussion.\n\n## Distinguish a request from a completed arrangement\n\nAn illustrative entry might read: “Water-company form submitted on Monday; confirmation not yet received; Sam to follow up using the provider’s contact route.” Another might read: “Network record confirmed; contact format agreed; household contact details to be checked after the move.”\n\nThese are example record entries, not descriptions of a particular company’s service. Their value is the status: someone else can see what is finished and what still needs attention.\n\nIf a provider has not described a particular fallback, leave it unresolved in the log and ask. Do not turn a general registration confirmation into a promise about a particular piece of equipment, delivery or restoration time.\n\n## Review after a change\n\nAttach this small check to a real event: moving home, changing supplier, changing contact details or a change in the support needed. Keep the useful output concise: who holds the record, how contact works, what has been confirmed and who owns the remaining task.",
+    "worksheet": [
+      "Organisation",
+      "Status",
+      "Checked date",
+      "Communication arrangement",
+      "Support discussed",
+      "Sharing permission and confirmation",
+      "Next action",
+      "Person responsible",
+      "Follow-up date"
+    ],
+    "status": "prepared_not_published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/priority-services-register-confirm-support/",
+    "author": "READY/ Editorial"
+  },
+  {
+    "id": "04_flat_fire_plan",
+    "slug": "flat-building-specific-fire-plan",
+    "title": "Live in a flat? Get the fire plan for your building, not a generic checklist",
+    "description": "Ask for the current building-specific instructions and turn the answer into a clear, accessible household record.",
+    "query": "how to find evacuation fire plan for my block of flats",
+    "audience": "Renters, new flat owners and people helping someone understand their building’s arrangements.",
+    "community": "r/HousingUK — candidate for a practical housing discussion only where project-linked posts and images are allowed. Otherwise use the READY profile; do not imply moderator permission.",
+    "novelty": "Moves from locating household systems to obtaining a current building-specific fire plan. No generic stay-put or evacuate rule is invented.",
+    "asset": "04_flat_fire_plan.png",
+    "alt": "READY poster saying Know your building’s fire plan, beside an illustrative clear corridor and closed fire door. Ask the landlord or managing agent for current instructions.",
+    "caption": "AI-generated illustrative corridor. It does not identify a real building, certify a fire door or show which evacuation policy applies.",
+    "cta": "Read London Fire Brigade’s flats guidance",
+    "cta_url": "https://www.london-fire.gov.uk/safety/the-home/escape-plan/escape-plan-blocks-of-flats/",
+    "cta_note": "Use this to prepare questions for your landlord or managing agent. Obtain the current instructions for your own building.",
+    "sources": [
+      [
+        "London Fire Brigade: escape plans for blocks of flats",
+        "https://www.london-fire.gov.uk/safety/the-home/escape-plan/escape-plan-blocks-of-flats/"
+      ],
+      [
+        "GOV.UK Be Ready: fires in the home",
+        "https://beready.campaign.gov.uk/be-informed-about-hazards/fires-in-the-home/"
+      ]
+    ],
+    "reddit_title": "When moving into a flat, did anyone actually give you the building’s current fire instructions?",
+    "reddit_body": "One document I’d add to a flat’s handover: the current fire and evacuation instructions for that specific building.\n\nLondon Fire Brigade says your landlord, housing provider or managing agent should tell you the building’s arrangements. Different blocks can have different plans. A generic household checklist cannot establish whether your block uses stay put or an evacuation arrangement. [1]\n\nA useful request is:\n\n“Please send the current fire and evacuation instructions for our building, confirm when they were last updated, and explain how residents receive changes. Who should we contact privately if someone may need help following the plan?”\n\nThen record where the answer is kept, who supplied it and what remains unclear. If a notice and an emailed document appear to disagree, ask the provider to resolve that instead of choosing whichever sounds familiar.\n\nThis is an advance paperwork check, not an instruction for dealing with a live fire. In an emergency, call 999 and follow emergency-service instructions.\n\nFor people who have moved into flats: what made the instructions understandable, and was there a clear way to ask follow-up questions? No need to post your address or identify vulnerable neighbours.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The fire-service guidance is free. The image is an AI-generated illustration, not an assessment of a building.",
+    "body": "Moving into a flat creates a long list of practical jobs. Finding the current building fire instructions belongs on that list. A familiar-looking corridor, a neighbour’s recollection or a checklist from your previous home is not a reliable substitute for the information that applies to this building.\n\n## Start with the building’s arrangements\n\nLondon Fire Brigade says residents should receive fire-safety arrangements from their landlord, housing provider or managing agent. Blocks may use different evacuation plans. Ask which current instructions apply to your flat rather than inferring a plan from the building’s height or appearance. [1]\n\nThis article is an advance information check. It is not an incident decision tree. During a fire, call 999 and follow emergency-service instructions. [2]\n\n## Ask for a usable answer\n\nYou can adapt this request:\n\n“Please send the current fire and evacuation instructions for our building and confirm the date or version. Please explain how residents are told about changes, where the current information is available, and who can answer questions. Who should we contact privately if someone may need help following the arrangements?”\n\nKeep the request specific. You are asking for the actual building information, its currency and a contact route. You are not asking a generic internet discussion to decide the building’s policy.\n\nIf the response uses terms you do not understand, ask for an explanation in a format you can use. Include the person concerned when discussing accessibility or assistance. Avoid circulating private details about residents in a building group chat.\n\n## Make a short document record\n\n| Record | What belongs here |\n|---|---|\n| Document and version | The title and date or version supplied |\n| Applies to | The building or part of the building the provider identifies |\n| Supplied by | The landlord, housing provider or managing agent |\n| Household copy | Where residents in your home can find it |\n| Questions | Anything unclear or apparently inconsistent |\n| Follow-up | Contact, owner and date for resolving the question |\n\nCopy the title accurately. Keep the supplied instructions intact alongside your record. The short record should help people find and understand the document, rather than rewrite it into a new unofficial procedure.\n\n## Resolve conflicting information\n\nImagine a new resident receives an email while an older notice remains on display. The useful next step is to ask the provider which instructions are current and how the discrepancy will be addressed. Record the reply and update the household copy. Do not silently combine the two documents.\n\nThat example is a paperwork exercise, not a statement that your building has conflicting instructions. It shows why a version, a source and a named follow-up matter.\n\n## Check the handover at home\n\nAsk another adult in the household to locate the current copy and identify where unanswered questions should go. If the document cannot be found or explained, the handover is unfinished. You can resolve that before it becomes an urgent problem.\n\nLondon Fire Brigade also advises keeping shared escape routes clear and not wedging fire doors open. [1] Do not test a plan by triggering alarms, obstructing routes or interfering with safety equipment.\n\nThe completed planning task is modest: you have the current building-specific information, people at home can find it, and any question has a route to the responsible provider.",
+    "worksheet": [
+      "Document title",
+      "Date or version",
+      "Building or area covered",
+      "Supplied by",
+      "Household copy location",
+      "Unclear or conflicting information",
+      "Follow-up contact",
+      "Person responsible",
+      "Review date"
+    ],
+    "status": "prepared_not_published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/flat-building-specific-fire-plan/",
+    "author": "READY/ Editorial"
+  },
+  {
+    "id": "05_period_products",
+    "slug": "period-products-disruption-household-plan",
+    "title": "Period products belong in the plan: preference, washing and disposal",
+    "description": "Use the supplied reminder as a starting point for a private, product-specific supply plan that people will actually be comfortable using.",
+    "query": "period products emergency household supplies reusable washing disposal",
+    "audience": "Mainstream households and family organisers, including people sharing supplies or helping with shopping.",
+    "community": "r/TinyPrepping — candidate only, with a materially different hygiene topic from the earlier removed food post. Check rules and removal reason before considering it; use READY profile if permission is uncertain.",
+    "novelty": "Explicitly requested follow-up to supplied period-products image. Adds consent, preference, reusable washing/drying dependencies, disposal and restocking; makes no invented parental claim.",
+    "asset": "05_period_products.png",
+    "alt": "READY poster saying Remember period products, beside a bathroom cupboard with plain packs, folded underwear and a lidded bin. Ask preferences, keep suitable spares, and plan washing and disposal.",
+    "caption": "AI-generated editorial illustration, redesigned from the supplied period-products reminder to match this READY/ series.",
+    "cta": "Explore READY/ family planning",
+    "cta_url": "https://ready-resilience-store.vercel.app/topics/family.html",
+    "cta_note": "The family topic page offers starting actions and an optional paid plan. The preference-and-supply record in this article is free to use.",
+    "sources": [
+      [
+        "NHS: periods and period products",
+        "https://www.nhs.uk/conditions/periods/"
+      ],
+      [
+        "NHS: starting periods and choosing products",
+        "https://www.nhs.uk/conditions/periods/starting-periods/"
+      ],
+      [
+        "Thames Water: bin it, do not block it",
+        "https://www.thameswater.co.uk/help/water-and-waste-help/blockages/bin-it"
+      ]
+    ],
+    "reddit_title": "Period supplies: the missing detail may be washing and disposal, not just spare packs",
+    "reddit_body": "The attached reminder makes a useful point: period products are ordinary household essentials. I’d add three decisions before anyone buys a generic “emergency hygiene” bundle.\n\n**Preference:** ask privately what the person actually uses, including the type and fit they want. “What would you like us to keep, and where?” is a better opening than choosing for them.\n\n**Washing:** reusable pads, underwear and cups have their own care instructions. Plan around the water, cleaning and drying those instructions require. If normal arrangements were interrupted, what backup would the person prefer? NHS guidance describes several product options; there is no single product everyone needs to switch to. [1–2]\n\n**Disposal:** keep a suitable bin and bags in the plan. Period products should go in the bin, not the toilet. [3]\n\nKeep a modest reserve agreed with the person who will use it. If someone borrows from it, make replacing it part of the task. No one needs to extend a product’s normal use instructions to make a reserve last longer.\n\nWhat practical detail is most often missed when households plan this: preferred products, privacy, washing, or replacement? Please keep replies general; nobody needs to disclose their own cycle or someone else’s needs.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The image is an AI-generated editorial illustration based on the supplied reminder; the linked NHS advice is free.",
+    "body": "The READY/ image says “Remember period products.” That is a useful reminder because a household plan should include the things people ordinarily need, not only equipment associated with emergencies. The next step is to make the reminder specific enough for the person who will use the supplies.\n\n## Ask before you choose\n\nNHS guidance describes pads, tampons, cups and period underwear, with different options and preferences. Product choice is personal. [1–2] A reserve that looks complete to the shopper may still contain the wrong type or an option the person does not want to use.\n\nStart privately: “What would you like us to keep, and where?” Ask how they would prefer the item to be described on a shopping list. You do not need a record of their cycle or a detailed explanation of why they choose a product.\n\nIf someone would rather manage their own supplies, agree how that fits into the household budget and restocking routine. The aim is a dependable arrangement, not an inspection of another person’s belongings.\n\n## Check the washing dependency\n\nReusable products can be part of an ordinary routine. NHS information describes washable products and reusable cups. [1] For planning, read the manufacturer’s care instructions for the actual product: what water, washing, cleaning and drying arrangements does it need?\n\nThen ask the person what they would prefer if those usual arrangements were interrupted. They might choose a familiar alternative or adjust the amount they keep available. Do not treat a disruption as the moment to require a switch to an unfamiliar product.\n\nKeep normal product instructions in place. A household reserve should not depend on stretching how long something is worn or used.\n\n## Include disposal and privacy\n\nThames Water advises putting period products in a bin rather than flushing them. [3] Include a suitable bin and bags where the supplies will actually be used, with a private way to manage the household routine.\n\nConsider whether a guest could find what they need without making an uncomfortable public request. That can be as simple as agreeing a discreet storage place and telling the relevant person where it is. It does not require labelling private information on a shared noticeboard.\n\n## Make the plan small and specific\n\n| Decision | What to agree |\n|---|---|\n| Preferred product | The description the person wants used for shopping |\n| Reserve | A modest amount that fits their needs, space and budget |\n| Storage | A place they can access comfortably |\n| Reusable care | Requirements from the actual product’s instructions |\n| Backup preference | What they want if usual washing or drying is unavailable |\n| Disposal | Bin, bags and the normal household arrangement |\n| Replacement | Who replaces borrowed or used reserve items |\n\nThere is no universal pack count in this table. Agree a reserve that suits the person and the products they use, rather than treating a pack count as universal.\n\n## Close the restocking loop\n\nAn illustrative agreement could be: “Keep the preferred products in the usual bathroom cupboard. Add replacements to the normal shopping list when the reserve is used. Ask before substituting a different type.”\n\nThat short agreement carries more useful information than a tick beside “hygiene”. It respects preference, makes the supply usable, and gives the household a clear way to keep it current.",
+    "worksheet": [
+      "Preferred shopping description",
+      "Agreed reserve",
+      "Accessible private storage",
+      "Product care instructions location",
+      "Washing and drying requirements",
+      "Preferred backup",
+      "Disposal arrangement",
+      "Replacement responsibility"
+    ],
+    "status": "prepared_not_published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/period-products-disruption-household-plan/",
+    "author": "READY/ Editorial"
+  }
+]
