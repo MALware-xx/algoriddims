@@ -1,0 +1,62 @@
+{
+  "published_at": "2026-11-02",
+  "website": {
+    "origin": "https://ready-resilience-store.vercel.app",
+    "journal": "https://ready-resilience-store.vercel.app/journal/",
+    "content_commit": "3a51de359c28a19d2fad3714b0464b25a8d8b959",
+    "routing_version": "e26acd82-8ef8-4aa0-b8cb-43fc6d821d8d",
+    "validation": "12 production checks returned HTTP 200 and exact expected byte matches: journal, sitemap, five articles and five images. Browser confirms 16 journal cards, five new images loaded, no horizontal overflow. Homepage and unrelated route objects preserved."
+  },
+  "reddit": {
+    "target": "u/READYPlanUK",
+    "scheduled_local": "2026-11-03T08:00:00",
+    "timezone": "Europe/London",
+    "utc_offset": "+00:00",
+    "method": "Reddit native profile scheduling",
+    "status": "All five native Schedule submissions completed and each returned to the profile without an observed error.",
+    "evidence": "For each post the rich-text image attachment and caption were observed. Schedule settings saved as 3 November 2026 08:00 Greenwich Mean Time, non-repeating. Composer displayed Posting Tue, Nov 3, 8:00 AM. Schedule was clicked, and profile navigation awaited. These posts are scheduled, not yet published; public permalinks are not available in this receipt.",
+    "posts": [
+      {
+        "id": "01_carbon_monoxide",
+        "title": "The camping stove in the cupboard is not automatically a safe power-cut cooking plan",
+        "article_url": "https://ready-resilience-store.vercel.app/journal/backup-cooking-generator-carbon-monoxide/",
+        "image_url": "https://ready-resilience-store.vercel.app/journal-assets/batch-02/01_carbon_monoxide.jpg",
+        "caption": "AI-generated editorial illustration of unlit equipment. It is not an operating demonstration or a guide to appliance positioning."
+      },
+      {
+        "id": "02_pet_microchip",
+        "title": "A pet microchip is not GPS. Is the contact record still usable after a move?",
+        "article_url": "https://ready-resilience-store.vercel.app/journal/pet-microchip-database-contact-details/",
+        "image_url": "https://ready-resilience-store.vercel.app/journal-assets/batch-02/02_pet_microchip.jpg",
+        "caption": "AI-generated editorial illustration. The cat and documents do not represent a real owner’s microchip record."
+      },
+      {
+        "id": "03_prescriptions",
+        "title": "Repeat prescriptions in England: the ordering route matters as much as remembering the medicine",
+        "article_url": "https://ready-resilience-store.vercel.app/journal/repeat-prescription-supply-route-england/",
+        "image_url": "https://ready-resilience-store.vercel.app/journal-assets/batch-02/03_prescriptions.jpg",
+        "caption": "AI-generated editorial illustration with unlabelled cartons. It gives no medicine, dose or storage instruction."
+      },
+      {
+        "id": "04_invoice_fraud",
+        "title": "A familiar supplier email is not enough to verify new bank details",
+        "article_url": "https://ready-resilience-store.vercel.app/journal/supplier-bank-details-change-invoice-fraud/",
+        "image_url": "https://ready-resilience-store.vercel.app/journal-assets/batch-02/04_invoice_fraud.jpg",
+        "caption": "AI-generated editorial illustration. The person, invoice and verification notes are fictional; no real account details are shown."
+      },
+      {
+        "id": "05_emergency_alerts",
+        "title": "Mobile data off is not the same as a Wi-Fi-only device: a useful Emergency Alerts distinction",
+        "article_url": "https://ready-resilience-store.vercel.app/journal/emergency-alerts-device-compatibility-not-sms/",
+        "image_url": "https://ready-resilience-store.vercel.app/journal-assets/batch-02/05_emergency_alerts.jpg",
+        "caption": "AI-generated editorial illustration. No real alert, test notification or live incident is depicted."
+      }
+    ],
+    "verification_automation": {
+      "id": "6ae89930aa608191956015c642fe4af3",
+      "enabled": true,
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/London:20261103T080000\nEND:VEVENT",
+      "scope": "Check observed publication and images; do not republish or duplicate."
+    }
+  }
+}
