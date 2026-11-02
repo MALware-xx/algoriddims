@@ -1,0 +1,220 @@
+[
+  {
+    "id": "01_telecare",
+    "slug": "digital-landline-telecare-confirm-whole-connection",
+    "title": "Digital landlines and telecare: ask about the whole connection",
+    "description": "A working telephone does not establish that a care alarm will work after a line change or during a power cut. Ask both providers to confirm the arrangement.",
+    "query": "will my telecare alarm work with a digital landline in a power cut",
+    "audience": "People using telecare and relatives helping them manage a telephone service change.",
+    "novelty": "Moves beyond the existing general power-dependency and Priority Services Register articles: distinct responsibilities for the phone service, alarm compatibility and the alarm call path.",
+    "community": "READY profile first. A community draft for a UK household or carer discussion only where current rules permit disclosed project content and AI illustrations; no rules approval claimed.",
+    "alt": "Illustrative telecare base and pendant beside a corded telephone, with a separate router on a living-room shelf.",
+    "caption": "AI-generated editorial illustration. The equipment is illustrative; this is not a wiring diagram or a verified installation.",
+    "cta": "Map the equipment your household depends on",
+    "cta_url": "https://ready-resilience-store.vercel.app/tools/power-dependency-check/",
+    "cta_note": "The free check helps identify dependencies. It cannot confirm telecare compatibility or approve a backup arrangement.",
+    "sources": [
+      [
+        "Ofcom: your landline is going digital",
+        "https://www.ofcom.org.uk/phones-and-broadband/landline-phones/future-of-landline-calls"
+      ],
+      [
+        "DSIT: Telecare National Action Plan (England), power-cut resilience",
+        "https://www.gov.uk/government/publications/telecare-national-action-plan-protecting-telecare-users-throughout-the-digital-phone-switchover/telecare-national-action-plan-protecting-telecare-users-through-the-digital-phone-switchover"
+      ]
+    ],
+    "source_scope": "Ofcom consumer advice is UK-wide. The DSIT action plan applies to England. No migration date, universal battery runtime or guarantee for an individual device is inferred.",
+    "reddit_title": "A working digital landline does not settle whether a telecare alarm will work",
+    "reddit_body": "If someone uses a care alarm or pendant, it is worth separating two questions when their phone service changes: can the telephone make calls, and can the alarm reach its receiving service?\n\nOfcom says to tell both the landline provider and the device supplier before a digital changeover. The alarm may need different arrangements. [1]\n\nThere is also a power-cut distinction. England’s Telecare National Action Plan explains that backup provision aimed at access to 999 does not automatically ensure uninterrupted telecare calls. The alarm’s own battery and the equipment carrying its call both matter. [2]\n\nA useful message to the providers is:\n\n“Please confirm compatibility for this alarm and line, how the alarm call reaches the receiving service during a power cut, and what test you recommend. Who is arranging each action?”\n\nKeep their answers together. “Phone installed” and “alarm arrangement confirmed” should be separate entries. Arrange any testing with the telecare provider; do not disconnect care equipment or call 999 to experiment.\n\nFor people who have helped with this: which question got you a clear answer rather than being passed between providers? Please keep device account details and personal care information private.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The official advice is free. The image is an AI-generated illustration.",
+    "body": "If a household uses a care alarm or health pendant, a telephone changeover needs more than a successful ordinary phone call. Ask who has confirmed the alarm arrangement, including what happens if the mains power fails.\n\nThis is a task to complete with the people providing the services. A household checklist cannot certify that a particular alarm, connection and receiving centre will work together.\n\n## Two confirmations to keep separate\n\nOfcom advises people to tell both their landline provider and their device supplier before moving to a digital landline if they have telecare or another device using the phone line. Digital landlines also depend on mains power unless there is a backup arrangement. [1]\n\nThe Telecare National Action Plan for England explains a further distinction: provision for access to emergency organisations through 999 does not itself ensure uninterrupted telecare calls. An alarm can depend on its own battery and on other equipment carrying its signal. [2]\n\nThat means “the telephone works” leaves another question open. The useful evidence is a provider’s answer about the alarm service, rather than a household assumption based on the handset.\n\n## Send one clear request\n\nUse this as a starting point, adapting it privately to the person’s actual services:\n\n> Please confirm the alarm model and telephone service you have assessed. Will this alarm remain compatible after the change? How will an alarm call reach the receiving service during a power cut? What equipment and backup arrangements are involved, what limitations apply, and how should we arrange the recommended test? Please say who is responsible for each outstanding action.\n\nSend the relevant questions to both providers. With the service user’s agreement, keep replies in one place so they do not have to repeat the story to every person helping them.\n\n## Make the handover understandable\n\nThe following is a suggested record, not a technical specification:\n\n| Question | Record to keep |\n|---|---|\n| Who has answered? | Provider, date and reference |\n| What was assessed? | The actual alarm and service combination |\n| What remains to do? | Named organisation and next action |\n| What test is agreed? | Provider’s procedure and appointment |\n| What happens if it fails? | Provider’s contact and agreed arrangements |\n\nKeep personal identifiers in the private record. A general family note can simply say where that record is and who can help retrieve it.\n\n## Do not turn the check into an outage\n\nDo not unplug an alarm, router or other care equipment to run an improvised demonstration. Arrange testing with the telecare provider. Do not call 999 for a test.\n\nA useful completion note might read: “Alarm supplier reply received; telephone provider action still awaiting confirmation.” That is more precise than a tick beside “digital phone done”. It also gives the next person helping a clear task to follow up.\n\nReview the record when a provider, alarm or connection changes. The outcome you want is an arrangement the providers have explained and the user understands, with unresolved questions still visible.",
+    "worksheet": [
+      "Alarm/service assessed",
+      "Landline provider contact",
+      "Telecare provider contact",
+      "Power-cut call route confirmed by provider",
+      "Limits stated by provider",
+      "Provider-arranged test",
+      "Open action, owner and review date"
+    ],
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "author": "READY/ Editorial",
+    "proposed_path": "/journal/digital-landline-telecare-confirm-whole-connection/",
+    "asset": "01_telecare.png",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/digital-landline-telecare-confirm-whole-connection/"
+  },
+  {
+    "id": "02_food_dates",
+    "slug": "use-by-best-before-opened-food-label-check",
+    "title": "Food rotation: keep the date wording and the opening instructions",
+    "description": "“Expires Friday” loses useful information. Record whether the label says use-by or best before, and read what changes after opening.",
+    "query": "use by best before emergency food cupboard after opening",
+    "audience": "Households reducing food waste and keeping a small useful food reserve on a budget.",
+    "novelty": "The earlier food article built familiar no-cook meals. This one addresses date-label meaning and the loss of after-opening instructions when making an inventory.",
+    "community": "READY profile first; a food-waste or household-preparedness discussion where current rules allow it. No community permission or rule check claimed.",
+    "alt": "Hands examining an unbranded cereal carton beside dry pasta, a tin and a blank kitchen notebook.",
+    "caption": "AI-generated editorial illustration. Packaging has no usable date label; read the instructions on your actual food.",
+    "cta": "Build a no-cook cupboard from meals you already eat",
+    "cta_url": "https://ready-resilience-store.vercel.app/journal/no-cook-cupboard-meals-you-already-eat/",
+    "cta_note": "The existing free Field Note helps turn familiar cupboard food into a meal plan. Follow the actual food label and official safety advice.",
+    "sources": [
+      [
+        "GOV.UK / Food Standards Agency: best before and use-by dates",
+        "https://www.gov.uk/understanding-food-labelling/best-before-and-use-by-dates"
+      ],
+      [
+        "Food Standards Agency: home food fact checker (England, Northern Ireland and Wales)",
+        "https://www.gov.uk/government/publications/home-food-fact-checker/home-food-fact-checker"
+      ]
+    ],
+    "source_scope": "Date-label distinction and storage guidance, with FSA fact checker scope identified. No outage fridge timings, expiry extensions or food-specific diagnosis supplied.",
+    "reddit_title": "A food inventory that only says “expires Friday” has thrown away part of the label",
+    "reddit_body": "A small improvement to cupboard rotation: keep the words beside the date.\n\n“Use-by” concerns safety; “best before” concerns quality. Proper storage and after-opening instructions still matter. A date copied without those details can give the next person the wrong impression. [1]\n\nThe FSA also warns that smell is not a safety test for food with a use-by date. Milk can carry either type of date, so identifying the product category is not enough; read the actual carton. [2]\n\nFor a simple household list, try:\n\n- Product and exact date wording.\n- Storage instructions.\n- What the label says after opening.\n- Date opened, where useful for following those instructions.\n\nThis is not an exercise in making food last beyond safe limits. It helps someone use the correct information before buying more or throwing something away.\n\nTry it with one item already in your cupboard. Would another person understand the note without needing you to explain what “expiry” meant?\n\nWhat part of a food label do you find easiest to overlook when making a stock list?\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The food-safety guidance is free. The image is an AI-generated illustration.",
+    "body": "A food inventory becomes more useful when it keeps the meaning of the label. “Expires Friday” is a poor substitute for the actual date wording, storage conditions and instructions after opening.\n\nYou can improve the record without buying anything. Choose one familiar item, read its whole label and ask whether someone else could use your note correctly.\n\n## Keep the date type\n\nGovernment food-labelling guidance distinguishes use-by dates, which concern safety, from best before dates, which concern quality. It also explains that food stored incorrectly can become unsafe before its use-by date. Read the storage and after-opening instructions as well as the date. [1]\n\nDo not use smell to decide whether food carrying a use-by date is safe. The FSA’s fact checker explains that milk and some other dairy products can carry either date type: the actual pack is what matters. [2]\n\nThese distinctions are useful when one person buys food and another maintains the household list. A column headed “expiry” encourages them to flatten several instructions into one number.\n\n## Use a better inventory entry\n\nThe following is a suggested format, rather than a new food-safety rule:\n\n| Field | What to copy or record |\n|---|---|\n| Item | Enough detail to identify the actual pack |\n| Date wording | Use-by or best before, plus the printed date |\n| Storage | The label’s conditions |\n| Once opened | The label’s instruction, kept separate |\n| Opened | Date, if needed to apply that instruction |\n| Next action | Use in a planned meal, check a question, or replace |\n\nKeep the packaging available while the food is in use. A notebook entry should help someone find the instruction, not become a competing version of it. If you cannot read or understand a label, resolve that question rather than filling the gap from memory.\n\n## Check one handover\n\nImagine the household list says there are two packs of the same product. One is unopened; the other was opened earlier in the week. An unchanged total of “two” tells the person planning a meal very little about which pack to look at first.\n\nAdd an opened/unopened distinction and the relevant instruction. You have improved the decision without adding a larger reserve, another container or a complicated spreadsheet.\n\nAsk another household member to explain the entry back to you. If they interpret “best before” as a use-by instruction, or miss the after-opening condition, change the headings. The point is shared understanding, not perfect administration.\n\n## Keep the exercise small\n\nStart with a few items the household actually uses. Review the note when opening one of them and make the next shopping decision from that record. A list that is easy to maintain is more useful than a detailed inventory nobody updates.\n\nThis article does not establish whether food affected by a power cut, flooding, damage or uncertain storage is safe. Those circumstances need the relevant current official guidance. For ordinary rotation, the practical improvement is straightforward: preserve the label’s meaning before turning it into a household shorthand.",
+    "worksheet": [
+      "Product and pack",
+      "Exact date type and date",
+      "Storage instructions",
+      "After-opening instructions",
+      "Date opened",
+      "Next meal or next question"
+    ],
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "author": "READY/ Editorial",
+    "proposed_path": "/journal/use-by-best-before-opened-food-label-check/",
+    "asset": "02_food_dates.png",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/use-by-best-before-opened-food-label-check/"
+  },
+  {
+    "id": "03_ebike",
+    "slug": "ebike-charging-routine-escape-route",
+    "title": "E-bike charging: plan the place and the time together",
+    "description": "The nearest socket is not the whole charging plan. Check the escape route, charger and a routine that keeps charging attended.",
+    "query": "where to charge ebike battery safely at home overnight",
+    "audience": "E-bike commuters and households working out storage and charging in limited space.",
+    "novelty": "Different from building-specific evacuation paperwork: focuses on a charging habit that can obstruct escape or depend on unattended overnight charging.",
+    "community": "READY profile first; an e-bike or UK household discussion only after checking current rules on promotion, advice and generated images.",
+    "alt": "An illustrative e-bike in a detached garage beside a bare bench holding a disconnected battery and charger.",
+    "caption": "AI-generated editorial illustration. Equipment is disconnected. The scene does not certify a charging location or equipment compatibility.",
+    "cta": "Read the fire-safety guidance before changing the routine",
+    "cta_url": "https://www.london-fire.gov.uk/safety/e-bikes-and-e-scooters/how-to-charge-e-bikes-and-e-scooters-safely/",
+    "cta_note": "There is no product recommendation in this article. Start with the fire-service guidance and the manufacturer’s instructions.",
+    "sources": [
+      [
+        "London Fire Brigade: how to charge e-bikes and e-scooters safely",
+        "https://www.london-fire.gov.uk/safety/e-bikes-and-e-scooters/how-to-charge-e-bikes-and-e-scooters-safely/"
+      ],
+      [
+        "Department for Transport: battery safety for e-cycle users (Great Britain)",
+        "https://www.gov.uk/government/publications/battery-safety-for-e-cycle-users/battery-safety-for-e-cycle-users"
+      ]
+    ],
+    "source_scope": "Prevention and routine planning only. No repair, battery diagnosis, electrical installation, charging workaround or claim that a detached garage is automatically suitable.",
+    "reddit_title": "If the only e-bike charging plan is “overnight in the hallway”, both parts need reviewing",
+    "reddit_body": "An e-bike charging routine has two parts people can accidentally separate: where it happens and who is awake and present while it happens.\n\nLondon Fire Brigade advises keeping storage and charging away from main routes and exits, using the supplied or manufacturer-recommended charger, and never leaving a battery charging unattended or while asleep. [1]\n\nThe Department for Transport also warns against charging where a fire could prevent escape, including communal escape routes. Its guidance says not to charge while away from home or asleep. [2]\n\nA practical planning question is: does the routine actually fit those instructions, or does it only work on paper?\n\nFor example, arriving home late might mean your existing habit depends on leaving the bike on charge after bed. Write down that conflict and resolve it using the manufacturer’s instructions and relevant fire-safety advice. Moving the charger to a different socket does not automatically settle it.\n\nCheck the household routine before buying extra equipment or inventing a workaround.\n\nFor commuters who have changed their charging habits, what helped you fit charging into a time when you were awake and present? General routine advice is useful; improvised battery modifications are not.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The safety sources are free. The image is an AI-generated illustration, not an approved setup.",
+    "body": "A convenient socket can create an inconvenient assumption: that charging can simply happen wherever the bike is left, for as long as it takes, while the household gets on with something else.\n\nPlan the location and the timing together. If the routine depends on blocking an exit or leaving charging unattended, the routine needs changing.\n\n## Start with the published precautions\n\nLondon Fire Brigade advises using the charger supplied with the battery or recommended by the manufacturer, following the instructions, keeping charging away from exits and main through-routes, and never charging unattended or while asleep. It also advises a hard, flat charging surface and allowing a hot battery to cool after use. [1]\n\nDepartment for Transport guidance says not to charge where a fire could prevent escape, including communal escape routes. It advises charging only while awake and alert, not while away from home. Its guidance covers England, Scotland and Wales. [2]\n\nThese precautions describe conditions to meet. They are not a reason to improvise a new charger, adapt a battery or assume that any alternative room is suitable.\n\n## Walk through an ordinary evening\n\nUse a paper exercise before changing equipment. Write down when the bike arrives home, where it is stored, when charging normally starts and what the household is doing during that period.\n\nThen compare that routine with the actual manufacturer’s instructions and fire-safety advice. Which parts are confirmed? Where does the routine contradict the precautions? Who can resolve the remaining question?\n\nFor example, a note saying “charge after work” may hide a late return followed immediately by bedtime. The useful output is an identified scheduling problem, not a tick beside “charger available”.\n\n## Give the unresolved point an owner\n\nKeep a short record:\n\n- **Equipment:** the actual battery and charger, with the instructions location.\n- **Place:** the proposed storage and charging location, with any question to resolve.\n- **Time:** a routine when someone can be awake and present.\n- **Next action:** who will obtain the relevant advice or change the routine.\n\nThis is a suggested way to organise the task. It is not an inspection certificate or a substitute for competent advice about your equipment or building.\n\nIf the only apparent option is a shared corridor or a space you do not control, raise the issue with the appropriate building manager rather than quietly using the space. Do not treat a photograph of another person’s arrangement as approval for yours.\n\n## Make the agreement usable by everyone\n\nTell other household members what the agreed routine is. Include people who might move the bike, plug it in to be helpful or assume that it can be left charging overnight.\n\nRevisit the arrangement if the bike, battery, charger, home or daily timetable changes. A routine can become unsuitable even when the equipment is unchanged.\n\nThe useful result is a practical habit supported by the equipment instructions and current fire advice. Owning a charger is only one part of that habit.",
+    "worksheet": [
+      "Battery and charger models",
+      "Instructions location",
+      "Proposed storage and charging place",
+      "Escape-route question",
+      "Awake and attended charging period",
+      "Unresolved issue and responsible person"
+    ],
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "author": "READY/ Editorial",
+    "proposed_path": "/journal/ebike-charging-routine-escape-route/",
+    "asset": "03_ebike.png",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/ebike-charging-routine-escape-route/"
+  },
+  {
+    "id": "04_flood_route",
+    "slug": "flooded-road-alternative-route-not-depth-test",
+    "title": "Flooded road? Plan the delay instead of a depth test",
+    "description": "An alternative route, a contact and permission to postpone are more useful than trying to judge whether floodwater is passable.",
+    "query": "what to do road flooded alternative route driving",
+    "audience": "Rural households, commuters and people coordinating collections or appointments.",
+    "novelty": "Earlier weather content explained warning colour and likelihood. This addresses the separate travel decision at an impassable route and coordination before the journey.",
+    "community": "READY profile first; relevant UK travel or preparedness discussion only where current rules allow the format. No local route endorsement or current flood report.",
+    "alt": "An empty country lane disappearing beneath opaque floodwater, photographed from dry ground well back from the water.",
+    "caption": "AI-generated editorial illustration of an unspecified road. This is not a report of current flooding or a guide to water depth.",
+    "cta": "Write down the household handover before a journey is delayed",
+    "cta_url": "https://ready-resilience-store.vercel.app/journal/cannot-get-home-household-handover-plan/",
+    "cta_note": "The existing free Field Note helps agree responsibilities and contacts; it does not assess road safety.",
+    "sources": [
+      [
+        "Met Office: driving in severe weather",
+        "https://weather.metoffice.gov.uk/warnings-and-advice/seasonal-advice/travel/driving-in-severe-weather"
+      ],
+      [
+        "GOV.UK: what to do before or during a flood, with links for each UK nation",
+        "https://www.gov.uk/help-during-flood"
+      ]
+    ],
+    "source_scope": "Avoidance and advance coordination. No numerical depth threshold, vehicle capability advice, rescue procedure or live local conditions.",
+    "reddit_title": "A flooded-road plan needs an alternative to arriving, not a rule for guessing the depth",
+    "reddit_body": "A useful detail to agree before a journey: what happens if you cannot safely complete it?\n\nThe Met Office says not to drive through floodwater and to find another route. Government guidance also says not to walk, cycle or drive through it; the water can hide road damage and other hazards. [1–2]\n\nSo an advance travel note can be more useful than another attempt to judge water depth:\n\n- Where will we check current conditions before setting off?\n- Who needs to know if the journey is delayed or cancelled?\n- Who can cover a collection or appointment if the driver cannot arrive?\n- What can simply be postponed?\n\nAn alternative road is only an option after checking its current condition. A satnav suggestion or a familiar lane is not evidence that it is safe.\n\nThe planning gap is often social: someone feels they have to get through because another person is waiting. Agreeing that the journey can stop removes one source of pressure before it appears.\n\nFor people in rural areas, what arrangement has made it easier to cancel or reroute without leaving someone expecting a collection? Please avoid posting private locations or presenting an unchecked local route as safe.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The official guidance is free. The image is an AI-generated illustration, not current conditions.",
+    "body": "A flooded road turns a journey problem into a household coordination problem. Someone may be waiting for a lift, a delivery or an appointment. Without an agreed alternative, the driver can feel pressure to continue.\n\nPlan what happens when arrival is no longer possible. Do not build the plan around deciding whether water looks shallow enough.\n\n## Keep the travel instruction clear\n\nThe Met Office advises against driving through floodwater: turn around and find another route. [1] Government guidance also says not to walk, cycle or drive through it. Water can hide damaged surfaces and other hazards. Its flood page links to the relevant advice for Scotland, Wales and Northern Ireland. [2]\n\nThe household task is therefore to organise alternatives around that instruction. A larger vehicle, a familiar road or another driver going first does not establish a safe route.\n\n## Agree the decision before departure\n\nFor a journey that matters to someone else, make a short advance note:\n\n**Purpose:** What actually needs to happen, and by when?\n\n**Information:** Which official traffic, flood or transport updates will we check?\n\n**Contact:** Who needs an update if the journey cannot be completed?\n\n**Alternative:** Can the appointment move, can an authorised person help, or can the task wait?\n\n**Authority:** Who can decide to delay or cancel without needing to negotiate under pressure?\n\nThese are suggested coordination prompts. They do not establish that travel is appropriate or that a particular road is safe.\n\n## Separate another route from a safe route\n\nA navigation app may propose a diversion. Treat that as a route to check, rather than clearance to use it. Conditions can also affect the road you usually think of as the backup.\n\nFor an advance exercise, imagine the usual road and the first alternative are unavailable. Which part of the plan still works? Perhaps the appointment can be rearranged, or a person already on the other side can complete a task they are authorised to do.\n\nWrite the arrangement in terms of responsibilities rather than promising that a named road will stay open. Do not create an automatic collection arrangement that the people involved have never agreed to.\n\n## Give a useful update\n\nA practical message might be:\n\n> I cannot safely complete the journey. Please use our agreed alternative arrangement. I will update you when I have checked the next official information.\n\nAdapt that to the circumstances. Send messages only once safely stopped; the point is to reduce pressure on the driver, not add another task while driving.\n\n## Keep current advice in charge\n\nAn old household note cannot override a closure, an evacuation instruction or emergency-service advice. If someone is in immediate danger, call 999. [2]\n\nThe value of this exercise is that people know a missed arrival can be managed. A postponed journey is an outcome the household has already considered, rather than a failure the driver feels obliged to prevent.",
+    "worksheet": [
+      "Journey purpose",
+      "Official information route",
+      "Person awaiting arrival",
+      "Agreed alternative responsibility",
+      "Who can postpone",
+      "Next update arrangement"
+    ],
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "author": "READY/ Editorial",
+    "proposed_path": "/journal/flooded-road-alternative-route-not-depth-test/",
+    "asset": "04_flood_route.png",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/flooded-road-alternative-route-not-depth-test/"
+  },
+  {
+    "id": "05_backup_restore",
+    "slug": "small-business-backup-restore-one-file-test",
+    "title": "Your backup completed. Can you restore the file you need?",
+    "description": "A small restore exercise can reveal whether a business can recover a usable document, who can do it and which parts remain untested.",
+    "query": "small business how to test backup restore one file",
+    "audience": "Sole traders, small workshops and microbusinesses depending on a small number of digital records.",
+    "novelty": "Different from payment-terminal downtime and invoice fraud: verifies recovery of a working record and the operational meaning of a backup status.",
+    "community": "READY profile first; a small-business discussion only after current rules are checked. No software vendor recommendation or third-party permission implied.",
+    "alt": "A blank-screen laptop, disconnected external drive and empty notebook on an ordinary small workshop office desk.",
+    "caption": "AI-generated editorial illustration. No customer information, real backup result or software interface is shown.",
+    "cta": "Run the free Business Downtime Test",
+    "cta_url": "https://ready-resilience-store.vercel.app/tools/business-downtime-test/",
+    "cta_note": "Use it to identify interrupted business tasks. It does not restore data or replace your IT provider’s recovery procedure.",
+    "sources": [
+      [
+        "National Cyber Security Centre: small organisations guide, backing up your data",
+        "https://www.ncsc.gov.uk/collection/small-organisations-guide-to-cyber-security/backing-up-your-data"
+      ]
+    ],
+    "source_scope": "NCSC supports knowing how to restore and checking important data is included. The one-file exercise, observation log and limits are original READY planning suggestions; no whole-system recovery guarantee.",
+    "reddit_title": "“Backup completed” and “we recovered a usable file” are different business records",
+    "reddit_body": "The NCSC’s small-organisations guide says to know how to restore a backup and check that it contains your important data. [1]\n\nA useful, small exercise is to recover one harmless test document using your provider’s documented restore process. Restore to a separate location, leaving working files alone.\n\nBefore starting, write what success would look like: which version should return, who can recover it and what ordinary task it should let you complete.\n\nThen record what happened:\n\n- Could the authorised person find the recovery instructions?\n- Did the expected version return?\n- Did the file open correctly in the application needed?\n- How long did this small exercise actually take?\n- What dependency or permission question remains?\n\nIf you use an IT provider, ask them to arrange the exercise. Do not delete production data to make the test feel realistic.\n\nKeep the conclusion narrow. Recovering one document does not prove that accounts, customer records or the whole business can be restored. It proves something useful about that one recovery path.\n\nFor other small operators, what did a restore test reveal that the “backup successful” message did not? Please leave customer data, security settings and recovery secrets out of replies.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The NCSC guide is free. The image is an AI-generated illustration.",
+    "body": "A backup status tells you something about a copying process. A restore exercise tells you something about recovering work. A small business needs to understand both.\n\nStart with a modest question: can an authorised person recover one harmless document and use it for the task it supports? This can make the next recovery discussion much more concrete.\n\n## The official starting point\n\nThe NCSC’s small-organisations guidance recommends backing up the information needed to operate. It also says to know how to restore backups and check that important data is included. [1]\n\nThe exercise below is a READY/ planning suggestion built around that objective. Use your actual backup provider’s procedure, or arrange the exercise with the person responsible for your IT. It is not an instruction to alter a production system.\n\n## Choose a small, non-sensitive example\n\nUse a harmless test document with an identifiable version. Decide what you expect to recover before you start. A blank template with a clearly recorded test revision can be sufficient; there is no need to use customer records or financial information.\n\nChoose an ordinary task the recovered file should support. “The file appears in a folder” is a weaker outcome than “the authorised person opened the expected version in the application they need”.\n\nAvoid testing every system at once. You want a result you can explain and a clear list of what remains outside the exercise.\n\n## Recover without disrupting working data\n\nFollow the provider’s documented process. Recover to a separate location and leave the working original alone. If you are unsure about the procedure, ask the provider to arrange the test rather than guessing through unfamiliar controls.\n\nDo not delete or damage live files to manufacture a convincing scenario. Do not switch off security measures or share passwords to make a test succeed. Record any access problem as a finding for the responsible person.\n\n## Record observations, not a general pass\n\nUse this suggested log:\n\n| Observation | What to record |\n|---|---|\n| Recovery target | Test file and expected version |\n| Person | Who was authorised to perform the exercise |\n| Procedure | Where the actual instructions were found |\n| Result | Version returned and whether it opened correctly |\n| Time | Observed start and finish for this exercise |\n| Open issue | Permission, application or instruction needing attention |\n\nKeep recovery secrets out of the log. The note should identify where authorised people obtain instructions, rather than becoming another exposed store of credentials.\n\n## Say what the result establishes\n\n“One test document recovered and opened” is a useful result. It does not prove that every file, account, application, device or business process can be recovered, or establish how long a complete recovery would take.\n\nUse the finding to choose a next step with your IT provider. Perhaps the instructions were easy to find but only one person could use them. Perhaps the file returned but the required application was missing. Those are concrete operational questions.\n\nThe outcome is a better recovery conversation: what was demonstrated, what remains untested and who owns the next action.",
+    "worksheet": [
+      "Test file and expected version",
+      "Authorised person",
+      "Provider procedure",
+      "Separate restore destination",
+      "Version and application check",
+      "Observed duration",
+      "Untested scope and next action"
+    ],
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "author": "READY/ Editorial",
+    "proposed_path": "/journal/small-business-backup-restore-one-file-test/",
+    "asset": "05_backup_restore.png",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/small-business-backup-restore-one-file-test/"
+  }
+]

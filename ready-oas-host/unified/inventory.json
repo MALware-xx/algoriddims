@@ -266,5 +266,25 @@
   {
     "path": "/journal/emergency-alerts-device-compatibility-not-sms/",
     "type": "text/html"
+  },
+  {
+    "path": "/journal/digital-landline-telecare-confirm-whole-connection/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/use-by-best-before-opened-food-label-check/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/ebike-charging-routine-escape-route/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/flooded-road-alternative-route-not-depth-test/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/small-business-backup-restore-one-file-test/",
+    "type": "text/html"
   }
 ]
