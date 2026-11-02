@@ -246,5 +246,25 @@
   {
     "path": "/journal/period-products-disruption-household-plan/",
     "type": "text/html"
+  },
+  {
+    "path": "/journal/backup-cooking-generator-carbon-monoxide/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/pet-microchip-database-contact-details/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/repeat-prescription-supply-route-england/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/supplier-bank-details-change-invoice-fraud/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/emergency-alerts-device-compatibility-not-sms/",
+    "type": "text/html"
   }
 ]

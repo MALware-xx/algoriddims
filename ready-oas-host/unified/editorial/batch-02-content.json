@@ -1,0 +1,236 @@
+[
+  {
+    "id": "01_carbon_monoxide",
+    "slug": "backup-cooking-generator-carbon-monoxide",
+    "title": "Backup equipment: an open door does not make indoor combustion safe",
+    "description": "A camping stove or generator is not automatically a household fallback. Check where it can be used safely before including it in a power-cut plan.",
+    "query": "can I use camping stove generator indoors power cut carbon monoxide",
+    "audience": "Ordinary households considering equipment they already own as a power-cut fallback.",
+    "community": "Preparedness or camping discussion where safety information and disclosed project-linked images are permitted. Candidate only; current rules have not been checked for this new draft.",
+    "novelty": "Earlier power content listed electricity dependencies. This pair explains the separate carbon-monoxide hazard, the limits of alarms and the difference between owning equipment and having a safe arrangement.",
+    "asset": "01_carbon_monoxide.png",
+    "alt": "READY poster: Outdoor kit stays outdoors. An unlit camping stove sits in an open garden. Keep barbecues and camping stoves outside, never run a generator indoors, and do not rely on an alarm to make unsafe use safe.",
+    "caption": "AI-generated editorial illustration of unlit equipment. It is not an operating demonstration or a guide to appliance positioning.",
+    "cta": "Run the free Power Dependency Check",
+    "cta_url": "https://ready-resilience-store.vercel.app/tools/power-dependency-check/",
+    "cta_note": "Use this to identify routines needing a fallback. It does not assess combustion safety, approve equipment or replace manufacturer and professional advice.",
+    "sources": [
+      [
+        "NHS: carbon monoxide poisoning",
+        "https://www.nhs.uk/conditions/carbon-monoxide-poisoning/"
+      ],
+      [
+        "HSENI: using a portable generator in an emergency",
+        "https://www.hseni.gov.uk/news/safety-tips-using-portable-generator-emergency"
+      ],
+      [
+        "HSE: gas safety for home owners",
+        "https://www.hse.gov.uk/gas/domestic/faqownerocc.htm"
+      ]
+    ],
+    "reddit_title": "The camping stove in the cupboard is not automatically a safe power-cut cooking plan",
+    "reddit_body": "One distinction worth making before a power cut: owning an alternative cooker is different from having somewhere safe to use it.\n\nThe NHS warns against using barbecues or camping stoves indoors or in tents because of carbon-monoxide risk. You cannot rely on smelling carbon monoxide. [1] HSENI also says generators must not be used indoors or in partly enclosed spaces, including garages, even with some ventilation. Open doors or fans are not a solution. [2]\n\nSo “we have a stove” leaves a useful question unanswered: what is the actual safe arrangement, and what will we do if it is unavailable?\n\nFor a planning exercise, take one proposed fallback and separate these three answers:\n\n- What the manufacturer permits.\n- Whether your home has a suitable arrangement for that use.\n- The alternative if it does not.\n\nKeep an unconfirmed arrangement out of the usable plan. An alarm is another precaution, not permission to use equipment unsafely or skip maintenance. [3]\n\nWhat assumption about backup equipment do you think beginners most need explained? General lessons are more useful here than improvised installation instructions.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The official safety advice is free. The image is an AI-generated illustration.",
+    "body": "A household can own a camping stove and still lack a safe cooking fallback. It can own a generator without having a suitable place to operate it. The planning mistake is to record the object as if that settles the arrangement.\n\nStart with how the equipment is allowed to be used, then decide whether it belongs in your household plan. Do that before an outage creates pressure to improvise.\n\n## Three assumptions to remove\n\n**“We would notice a problem.”** Carbon monoxide has no smell or colour. The NHS warns that using barbecues or camping stoves indoors or in tents can cause a dangerous build-up. Do not treat a familiar fuel or an apparently normal flame as a safety check. [1]\n\n**“The garage door will be open.”** HSENI says portable generators must not be used indoors or in partly enclosed spaces, including garages, even where there is partial ventilation. They should not operate near open doors or windows; fans do not prevent carbon-monoxide build-up inside the home. [2]\n\n**“The alarm makes it acceptable.”** HSE describes CO alarms as a useful precaution, not a replacement for appliance maintenance and safety checks. Install and maintain an alarm according to its manufacturer’s instructions. [3]\n\nThese are different failures. The first substitutes your senses for information, the second substitutes an improvised location for a suitable one, and the third asks a warning device to justify the original risk.\n\n## Use a fallback decision card\n\nFor each item you are considering, answer this short set of questions:\n\n| Question | A useful answer |\n|---|---|\n| What is the actual item? | Its model and the location of its instructions |\n| What use is permitted? | The manufacturer’s conditions, read directly |\n| What remains unconfirmed? | The arrangement or advice you still need |\n| Does the plan depend on it? | Which household task currently assumes it is usable |\n| What if it is unavailable? | An alternative that does not require the unsafe use |\n\nThis card is a planning filter, not an equipment inspection. Leave the item out of the usable fallback until the relevant questions are resolved. Do not test an unsafe arrangement to see whether the alarm reacts.\n\n## A useful example of saying no\n\nImagine a household note says, “Cooking: use the camping stove.” The household then realises it has no arrangement that meets the equipment’s safe-use instructions. Rewriting the note as “stove available, use not confirmed” is honest, but the cooking plan is still incomplete.\n\nThe next decision is to choose another workable arrangement, rather than quietly carrying the original assumption forward. A familiar meal that needs no cooking may resolve that particular task without turning the kitchen into an improvised campsite. The exercise is about the decision, not purchasing more kit.\n\n## Keep emergency advice separate\n\nIf you think you may have carbon-monoxide poisoning, go outside and get medical advice promptly; do not re-enter until advised. The NHS explains when to call 111 and when serious symptoms require 999 or emergency care. [1] Use that advice during a suspected exposure, rather than working through this advance-planning card.\n\nA completed fallback is an arrangement you can explain and use safely. A product sitting in a cupboard is only a possible ingredient.",
+    "worksheet": [
+      "Equipment model",
+      "Instructions location",
+      "Permitted use conditions",
+      "Unconfirmed arrangement",
+      "Household task relying on it",
+      "Alternative if unavailable",
+      "Next question for a competent professional"
+    ],
+    "source_scope": "NHS and HSE support general CO precautions. HSENI explicitly addresses generators in partially enclosed spaces. No installation, positioning distance, commissioning or clinical diagnosis is supplied.",
+    "previous_theme": "Boiler electricity dependencies, no-cook meal suggestions and generic power-cut checklists.",
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/backup-cooking-generator-carbon-monoxide/",
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/backup-cooking-generator-carbon-monoxide/"
+  },
+  {
+    "id": "02_pet_microchip",
+    "slug": "pet-microchip-database-contact-details",
+    "title": "Your pet is microchipped. Can the database still reach you?",
+    "description": "A chip number identifies a record; it does not track a pet’s location. Check the database and current contact details as their own task.",
+    "query": "pet microchip update contact details database not GPS",
+    "audience": "Pet-owning households, especially people who have moved or changed phone number.",
+    "community": "Pet-preparedness or small-space preparedness discussion where project disclosures and AI illustrations are allowed. Use the READY profile if local rules exclude branded content.",
+    "novelty": "No earlier reviewed pair explains how chip-number identification differs from GPS, how to find the database, or why the database contact record needs its own check.",
+    "asset": "02_pet_microchip.png",
+    "alt": "READY poster beside a tabby cat and carrier: The chip number is only half the job. Find the database, check contact details and update them after a move.",
+    "caption": "AI-generated editorial illustration. The cat and documents do not represent a real owner’s microchip record.",
+    "cta": "Explore READY/ pet planning",
+    "cta_url": "https://ready-resilience-store.vercel.app/topics/pets.html",
+    "cta_note": "The pet topic contains starting actions and an optional paid plan. Updating a database record is handled by the database company, not by READY/.",
+    "sources": [
+      [
+        "GOV.UK: microchipping and updating database details",
+        "https://www.gov.uk/get-your-dog-cat-microchipped"
+      ],
+      [
+        "PDSA: cat microchipping and identification",
+        "https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/other-veterinary-advice/microchipping-cats"
+      ]
+    ],
+    "reddit_title": "A pet microchip is not GPS. Is the contact record still usable after a move?",
+    "reddit_body": "A small pet-planning job that can get lost in a house move: check the microchip database itself, rather than treating “the vet has our new address” as confirmation of every record.\n\nA microchip contains an identification number that can be read by a scanner. It is not GPS and does not track a cat’s location. Reuniting a scanned animal depends on the associated contact details being current. [2]\n\nGOV.UK says to contact the database company to update details. If you do not know the database, you can check using the chip number. If the number is missing, a vet, dog warden or rescue centre can scan the pet for it. [1]\n\nMy suggested moving-house check is deliberately short:\n\n- Can I identify the database?\n- Have I checked the contact record directly?\n- Do I know how to report the pet missing to that database?\n\nKeep chip numbers, addresses and account details private. A public “checked on this date” reminder is enough; the actual record belongs in your private paperwork.\n\nWhich small admin task has made your pet’s plan more usable? No need to post an animal’s chip number or anyone’s contact details.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The official and veterinary-charity information is free; the image is an AI-generated illustration.",
+    "body": "“Microchipped” is a reassuring word on a pet checklist. It is less useful if nobody knows which database holds the record or whether the phone number still works. The next action is an administrative check you can complete without buying another device.\n\n## Identification is different from tracking\n\nPDSA explains that a microchip carries a unique number which a scanner can read. A cat’s chip is not linked to GPS and does not report its location. Current contact details help the scanning organisation and database connect a found animal with its owner. [2]\n\nThat distinction changes the household task. You are checking the route from identification to contact, rather than expecting a chip to show where an animal has gone.\n\n## Find the record, not just the paperwork\n\nGOV.UK says owners should contact the database company to update their details. Its guidance also explains how to look up the database using the chip number. If you do not have that number, a vet, dog warden or rescue centre can scan the animal. [1]\n\nA veterinary practice, an insurer and a database can appear in the same folder without being the same record. As a planning rule, check the database directly instead of using an update somewhere else as your evidence that the contact route is current.\n\nYou do not need to display the chip number on a shared noticeboard. Keep the identifying information and account access in private records.\n\n## Give the task a clear finish\n\nUse three completion states:\n\n| State | What it means for your check |\n|---|---|\n| Record not located | Find the chip number or arrange an appropriate scan |\n| Record located, details unchecked | Contact the database through its genuine route |\n| Contact details checked | Keep the confirmation privately and note the review date |\n\nThese are READY/ organising labels, not database-company status codes. They stop “we have a certificate somewhere” from being mistaken for a completed check.\n\n## Try a moving-house example\n\nImagine a household changes address and replaces the main contact phone. One person updates the vet’s record; another assumes that completes all pet administration. A later review finds that nobody checked the database.\n\nThe useful correction is to add a separate database task to the move list, with the person responsible and the company’s contact route. Keep a minimal reminder such as “database checked after move” in the household plan and the actual personal details in the private record.\n\nThis is an illustrative admin gap, not a claim that a particular database failed or that one check guarantees a reunion.\n\n## Ask about the missing-pet process in advance\n\nWhile you have the genuine database contact route available, find its instructions for reporting a pet missing. Keep that route somewhere you can retrieve it without searching old promotional emails. If another person may help with the task, agree what they need to know and keep account access secure.\n\nThe practical outcome is modest and worthwhile: you can identify the record, the contact details have been checked directly, and you know which organisation to approach if the pet is missing. The word “microchipped” now has a usable process behind it.",
+    "worksheet": [
+      "Pet reference (private)",
+      "Database company",
+      "Chip number location (private)",
+      "Database contact route",
+      "Current contact details checked",
+      "Confirmation location (private)",
+      "Missing-pet reporting instructions",
+      "Review after address or phone change"
+    ],
+    "source_scope": "UK government database guidance and PDSA identification information. No blanket legal requirement or guaranteed reunion is asserted; statutory rules differ by animal and jurisdiction.",
+    "previous_theme": "General pet-supply reminders and water allowances, without this identification-and-contact process.",
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/pet-microchip-database-contact-details/",
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/pet-microchip-database-contact-details/"
+  },
+  {
+    "id": "03_prescriptions",
+    "slug": "repeat-prescription-supply-route-england",
+    "title": "Repeat medicines: plan the supply route before the last dose",
+    "description": "For households in England, distinguish routine ordering from urgent supply and keep the relevant pharmacy and NHS routes easy to find.",
+    "query": "repeat prescription run out emergency supply England NHS pharmacy",
+    "audience": "People in England who use repeat prescriptions, and trusted people helping with routine collection.",
+    "community": "England-focused household preparedness discussion only where healthcare information is sourced and project-linked posts are permitted. Do not solicit medication names or health histories.",
+    "novelty": "Earlier content mentioned medication as a household need. This pair explains routine lead time, urgent-supply eligibility and the limitation of the online emergency-prescription service.",
+    "asset": "03_prescriptions.png",
+    "alt": "READY England prescriptions poster beside plain closed medicine cartons, a phone and notebook. Know the route before you run out: check ordering times, record the pharmacy contact and use NHS urgent-supply advice.",
+    "caption": "AI-generated editorial illustration with unlabelled cartons. It gives no medicine, dose or storage instruction.",
+    "cta": "Read the NHS emergency-prescription guide",
+    "cta_url": "https://www.nhs.uk/nhs-services/prescriptions/emergency-prescriptions/",
+    "cta_note": "This article signposts England’s services. For Scotland, Wales or Northern Ireland, use the relevant local NHS or health-service advice. No READY/ purchase is needed.",
+    "sources": [
+      [
+        "NHS: emergency prescriptions and routine lead time",
+        "https://www.nhs.uk/nhs-services/prescriptions/emergency-prescriptions/"
+      ],
+      [
+        "NHS 111: online emergency-prescription service and exclusions",
+        "https://111.nhs.uk/emergency-prescription"
+      ]
+    ],
+    "reddit_title": "Repeat prescriptions in England: the ordering route matters as much as remembering the medicine",
+    "reddit_body": "For anyone building an ordinary household plan in England, a useful medication task is to write down the supply route before the last dose is due.\n\nNHS guidance says repeat prescriptions should usually be requested with five working days allowed for ordering and obtaining the medicine. Check your own surgery and pharmacy arrangements rather than treating that as a delivery guarantee. [1]\n\nUrgent supply is a different process. The 111 online emergency-prescription service is for a limited supply of a regular repeat medicine you have completely run out of. If you also have symptoms, the service says to call 111 instead. It has exclusions, including some controlled drugs, so it is not a universal refill button. [2]\n\nAn advance note can stay simple:\n\n- How the normal repeat request is made.\n- Which pharmacy handles it and how to contact them.\n- What is still awaiting confirmation, collection or delivery.\n- Where to find current NHS advice if the normal route fails.\n\nThis is an administration prompt, not advice to change treatment, stretch doses or accumulate medicines. Keep medicine lists and personal details private.\n\nWhat routine has made requesting and collecting repeats more dependable? Please discuss the process rather than naming medicines or diagnoses.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The NHS routes are free to read; the image is an AI-generated illustration.",
+    "body": "A box in a cupboard is only part of a repeat-medicine plan. The other part is the route that keeps the prescription requested, processed and collected. A simple administrative note can help a household see where that route is unfinished.\n\nThis article covers England. It does not give treatment, dosage or medicine-storage advice, and it does not assume the same service arrangements apply across the UK.\n\n## Keep routine ordering and urgent supply distinct\n\nNHS guidance says to usually allow five working days to request and obtain a repeat prescription. Ask your surgery and pharmacy how their process works; that general allowance is not a promise that a particular item will be available by a particular date. [1]\n\nIf someone has completely run out, urgent-supply options are separate. The NHS describes pharmacy and other service routes. A pharmacy may be able to provide certain emergency medicines, sometimes with a charge; supply is not automatic for every medicine. [1]\n\nThe 111 online emergency-prescription service is for a limited emergency supply of a medicine regularly obtained on repeat. It directs people who also have symptoms to call 111 and excludes some requests, including certain controlled drugs. Read the current service criteria rather than assuming it can replace any missing prescription. [2]\n\n## Map the normal process once\n\nInstead of writing “remember medication”, describe what normally happens. Does the person request the repeat themselves? Is there a confirmation to check? Who contacts the pharmacy if collection is uncertain?\n\nUse the person’s actual arrangements and their permission if someone else helps. Keep any access or authorisation requirements with the relevant service, rather than assuming a household note allows another person to act for them.\n\n| Stage | Question to settle |\n|---|---|\n| Request | Where and how is the normal repeat requested? |\n| Confirmation | What tells you the request has progressed? |\n| Pharmacy | Which contact route resolves a supply or collection question? |\n| Collection or delivery | Who is responsible and what has been confirmed? |\n| Unresolved problem | Where is the current NHS advice kept? |\n\nThese are organising questions. They do not replace the pharmacy’s process or a clinician’s instructions.\n\n## Show the unfinished step\n\nAn illustrative household note might say: “Repeat requested; collection not yet confirmed; contact the pharmacy using its usual number.” Another might say: “Collection agreed; trusted helper knows the arrangement.”\n\nBoth notes are more useful than a tick beside “medicines sorted”, because another person can understand what still needs attention. Neither note needs a medicine name, a diagnosis or a photo of a prescription on a public noticeboard.\n\n## Prepare for ordinary changes\n\nA bank holiday, a trip or a change in the person helping with collection can expose an unclear process. Review the normal arrangements early enough to ask questions through the usual service. Do not compensate for uncertainty by changing doses, sharing prescribed medicines or building an unagreed stockpile.\n\nIf supply is already urgent, use the current NHS guidance and appropriate clinical help rather than treating this worksheet as a triage tool. In a life-threatening emergency, call 999.\n\nThe completed decision is practical: the routine route is known, the current status is clear, and the household knows where to seek help when that route does not work.",
+    "worksheet": [
+      "Routine request route",
+      "Usual surgery or pharmacy lead time checked",
+      "Request status",
+      "Pharmacy contact route",
+      "Collection or delivery responsibility",
+      "Service authorisation requirements checked",
+      "Current NHS advice location",
+      "Private medicine record location"
+    ],
+    "source_scope": "England service pathways only. The NHS 111 online service has eligibility limits and exclusions. No dose, treatment, stockpiling or entitlement to a particular supply is prescribed.",
+    "previous_theme": "A generic medication entry on a kit list or the newly published period-products supply topic.",
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/repeat-prescription-supply-route-england/",
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/repeat-prescription-supply-route-england/"
+  },
+  {
+    "id": "04_invoice_fraud",
+    "slug": "supplier-bank-details-change-invoice-fraud",
+    "title": "A supplier changes bank details: verify the change outside the message",
+    "description": "A familiar invoice or email thread is not enough to establish a payment change. Give a small business a clear verification and approval process.",
+    "query": "supplier changes bank details invoice fraud verify phone number business",
+    "audience": "Sole traders and small businesses that pay suppliers or handle customer invoices.",
+    "community": "Small-business discussion where project disclosures and educational images are permitted. Candidate only; no unsolicited direct messages or repeated promotional posting.",
+    "novelty": "Earlier business content covered card terminals and downtime. This pair addresses payment diversion, independent contact verification and the separation of checking a change from approving payment.",
+    "asset": "04_invoice_fraud.png",
+    "alt": "READY invoice-fraud poster beside an illustrative business owner on a phone with paperwork. New bank details? Verify them independently, use a trusted number, record confirmation and keep payment approval separate.",
+    "caption": "AI-generated editorial illustration. The person, invoice and verification notes are fictional; no real account details are shown.",
+    "cta": "Run the free Business Downtime Test",
+    "cta_url": "https://ready-resilience-store.vercel.app/tools/business-downtime-test/",
+    "cta_note": "For broader business-continuity planning. This check does not authenticate an invoice, verify a bank account or authorise payment.",
+    "sources": [
+      [
+        "National Crime Agency: invoice-fraud prevention campaign",
+        "https://www.nationalcrimeagency.gov.uk/news/nca-and-natwest-launch-campaign-to-protect-against-invoice-fraud-in-business?highlight=WyJrbm93bGVkZ2UiXQ%3D%3D"
+      ],
+      [
+        "NCSC: business payment fraud and immediate response",
+        "https://www.ncsc.gov.uk/section/respond-recover/business-payment-fraud"
+      ]
+    ],
+    "reddit_title": "A familiar supplier email is not enough to verify new bank details",
+    "reddit_body": "A useful small-business rule to settle before the next urgent invoice: a bank-detail change gets verified outside the message that announces it.\n\nThe National Crime Agency advises checking changes and calling the genuine supplier on a previously used number before transferring money. Criminals can intercept correspondence or impersonate a supplier, so replying “is this right?” in the same thread is not independent confirmation. [1]\n\nFor a small team, I’d separate three actions:\n\n1. Receive the request and flag that payment details have changed.\n2. Verify through a contact route established independently of that request.\n3. Record the verification, then use the business’s normal payment-approval process.\n\nFor a sole trader, the same person may do the work, but the steps still need to be distinct. An “urgent” label should not quietly collapse them into one click.\n\nIf a fraudulent payment may already have been made, NCSC says to contact the bank directly using its official contact route and tell the person responsible for IT. Do not wait for a reassuring reply from the suspect email account. [2]\n\nWhat practical rule has helped your business handle genuine supplier changes without skipping verification? Please leave company identities, invoices and bank details out of replies.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The NCA and NCSC guidance is free; the image is an AI-generated illustration.",
+    "body": "A supplier can send genuine invoices for years before a payment-detail change arrives. Familiar branding, an expected amount and a convincing email thread can make the change feel routine. The useful control is to verify it through a route that does not depend on trusting that message.\n\nThis is a business-process exercise. It does not tell you that a particular supplier is fraudulent or authorise a payment.\n\n## Move verification outside the request\n\nThe National Crime Agency describes invoice fraud as criminals diverting payment through impersonation or intercepted correspondence. Its prevention guidance says to check changed details and verify with the genuine supplier using a previously used phone number before transferring money. [1]\n\nA reply in the same thread does not establish an independent route. For your procedure, use a contact already established separately from the change request. If you cannot establish that route, keep the change unresolved rather than accepting a number supplied in the suspect message as the answer.\n\n## Separate three decisions\n\n| Step | What it establishes | What it does not establish |\n|---|---|---|\n| Receive the change request | Someone has requested different payment details | That the request is genuine |\n| Verify independently | The change has been checked through an established contact route | That the invoice has been approved for payment |\n| Approve under the usual process | The authorised person has made the payment decision | That earlier verification can be skipped |\n\nThis separation is a READY/ process suggestion, not a requirement that every small business employ three people. A sole trader can preserve the distinction in a short note and a deliberate pause between checking a change and acting on it.\n\n## Try an uncomplicated desk exercise\n\nUse a clearly labelled practice note, with no real bank details: “A regular supplier asks for payment to a new account today.” Ask the person who normally handles invoices to explain the next action.\n\nWhere will they find the established number? What will they do if the usual contact is unavailable? Who may approve a change to the supplier record? What evidence will show the check was completed?\n\nDo not send a simulated scam to a real supplier or customer. This exercise can stay entirely within your own procedure. Its purpose is to expose an unclear step without making a payment or changing a genuine record.\n\n## Record the outcome, not an impression\n\n“Looked genuine” is not a useful audit note. A more informative entry identifies the date, the independent contact route used, who carried out the check, the result and any unresolved question. Store genuine financial details securely in the business’s normal system.\n\nIf the check remains unresolved, make that status visible to whoever would otherwise pay. A note that another person can interpret is more useful than a private assumption in an inbox.\n\n## If money may already have gone\n\nNCSC advises contacting the bank directly through its official website or phone number and informing the person responsible for IT as soon as possible. [2] Do that promptly rather than waiting for the suspect email account to reassure you. No outcome or recovery of funds is guaranteed here.\n\nA reliable process gives a genuine supplier change a clear route through the business while keeping urgency from replacing verification.",
+    "worksheet": [
+      "Supplier reference (private)",
+      "Change request received",
+      "Established independent contact route",
+      "Verification carried out by",
+      "Verification date",
+      "Verification result",
+      "Unresolved questions",
+      "Normal payment approval still required"
+    ],
+    "source_scope": "UK NCA and NCSC prevention/response guidance. The process exercise does not authenticate an account, approve a transfer or promise reimbursement.",
+    "previous_theme": "Card terminal failures, payment fallbacks and backup/restore checks.",
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/supplier-bank-details-change-invoice-fraud/",
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/supplier-bank-details-change-invoice-fraud/"
+  },
+  {
+    "id": "05_emergency_alerts",
+    "slug": "emergency-alerts-device-compatibility-not-sms",
+    "title": "Emergency Alerts are not ordinary texts: check which devices can receive them",
+    "description": "Understand the difference between a mobile-network broadcast and a message sent to a phone number, then agree another route for official updates.",
+    "query": "UK emergency alerts wifi only mobile data off compatible phone",
+    "audience": "UK households using older phones, tablets or mixed mobile and Wi-Fi-only devices.",
+    "community": "UK technology or preparedness discussion where educational project-linked images are allowed. Candidate only; avoid duplicating the earlier generic phone/power-dependency discussion.",
+    "novelty": "Earlier phone content concerned router power and digital landlines. This pair explains the separate Emergency Alerts broadcast mechanism and the distinction between mobile data being off and a Wi-Fi-only device.",
+    "asset": "05_emergency_alerts.png",
+    "alt": "READY Emergency Alerts poster beside a phone, radio and notebook. Alerts are not ordinary texts: check compatibility, recognise the Wi-Fi-only device limit and agree another source of updates.",
+    "caption": "AI-generated editorial illustration. No real alert, test notification or live incident is depicted.",
+    "cta": "Explore READY/ offline planning",
+    "cta_url": "https://ready-resilience-store.vercel.app/topics/offline.html",
+    "cta_note": "The offline topic contains starting actions and an optional paid plan. READY/ does not send government alerts or test whether a device will receive one.",
+    "sources": [
+      [
+        "GOV.UK: how Emergency Alerts work and device compatibility",
+        "https://www.gov.uk/alerts/how-alerts-work"
+      ]
+    ],
+    "reddit_title": "Mobile data off is not the same as a Wi-Fi-only device: a useful Emergency Alerts distinction",
+    "reddit_body": "GOV.UK explains that Emergency Alerts use UK 4G/5G mast broadcasts, rather than texts sent to phone numbers. No app or signup is needed. [1]\n\nMobile data being off is different from a Wi-Fi-only device: the latter cannot receive these alerts. Check the official compatibility guide for your actual device. [1]\n\nFor a household, the practical exercise is to name one real device and ask:\n\n- Have we checked the official compatibility advice and the device’s alert settings?\n- Who normally has it with them?\n- How would someone without access to that device get official information?\n\nThat final question matters even when the phone is compatible. One device should not quietly become “everyone at home will know”. Agree a sensible check-in and another official information route suited to the household.\n\nThis is advance planning, not a claim that an alert is being issued now. Do not manufacture a realistic emergency notification as a test.\n\nWhich device assumption did you find most surprising when checking the official guidance? Please keep phone numbers and actual household locations out of replies.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The government guidance is free; the image is an AI-generated illustration.",
+    "body": "A charged phone is useful, but it does not establish which official messages that device can receive or who will hear about them. For Emergency Alerts, the first task is to understand the delivery route and check the device you actually rely on.\n\n## The distinction behind the settings\n\nGOV.UK says Emergency Alerts are broadcast by nearby mobile masts to compatible devices on UK 4G and 5G networks. No signup, app, mobile-data connection or Wi-Fi connection is required. Wi-Fi-only devices, incompatible devices and devices that are turned off will not receive them. [1]\n\nThe practical distinction is between switching mobile data off and having a Wi-Fi-only device. Those are not the same condition. Read the current government compatibility guidance for your actual phone or tablet instead of inferring the answer from whether it can browse the internet at home.\n\n## Check an actual device\n\nChoose the phone or tablet that normally matters to the household, not a generic device mentioned in an old checklist. Use the official guide and the device’s own alert settings. If anything is unclear, use the relevant manufacturer or network support route.\n\nDo not label the device “tested” because you found a setting. A settings check and a successful receipt of a real alert are different observations. Record what you actually established and leave an unanswered question visible.\n\nThe government guide provides current software-compatibility information. [1] This article deliberately links that maintained list rather than turning today’s minimum versions into a permanent READY/ promise.\n\n## Give the household a second route\n\nImagine one adult carries the compatible phone to work while another person stays home with a Wi-Fi-only tablet. “We have a compatible phone” may be true, but it does not describe access for the person at home.\n\nThat is an illustrative coordination problem, not a prediction of a particular emergency. The next task is to agree how people will obtain and share official information when they are apart. Identify the relevant public authority or service for the situation and a way to access its updates that suits the people involved.\n\nAvoid a single vague instruction such as “check social media”. Name the official source you intend to use and how another person will recognise it. A radio shown in the illustration is a reminder to consider other information channels; it is not a claim that it receives the phone alert itself.\n\n## Keep a precise note\n\n| What you checked | Useful wording |\n|---|---|\n| Device | The particular phone or tablet you reviewed |\n| Official guide | Where you found the compatibility information |\n| Settings | What was checked, without claiming a live reception test |\n| Access | Who normally has the device and who does not |\n| Another route | The official information source and household handover agreed |\n\nKeep this note free of phone numbers, account details and location histories if it is shared beyond the household.\n\n## Do not create a fake alert\n\nYou can discuss the arrangements using a plainly labelled paper exercise. There is no need to imitate an official notification, create a false warning or send alarm-style messages to other people.\n\nThe finished task is clear: you know what was checked, who can access the device, and how the household will avoid relying on one person’s phone for every update.",
+    "worksheet": [
+      "Device reference",
+      "Official compatibility guide reviewed",
+      "Device alert settings checked",
+      "What was actually confirmed",
+      "Who normally has the device",
+      "Who needs another information route",
+      "Relevant official update source",
+      "Agreed household handover"
+    ],
+    "source_scope": "UK Emergency Alerts delivery and compatibility guidance. No current alert or test is claimed. A settings review is explicitly distinguished from a reception test.",
+    "previous_theme": "Digital landline/router power, offline contact sheets and weather-warning colours.",
+    "status": "published",
+    "reviewed": "2026-11-02",
+    "proposed_path": "/journal/emergency-alerts-device-compatibility-not-sms/",
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/emergency-alerts-device-compatibility-not-sms/"
+  }
+]
