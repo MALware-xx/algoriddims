@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /access.html
+Sitemap: https://ready-resilience-store.vercel.app/sitemap.xml

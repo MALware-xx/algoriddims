@@ -1,0 +1,230 @@
+[
+  {
+    "path": "/",
+    "type": "text/html"
+  },
+  {
+    "path": "/assets/oas.css",
+    "type": "text/css"
+  },
+  {
+    "path": "/assets/ready-grid.css",
+    "type": "text/css"
+  },
+  {
+    "path": "/business/small-business-72-hour-downtime-test/",
+    "type": "text/html"
+  },
+  {
+    "path": "/family/72-hour-family-emergency-plan/",
+    "type": "text/html"
+  },
+  {
+    "path": "/free-tools.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/emergency-contacts-for-home/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/find-consumer-unit/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/find-home-meters/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/first-time-buyer-systems-checklist/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/gas-isolation-valve/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/heating-controls-checklist/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/home-emergency-information-sheet/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/household-shutoffs-to-know/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/moving-house-systems-checklist/",
+    "type": "text/html"
+  },
+  {
+    "path": "/home/new-home-systems-checklist/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/cannot-get-home-household-handover-plan/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/card-terminal-down-small-business-decisions/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/gas-heating-electric-controls-home-power-check/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/new-home-make-a-systems-map/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/no-cook-cupboard-meals-you-already-eat/",
+    "type": "text/html"
+  },
+  {
+    "path": "/journal/three-day-drinking-water-plan-storage-gap/",
+    "type": "text/html"
+  },
+  {
+    "path": "/power/does-broadband-work-in-a-power-cut/",
+    "type": "text/html"
+  },
+  {
+    "path": "/power/first-10-minutes-of-a-power-cut/",
+    "type": "text/html"
+  },
+  {
+    "path": "/power/what-stops-working-in-a-power-cut/",
+    "type": "text/html"
+  },
+  {
+    "path": "/power/will-my-gas-boiler-work-in-a-power-cut/",
+    "type": "text/html"
+  },
+  {
+    "path": "/privacy.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/sources.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/start-here.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/terms.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/tools/business-downtime-test/",
+    "type": "text/html"
+  },
+  {
+    "path": "/tools/home-systems-check/",
+    "type": "text/html"
+  },
+  {
+    "path": "/tools/power-dependency-check/",
+    "type": "text/html"
+  },
+  {
+    "path": "/tools/readiness-check.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/tools/water-72h-calculator/",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/business.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/complete-library.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/family.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/food-water.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/home-systems.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/household-library.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/offline.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/pets.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/power.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/quick-start.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/water.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/topics/weather-winter.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/water/72-hour-water-calculator/",
+    "type": "text/html"
+  },
+  {
+    "path": "/water/how-to-find-your-internal-stop-tap/",
+    "type": "text/html"
+  },
+  {
+    "path": "/water/what-to-do-when-water-supply-stops/",
+    "type": "text/html"
+  },
+  {
+    "path": "/guides/business-continuity.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/guides/emergency-kit-uk.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/guides/power-cut.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/guides/winter-disruption.html",
+    "type": "text/html"
+  },
+  {
+    "path": "/tools/72-hour-water-calculator.html",
+    "type": "text/html"
+  }
+]
