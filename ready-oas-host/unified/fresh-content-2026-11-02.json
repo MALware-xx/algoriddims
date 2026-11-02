@@ -37,10 +37,14 @@
       "Alternative arrangements",
       "Next update location"
     ],
-    "status": "prepared_not_published",
+    "status": "published",
     "reviewed": "2026-11-02",
     "proposed_path": "/journal/boil-water-do-not-drink-do-not-use/",
-    "author": "READY/ Editorial"
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "reddit_url": "https://www.reddit.com/r/Preparedness/comments/1xlwgb2/boil_water_and_do_not_drink_are_different/",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/boil-water-do-not-drink-do-not-use/",
+    "published_image_url": "https://ready-resilience-store.vercel.app/journal-assets/fresh/01_water_notices.jpg"
   },
   {
     "id": "02_weather_warnings",
@@ -77,10 +81,14 @@
       "Person responsible",
       "Review time"
     ],
-    "status": "prepared_not_published",
+    "status": "published",
     "reviewed": "2026-11-02",
     "proposed_path": "/journal/weather-warning-colour-impact-likelihood/",
-    "author": "READY/ Editorial"
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "reddit_url": "https://www.reddit.com/r/UKPreppers/comments/1xlwh17/a_yellow_warning_can_mean_different_combinations/",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/weather-warning-colour-impact-likelihood/",
+    "published_image_url": "https://ready-resilience-store.vercel.app/journal-assets/fresh/02_weather_warnings.jpg"
   },
   {
     "id": "03_priority_support",
@@ -129,10 +137,14 @@
       "Person responsible",
       "Follow-up date"
     ],
-    "status": "prepared_not_published",
+    "status": "published",
     "reviewed": "2026-11-02",
     "proposed_path": "/journal/priority-services-register-confirm-support/",
-    "author": "READY/ Editorial"
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "reddit_url": "https://www.reddit.com/user/READYPlanUK/comments/1xlweao/were_on_the_priority_services_register_which/",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/priority-services-register-confirm-support/",
+    "published_image_url": "https://ready-resilience-store.vercel.app/journal-assets/fresh/03_priority_support.jpg"
   },
   {
     "id": "04_flat_fire_plan",
@@ -173,10 +185,14 @@
       "Person responsible",
       "Review date"
     ],
-    "status": "prepared_not_published",
+    "status": "published",
     "reviewed": "2026-11-02",
     "proposed_path": "/journal/flat-building-specific-fire-plan/",
-    "author": "READY/ Editorial"
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "reddit_url": "https://www.reddit.com/user/READYPlanUK/comments/1xlwf3e/when_moving_into_a_flat_did_anyone_actually_give/",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/flat-building-specific-fire-plan/",
+    "published_image_url": "https://ready-resilience-store.vercel.app/journal-assets/fresh/04_flat_fire_plan.jpg"
   },
   {
     "id": "05_period_products",
@@ -208,7 +224,7 @@
       ]
     ],
     "reddit_title": "Period supplies: the missing detail may be washing and disposal, not just spare packs",
-    "reddit_body": "The attached reminder makes a useful point: period products are ordinary household essentials. I’d add three decisions before anyone buys a generic “emergency hygiene” bundle.\n\n**Preference:** ask privately what the person actually uses, including the type and fit they want. “What would you like us to keep, and where?” is a better opening than choosing for them.\n\n**Washing:** reusable pads, underwear and cups have their own care instructions. Plan around the water, cleaning and drying those instructions require. If normal arrangements were interrupted, what backup would the person prefer? NHS guidance describes several product options; there is no single product everyone needs to switch to. [1–2]\n\n**Disposal:** keep a suitable bin and bags in the plan. Period products should go in the bin, not the toilet. [3]\n\nKeep a modest reserve agreed with the person who will use it. If someone borrows from it, make replacing it part of the task. No one needs to extend a product’s normal use instructions to make a reserve last longer.\n\nWhat practical detail is most often missed when households plan this: preferred products, privacy, washing, or replacement? Please keep replies general; nobody needs to disclose their own cycle or someone else’s needs.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The image is an AI-generated editorial illustration based on the supplied reminder; the linked NHS advice is free.",
+    "reddit_body": "The attached reminder makes a useful point: period products are ordinary household essentials. I’d add three decisions before anyone buys a generic “emergency hygiene” bundle.\n\n**Preference:** ask privately what the person actually uses, including the type and fit they want. “What would you like us to keep, and where?” is a better opening than choosing for them.\n\n**Washing:** reusable pads, underwear and cups have their own care instructions. Plan around the water, cleaning and drying those instructions require. If normal arrangements were interrupted, what backup would the person prefer? NHS guidance describes several product options; there is no single product everyone needs to switch to. [1–2]\n\n**Disposal:** keep a suitable bin and bags in the plan. Period products should go in the bin, not the toilet. [3]\n\nKeep a modest reserve agreed with the person who will use it. If someone borrows from it, make replacing it part of the task. No one needs to extend a product’s normal use instructions to make a reserve last longer.\n\nWhat practical detail is most often missed when households plan this: preferred products, privacy, washing, or replacement? Please keep replies general; nobody needs to disclose their own cycle or someone else’s needs.\n\nDisclosure: I work on READY/, an independent planning project with optional paid packs. The image is an AI-generated editorial illustration; the linked NHS advice is free.",
     "body": "The READY/ image says “Remember period products.” That is a useful reminder because a household plan should include the things people ordinarily need, not only equipment associated with emergencies. The next step is to make the reminder specific enough for the person who will use the supplies.\n\n## Ask before you choose\n\nNHS guidance describes pads, tampons, cups and period underwear, with different options and preferences. Product choice is personal. [1–2] A reserve that looks complete to the shopper may still contain the wrong type or an option the person does not want to use.\n\nStart privately: “What would you like us to keep, and where?” Ask how they would prefer the item to be described on a shopping list. You do not need a record of their cycle or a detailed explanation of why they choose a product.\n\nIf someone would rather manage their own supplies, agree how that fits into the household budget and restocking routine. The aim is a dependable arrangement, not an inspection of another person’s belongings.\n\n## Check the washing dependency\n\nReusable products can be part of an ordinary routine. NHS information describes washable products and reusable cups. [1] For planning, read the manufacturer’s care instructions for the actual product: what water, washing, cleaning and drying arrangements does it need?\n\nThen ask the person what they would prefer if those usual arrangements were interrupted. They might choose a familiar alternative or adjust the amount they keep available. Do not treat a disruption as the moment to require a switch to an unfamiliar product.\n\nKeep normal product instructions in place. A household reserve should not depend on stretching how long something is worn or used.\n\n## Include disposal and privacy\n\nThames Water advises putting period products in a bin rather than flushing them. [3] Include a suitable bin and bags where the supplies will actually be used, with a private way to manage the household routine.\n\nConsider whether a guest could find what they need without making an uncomfortable public request. That can be as simple as agreeing a discreet storage place and telling the relevant person where it is. It does not require labelling private information on a shared noticeboard.\n\n## Make the plan small and specific\n\n| Decision | What to agree |\n|---|---|\n| Preferred product | The description the person wants used for shopping |\n| Reserve | A modest amount that fits their needs, space and budget |\n| Storage | A place they can access comfortably |\n| Reusable care | Requirements from the actual product’s instructions |\n| Backup preference | What they want if usual washing or drying is unavailable |\n| Disposal | Bin, bags and the normal household arrangement |\n| Replacement | Who replaces borrowed or used reserve items |\n\nThere is no universal pack count in this table. Agree a reserve that suits the person and the products they use, rather than treating a pack count as universal.\n\n## Close the restocking loop\n\nAn illustrative agreement could be: “Keep the preferred products in the usual bathroom cupboard. Add replacements to the normal shopping list when the reserve is used. Ask before substituting a different type.”\n\nThat short agreement carries more useful information than a tick beside “hygiene”. It respects preference, makes the supply usable, and gives the household a clear way to keep it current.",
     "worksheet": [
       "Preferred shopping description",
@@ -220,9 +236,13 @@
       "Disposal arrangement",
       "Replacement responsibility"
     ],
-    "status": "prepared_not_published",
+    "status": "published",
     "reviewed": "2026-11-02",
     "proposed_path": "/journal/period-products-disruption-household-plan/",
-    "author": "READY/ Editorial"
+    "author": "READY/ Editorial",
+    "published": "2026-11-02",
+    "reddit_url": "https://www.reddit.com/user/READYPlanUK/comments/1xlw9xv/period_supplies_the_missing_detail_may_be_washing/",
+    "website_url": "https://ready-resilience-store.vercel.app/journal/period-products-disruption-household-plan/",
+    "published_image_url": "https://ready-resilience-store.vercel.app/journal-assets/fresh/05_period_products.jpg"
   }
 ]

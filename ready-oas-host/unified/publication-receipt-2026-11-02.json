@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-02",
+  "site": "https://ready-resilience-store.vercel.app",
+  "website_commit": "947bd7b86b906376a49b8b96ac9e64280e6c3ff2",
+  "production_route_version": "61e8586d-3a9b-49ea-a4da-3d208eed668b",
+  "reddit_posts": [
+    {
+      "id": "05_period_products",
+      "target": "u/READYPlanUK",
+      "url": "https://www.reddit.com/user/READYPlanUK/comments/1xlw9xv/period_supplies_the_missing_detail_may_be_washing/"
+    },
+    {
+      "id": "03_priority_support",
+      "target": "u/READYPlanUK",
+      "url": "https://www.reddit.com/user/READYPlanUK/comments/1xlweao/were_on_the_priority_services_register_which/"
+    },
+    {
+      "id": "04_flat_fire_plan",
+      "target": "u/READYPlanUK",
+      "url": "https://www.reddit.com/user/READYPlanUK/comments/1xlwf3e/when_moving_into_a_flat_did_anyone_actually_give/"
+    },
+    {
+      "id": "01_water_notices",
+      "target": "r/Preparedness",
+      "url": "https://www.reddit.com/r/Preparedness/comments/1xlwgb2/boil_water_and_do_not_drink_are_different/"
+    },
+    {
+      "id": "02_weather_warnings",
+      "target": "r/UKPreppers",
+      "url": "https://www.reddit.com/r/UKPreppers/comments/1xlwh17/a_yellow_warning_can_mean_different_combinations/"
+    }
+  ],
+  "website_checks": {
+    "http_checks": 15,
+    "all_200": true,
+    "content_matches": true,
+    "journal_cards": 11,
+    "new_image_cards": 5,
+    "mobile_menu": true,
+    "mobile_horizontal_overflow": false,
+    "other_routes_preserved": true
+  },
+  "reddit_checks": {
+    "all_five_permalinks_opened": true,
+    "matching_images_present": true,
+    "removed_message_observed": false,
+    "pending_approval_message_observed": false
+  },
+  "distribution": {
+    "water": "r/Preparedness, Advice and Tips + Brand affiliate",
+    "weather": "r/UKPreppers, paid-project and AI-image disclosure in body",
+    "other_three": "READYPlanUK profile; HousingUK excludes organisation/market research posts"
+  },
+  "image_edit": {
+    "method": "Built-in image-generation tool, style transfer",
+    "target": "User-supplied period-products poster",
+    "style_reference": "03_priority_support.png",
+    "published_asset": "/journal-assets/fresh/05_period_products.jpg",
+    "text": "HOUSEHOLD / PERIOD PRODUCTS | Remember / period / products. | Ask what they prefer. | Keep suitable spares. | Plan for washing and disposal. | Independent planning aid",
+    "brief": "Match the other four square posters: warm offwhite left panel, Inter, small READY/ red slash, black headline, regular body, generous margins, muted photorealistic bathroom cupboard at right, no banner or text overrun."
+  }
+}
