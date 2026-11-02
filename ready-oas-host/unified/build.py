@@ -46,7 +46,7 @@ def featured():
     items=json.loads((ROOT/'featured.json').read_text())
     cards=[]
     for item in items:
-        cards.append(f'<a class="ready-feature-card fresh-card" href="/journal/{item["slug"]}/"><img src="/journal-assets/{item["id"]}.jpg" alt="{html.escape(item["alt"],quote=True)}" width="1254" height="1254" loading="lazy"><div class="copy"><h3>{html.escape(item["title"])}</h3><p>{html.escape(item["description"])}</p><span class="ready-read">READ THE FIELD NOTE →</span></div></a>')
+        cards.append(f'<a class="ready-feature-card fresh-card" href="/journal/{item["slug"]}/"><img src="/journal-assets/fresh/{item["id"]}.jpg" alt="{html.escape(item["alt"],quote=True)}" width="1254" height="1254" loading="lazy"><div class="copy"><h3>{html.escape(item["title"])}</h3><p>{html.escape(item["description"])}</p><span class="ready-read">READ THE FIELD NOTE →</span></div></a>')
     return '<section class="ready-featured" aria-labelledby="field-notes-title"><div class="ready-container"><div class="ready-section-heading"><div><p class="ey">FREE READING / PRACTICAL NEXT STEPS</p><h2 id="field-notes-title">READY/ FIELD NOTES</h2><p>Useful answers for the home and business systems you depend on. Read an article, then try the matching free check.</p></div><a class="button button-red" href="/journal/">READ ALL FIELD NOTES →</a></div><div class="ready-featured-grid">'+''.join(cards)+'</div></div></section>'
 
 inventory=json.loads((ROOT/'inventory.json').read_text())
@@ -122,3 +122,4 @@ for item in inventory:
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+ORIGIN+path+'</loc><lastmod>2026-11-02</lastmod></url>' for path in sorted(PUBLIC_PATHS))+'</urlset>')
 (ROOT/'manifest.json').write_text(json.dumps(manifest,indent=2))
 print(json.dumps({'public_pages':len(manifest),'shared_header':True,'shared_footer':True,'shared_stylesheet':True,'application_scripts_preserved':True}))
+
