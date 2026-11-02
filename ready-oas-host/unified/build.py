@@ -1,5 +1,6 @@
 from pathlib import Path
 import re, json, hashlib, html
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 ROOT = Path(__file__).parent
 SRC = ROOT / 'original'
@@ -36,6 +37,7 @@ html{scroll-padding-top:100px;scrollbar-gutter:stable}body.ready-site{margin:0;b
 @media(max-width:600px){:root{--ready-gutter:18px}.ready-site .ready-header{height:70px!important;min-height:70px!important}.ready-site .ready-brand{font-size:28px!important}.ready-site .ready-mobile-menu nav{top:69px}.ready-site section.hero>:is(.w,.wrap,.shell,.ready-container){padding-top:34px!important;padding-bottom:34px!important}.ready-site h1,.ready-site .hero h1,.ready-site .piece h1{font-size:38px!important;letter-spacing:-.05em!important;overflow-wrap:anywhere}.ready-site .hero :is(.lead,.lede){font-size:17px!important}.ready-site .ready-journal-main .grid,.ready-site .ready-featured-grid{grid-template-columns:1fr}.ready-site .ready-section-heading{display:block}.ready-site .ready-section-heading>.button{margin-top:20px}.ready-site .ready-footer-inner{grid-template-columns:1fr;gap:28px}.ready-site .ready-article{padding-top:30px}.ready-site .ready-article table{min-width:430px}.ready-site .ready-page-hero .meta{font-size:11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.ready-site *{scroll-behavior:auto!important}}
 @media print{.ready-header,.ready-footer,.ready-skip,.ready-mobile-menu{display:none!important}.ready-site .ready-article{padding:0}.ready-site .hero{background:#fff!important}.ready-site h1,.ready-site .hero h1{font-size:32px!important}.ready-site .table-wrap{overflow:visible}.ready-site a{color:#111!important}}
+ .ready-site .chooser h2{font-size:20px;line-height:1.25;letter-spacing:-.025em}.ready-site .pc h2,.ready-site .card h2,.ready-site .buybox h2{font-size:24px;line-height:1.2}
 '''
 
 def featured():
@@ -48,6 +50,24 @@ def featured():
 inventory=json.loads((ROOT/'inventory.json').read_text())
 if not any(i['path']=='/access.html' for i in inventory):
     inventory.append({'path':'/access.html','type':'text/html'})
+PUBLIC_PATHS={i['path'] for i in inventory if i.get('type')=='text/html' and i['path']!='/access.html'}
+
+def version_navigation(s):
+    # Older releases cached public HTML for a year. Navigation opts into the new
+    # layout once; canonical URLs remain clean and no purchaser URLs are changed.
+    def update(match):
+        quote,value=match[1],html.unescape(match[2]);url=urlsplit(value)
+        if url.netloc or url.path not in PUBLIC_PATHS:return match[0]
+        query=dict(parse_qsl(url.query));query['ui']='1'
+        value=urlunsplit(('', '', url.path, urlencode(query),url.fragment))
+        return 'href='+quote+html.escape(value,quote=True)+quote
+    parts=re.split(r'(<script\b[^>]*>.*?</script>)',s,flags=re.S|re.I)
+    return ''.join(part if part.lower().startswith('<script') else re.sub(r'href=([\"\'])(/[^\"\']*)\1',update,part) for part in parts)
+
+NAV_JS='''/* Keep dynamically generated internal links on the current READY layout. */
+const readyPublicPaths=new Set(PATHS);
+document.addEventListener('click',event=>{const link=event.target.closest?.('a[href]');if(!link||link.hasAttribute('download'))return;const url=new URL(link.href,location.href);if(url.origin!==location.origin||!readyPublicPaths.has(url.pathname))return;url.searchParams.set('ui','1');link.href=url.pathname+url.search+url.hash;});
+'''.replace('PATHS',json.dumps(sorted(PUBLIC_PATHS)))
 manifest=[]
 for item in inventory:
     if item.get('type')!='text/html':continue
@@ -59,7 +79,7 @@ for item in inventory:
     s=re.sub(r'<a\b[^>]*class="(?:skip|ready-skip)"[^>]*>.*?</a>','',s,flags=re.S|re.I)
     s=re.sub(r'<body([^>]*)>',lambda m:'<body'+m[1]+' class="ready-site">'+header(path),s,count=1,flags=re.I)
     s=s.replace('</body>',FOOTER+'</body>')
-    s=s.replace('</head>','<link rel="stylesheet" href="/assets/ready-shell-v1.css"></head>')
+    s=s.replace('</head>','<link rel="stylesheet" href="/assets/ready-shell-v2.css"></head>')
     if 'fonts.googleapis.com/css2?family=Inter' not in s:
         s=s.replace('</head>','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"></head>')
     if '<main' in s:
@@ -83,14 +103,20 @@ for item in inventory:
     if path=='/home/':s=s.replace('READY/09 / EVERGREEN ACQUISITION','READY/09 / HOME SYSTEMS')
     # Accessible live results on the four free tools; application selectors remain identical.
     s=s.replace('class="result" id="result" hidden','class="result" id="result" role="status" aria-live="polite" hidden')
+    s=version_navigation(s)
+    if path!='/access.html' and not re.search(r'<link\b[^>]*rel=[\"\']canonical[\"\']',s):
+        s=s.replace('</head>','<link rel="canonical" href="'+ORIGIN+path+'"></head>')
     old_scripts=re.findall(r'<script\b[^>]*>(.*?)</script>',original,re.S)
     new_scripts=re.findall(r'<script\b[^>]*>(.*?)</script>',s,re.S)
     if old_scripts!=new_scripts:raise ValueError('Application script changed: '+path)
+    s=s.replace('</body>','<script src="/assets/ready-navigation-v1.js" defer></script></body>')
     if s.count('id="main"')!=1 or s.count('<main')!=1 or s.count('</main>')!=1:raise ValueError('Main landmark invalid: '+path)
     file=OUT/('index.html' if path=='/' else path.lstrip('/')+('index.html' if path.endswith('/') else ''))
     file.parent.mkdir(parents=True,exist_ok=True);file.write_text(s)
     manifest.append({'path':path,'file':str(file),'scripts_unchanged':True,'sha256':hashlib.sha256(s.encode()).hexdigest()})
 (OUT/'assets').mkdir(exist_ok=True)
-(OUT/'assets/ready-shell-v1.css').write_text(CSS)
+(OUT/'assets/ready-shell-v2.css').write_text(CSS)
+(OUT/'assets/ready-navigation-v1.js').write_text(NAV_JS)
+(OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+ORIGIN+path+'</loc><lastmod>2026-11-02</lastmod></url>' for path in sorted(PUBLIC_PATHS))+'</urlset>')
 (ROOT/'manifest.json').write_text(json.dumps(manifest,indent=2))
 print(json.dumps({'public_pages':len(manifest),'shared_header':True,'shared_footer':True,'shared_stylesheet':True,'application_scripts_preserved':True}))
